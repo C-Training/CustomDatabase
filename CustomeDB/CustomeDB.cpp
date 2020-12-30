@@ -90,4 +90,6 @@ int main()
     l1.addAtEnd(70);
     l1.deleteByValue(5);
     l1.displayList();
+
+    return 0;
 }

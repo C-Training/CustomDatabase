@@ -109,8 +109,12 @@ int main()
     l1.addAtEnd(70);
     l1.deleteByValue(5);
     l1.displayList();
+
     l1.updateValue(70, 20);
     l1.displayList();
+
+    
+
 
     return 0;
 }

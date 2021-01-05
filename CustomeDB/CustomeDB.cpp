@@ -94,3 +94,52 @@ int main()
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////////
+//Hamza was here L
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+struct Node* head = NULL;//intially linked list is empty
+
+
+void insert(int value) {
+    struct Node* newNode = new Node;
+    newNode->data = value;
+    newNode->next = head;
+    head = newNode;
+}
+
+void print() {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        cout << temp->data << endl;
+        temp = temp->next;//move temp to next node
+    }
+}
+
+
+void Delete() {
+    if (head == NULL) {
+        cout << "Empty" << endl;
+    }
+    else {
+        cout << head->data << " is removed." << endl;
+        head = head->next;
+    }
+}
+int main() {
+
+    insert(7);
+    insert(5);
+    insert(9);
+    print();
+    //   Delete(); 
+    //   display();
+    return 0;
+}
+////////////////////////////////////////////////////////

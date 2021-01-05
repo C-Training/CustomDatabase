@@ -4,7 +4,6 @@
 #include <iostream>
 using namespace std;
 
-
 class Node {
 public:
     int data;
@@ -80,6 +79,26 @@ public:
         cout << endl;
     }
 
+    void updateValue(int old_val, int new_val) {
+        Node* cur = head;
+        bool found = false;
+        if (head == NULL) {
+            cout << "Linled list is empty" << endl;
+        }
+        else {
+            while (cur != NULL) {
+                if (cur->data == old_val) {
+                    cur->data = new_val;
+                    found = true;
+                    break;
+                }
+                cur = cur->next;
+            }
+            if (!found) {
+                cout << "value not found in linked iist.\n";
+            }
+        }
+    }
 
 };
 
@@ -90,7 +109,12 @@ int main()
     l1.addAtEnd(70);
     l1.deleteByValue(5);
     l1.displayList();
-    cout << "Talhe here" << endl;
+
+    l1.updateValue(70, 20);
+    l1.displayList();
+
+    
+
 
     return 0;
 }

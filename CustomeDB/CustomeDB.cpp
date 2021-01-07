@@ -111,6 +111,59 @@ public:
         }
     }
 
+    void swapNodes(Node* cur, Node* index) {
+        Item temp;
+        temp.id = cur->data.id;
+        temp.name = cur->data.name;
+        temp.price = cur->data.price;
+        cur->data.id = index->data.id;
+        cur->data.name = index->data.name;
+        cur->data.price = index->data.price;
+        index->data.id = temp.id;
+        index->data.name = temp.name;
+        index->data.price = temp.price;
+    }
+
+    void sortByNameAes() {
+        Node* cur = head;
+        Node* index = NULL;
+        if (head == NULL) {
+            cout << "Linked list empty, nothing to sort \n";
+        }
+        else {
+            while (cur != NULL) {
+                index = cur->next;
+                while (index != NULL) {
+                    if (cur->data.name > index->data.name) {
+                        swapNodes(cur, index);
+                    }
+                    index = index->next;
+                }
+                cur = cur->next;
+            }
+        }
+    }
+
+    void sortByNameDec() {
+        Node* cur = head;
+        Node* index = NULL;
+        if (head == NULL) {
+            cout << "Linked list empty, nothing to sort \n";
+        }
+        else {
+            while (cur != NULL) {
+                index = cur->next;
+                while (index != NULL) {
+                    if (cur->data.name < index->data.name) {
+                        swapNodes(cur, index);
+                    }
+                    index = index->next;
+                }
+                cur = cur->next;
+            }
+        }
+    }
+
 };
 
 int main()
@@ -120,11 +173,16 @@ int main()
     l1.addAtEnd(2, "haseed", 10);
     l1.addAtEnd(3, "bats", 25);
     l1.displayList();
+    
+    l1.sortByNameAes();
+    l1.displayList();
+    l1.sortByNameDec();
+    l1.displayList();
+
     l1.deleteById(1);
     l1.displayList();
     l1.updatePrice(10, 40);
     l1.displayList();
-
     
 
 

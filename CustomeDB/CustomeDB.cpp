@@ -97,19 +97,24 @@ int main()
 /////////////////////////////////////////////////////////////////////
 //Hamza was here L
 #include <iostream>
+#include <string>
 using namespace std;
 
 struct Node {
-    int data;
+    int price;
+    string ID;
+    string name;
     Node* next;
 };
 
-struct Node* head = NULL;//intially linked list is empty
+struct Node* head = NULL;
 
 
-void insert(int value) {
+void insert(int prc, string nme, string id) {
     struct Node* newNode = new Node;
-    newNode->data = value;
+    newNode->price = prc;
+    newNode->name = nme;
+    newNode->ID = id;
     newNode->next = head;
     head = newNode;
 }
@@ -117,29 +122,68 @@ void insert(int value) {
 void print() {
     struct Node* temp = head;
     while (temp != NULL) {
-        cout << temp->data << endl;
-        temp = temp->next;//move temp to next node
+        cout << endl;
+        cout << "The price is :- " << temp->price << endl;
+        cout << "The name of the product is :- " << temp->name << endl;
+        cout << "The ID of the product is :- " << temp->ID << endl;
+        temp = temp->next;
     }
 }
 
 
-void Delete() {
+void deletehead() {
     if (head == NULL) {
         cout << "Empty" << endl;
     }
     else {
-        cout << head->data << " is removed." << endl;
+        cout << endl;
+        cout << head->price << " is removed." << endl;
+        cout << head->name << " is removed." << endl;
+        cout << head->ID << " is removed." << endl;
         head = head->next;
     }
-}
-int main() {
 
-    insert(7);
-    insert(5);
-    insert(9);
-    print();
-    //   Delete(); 
-    //   display();
-    return 0;
-}
+    //    void update_data(int old_price,int new_price) {
+    //        int pos = 0;
+    //
+    //        if (head == NULL) {
+    //            cout << "Linked list empty" << endl;
+    //        }
+    //
+    //        current = head;
+    //        while (current->next != NULL) {
+    //            if (current->price == old_price) {
+    //                current->data = new_price;
+    //                cout << "Updated!!!" << endl;
+    //            }
+    //
+    //            current = current->next;
+    //        }
+    //        cout << "not present" << endl;
+    //    }
+    //}
+
+
+    int main() {
+        string p, c;
+        int a, entry = 0;
+        cout << "How many entries you wanna do L" << endl;
+        cin >> entry;
+
+        for (int i = 0;i < entry;i++) {
+            cout << "Enter the product then enter its price and lastly its ID" << endl;
+            cin >> p;
+            cin >> a;
+            cin >> c;
+            insert(a, p, c);
+        }
+        print();
+        deletehead();
+        print();
+        //update_data();
+        //print();
+
+        return 0;
+    }
+
 ////////////////////////////////////////////////////////

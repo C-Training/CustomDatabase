@@ -164,6 +164,37 @@ public:
         }
     }
 
+    size_t listSize() {
+        Node* cur = head;
+        size_t counter = 0;
+        while (cur != NULL) {
+            cur = cur->next;
+            counter++;
+        }
+        return counter;
+    }
+
+    void reverseLinkedList() {
+        Node* cur = head;
+        Node* temp = NULL;
+        Node* prev = NULL;
+        if (head == NULL) {
+            cout << "Linked list empty, nothing to reverse.\n";
+        }
+        else if (head->next == NULL) {
+            cout << "Only one element in List, nothing to reverse.\n";
+        }
+        else {
+            while (cur != NULL) {
+                temp = cur->next;
+                cur->next = prev;
+                prev = cur;
+                cur = temp;
+            }
+            head = prev;
+        }
+    }
+
 };
 
 int main()
@@ -183,7 +214,14 @@ int main()
     l1.displayList();
     l1.updatePrice(10, 40);
     l1.displayList();
-    
+
+    l1.addAtEnd(5, "butt", 30);
+    l1.displayList();
+    int size = l1.listSize();
+    cout << "list size = " << size << endl;
+
+    l1.reverseLinkedList();
+    l1.displayList();
 
 
     return 0;

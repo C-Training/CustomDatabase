@@ -13,6 +13,11 @@ public:
 
 class Node {
 public:
+    Node(int id, string name, int price) {
+        this->data.id = id;
+        this->data.name = name;
+        this->data.price = price;
+    }
     Item data;
     Node* next;
 };
@@ -22,10 +27,7 @@ class LinkedList {
 public:
     void addAtEnd(int id, string name, int price) {
 
-        Node* new_node = new Node();
-        new_node->data.id = id;
-        new_node->data.name = name;
-        new_node->data.price = price;
+        Node* new_node = new Node(id, name, price);
         new_node->next = NULL;
         if (head == NULL) {
             head = new_node;
@@ -44,7 +46,9 @@ public:
             cout << "There is no linked list to delete" << endl;
         }
         else {
+            Node* temp = head;
             head = head->next;
+            delete temp;
         }
     }
 
@@ -200,29 +204,15 @@ public:
 int main()
 {
     LinkedList l1;
-    l1.addAtEnd(1, "talha", 20);
-    l1.addAtEnd(2, "haseed", 10);
-    l1.addAtEnd(3, "bats", 25);
-    l1.displayList();
-    
-    l1.sortByNameAes();
-    l1.displayList();
-    l1.sortByNameDec();
-    l1.displayList();
 
-    l1.deleteById(1);
-    l1.displayList();
-    l1.updatePrice(10, 40);
-    l1.displayList();
-
-    l1.addAtEnd(5, "butt", 30);
-    l1.displayList();
-    int size = l1.listSize();
-    cout << "list size = " << size << endl;
-
-    l1.reverseLinkedList();
-    l1.displayList();
-
-
+    for (int i = 0; i < 10000000; i++) {
+        l1.addAtEnd(1, "talha", 20);
+        l1.addAtEnd(2, "haseed", 10);
+        l1.addAtEnd(3, "bats", 25);
+        l1.displayList();
+        l1.deleteAtHead();
+        l1.deleteAtHead();
+        l1.deleteAtHead();
+    }
     return 0;
 }

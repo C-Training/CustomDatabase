@@ -1,108 +1,10 @@
-// CustomeDB.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include <iostream>
-using namespace std;
-
-
-class Node {
-public:
-    int data;
-    Node* next;
-};
-
-class LinkedList {
-    Node* head = NULL;
-public:
-    void addAtEnd(int val) {
-
-        Node* new_node = new Node();
-        new_node->data = val;
-        new_node->next = NULL;
-        if (head == NULL) {
-            head = new_node;
-        }
-        else {
-            Node* cur = head;
-            while (cur->next != NULL) {
-                cur = cur->next;
-            }
-            cur->next = new_node;
-        }
-
-    }
-    void deleteAtHead() {
-        if (head == NULL) {
-            cout << "There is no linked list to delete" << endl;
-        }
-        else {
-            head = head->next;
-        }
-    }
-
-    void deleteByValue(int x) {
-        if (head == NULL) {
-            cout << "linked list is empty \n";
-        }
-        else if (head->data == x) {
-            deleteAtHead();
-        }
-        else {
-            Node* cur = head;
-            bool found = true;
-            while (cur->data != x) {
-                if (cur == NULL) {
-                    found = false;
-                    break;
-                }
-                cur = cur->next;
-            }
-            if (found) {
-                Node* temp = head;
-                while (temp->next != cur) {
-                    temp = temp->next;
-                }
-                temp->next = cur->next;
-                delete cur;
-            }
-            else {
-                cout << "val doesnt exist in linked list \n";
-            }
-        }
-    }
-
-    void displayList() {
-        Node* cur = head;
-        while (cur != NULL) {
-            cout << cur->data << " ";
-            cur = cur->next;
-        }
-        cout << endl;
-    }
-
-
-};
-
-int main()
-{
-    LinkedList l1;
-    l1.addAtEnd(5);
-    l1.addAtEnd(70);
-    l1.deleteByValue(5);
-    l1.displayList();
-    cout << "Talhe here" << endl;
-
-    return 0;
-}
-/////////////////////////////////////////////////////////////////////
-//Hamza was here L
 #include <iostream>
 #include <string>
 using namespace std;
 
 struct Node {
     int price;
-    string ID;
+    int ID;
     string name;
     Node* next;
 };
@@ -110,13 +12,22 @@ struct Node {
 struct Node* head = NULL;
 
 
-void insert(int prc, string nme, string id) {
+void insert(int prc, string nme, int id) {
     struct Node* newNode = new Node;
     newNode->price = prc;
     newNode->name = nme;
     newNode->ID = id;
     newNode->next = head;
     head = newNode;
+}
+
+void update_data(int id,int new_price) {
+    struct Node* temp = head;
+    while ((temp->ID)!=id) {
+        temp = temp->next;
+    }
+    temp->price = new_price;
+    cout << "New price of " << (temp->ID) << "is " << (temp->price) << endl;
 }
 
 void print() {
@@ -130,6 +41,59 @@ void print() {
     }
 }
 
+void sort() {
+    int a,b,c,d = 0;
+    string k;
+    struct Node* temp = NULL;
+    struct Node* current = head;
+
+    cout <<"Press 1 for ascending and 2 for descending"<< endl;
+    cin >> a;
+    if (a == 1) {
+        while (current != NULL) {
+            temp = current->next;
+            while (temp != NULL) {
+                if (current->ID > temp->ID) {
+                    c = current->ID;
+                    k = current->name;
+                    d = current->price;
+                    current->ID = temp->ID;
+                    current->name = temp->name;
+                    current->price = temp->price;
+                    temp->ID = c;
+                    temp->name = k;
+                    temp->price =d;
+                }
+                temp = temp->next;
+            }
+            current = current->next;
+        }
+    }
+    else if (a == 2) {
+        while (current != NULL) {
+            temp = current->next;
+            while (temp != NULL) {
+                if (current->ID < temp->ID) {
+                    c = current->ID;
+                    k = current->name;
+                    d = current->price;
+                    current->ID = temp->ID;
+                    current->name = temp->name;
+                    current->price = temp->price;
+                    temp->ID = c;
+                    temp->name = k;
+                    temp->price = d;
+                }
+                temp = temp->next;
+            }
+            current = current->next;
+        }
+    }
+    else {
+        cout << "Wrong option L" << endl;
+    }
+
+}
 
 void deletehead() {
     if (head == NULL) {
@@ -143,30 +107,11 @@ void deletehead() {
         head = head->next;
     }
 
-    //    void update_data(int old_price,int new_price) {
-    //        int pos = 0;
-    //
-    //        if (head == NULL) {
-    //            cout << "Linked list empty" << endl;
-    //        }
-    //
-    //        current = head;
-    //        while (current->next != NULL) {
-    //            if (current->price == old_price) {
-    //                current->data = new_price;
-    //                cout << "Updated!!!" << endl;
-    //            }
-    //
-    //            current = current->next;
-    //        }
-    //        cout << "not present" << endl;
-    //    }
-    //}
-
+}
 
     int main() {
-        string p, c;
-        int a, entry = 0;
+        string p;
+        int a,c, entry = 0;
         cout << "How many entries you wanna do L" << endl;
         cin >> entry;
 
@@ -178,12 +123,10 @@ void deletehead() {
             insert(a, p, c);
         }
         print();
-        deletehead();
+        //update_data(3,23);
+        sort();
         print();
-        //update_data();
-        //print();
 
         return 0;
     }
 
-////////////////////////////////////////////////////////

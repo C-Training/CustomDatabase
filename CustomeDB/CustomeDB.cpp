@@ -42,7 +42,7 @@ void print() {
 }
 
 void sort() {
-    int a,b,c,d = 0;
+    int a,c,d = 0;
     string k;
     struct Node* temp = NULL;
     struct Node* current = head;

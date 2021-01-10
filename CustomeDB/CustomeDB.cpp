@@ -107,11 +107,30 @@ void deletehead() {
         head = head->next;
     }
 
-}
+    //    void update_data(int old_price,int new_price) {
+    //        int pos = 0;
+    //
+    //        if (head == NULL) {
+    //            cout << "Linked list empty" << endl;
+    //        }
+    //
+    //        current = head;
+    //        while (current->next != NULL) {
+    //            if (current->price == old_price) {
+    //                current->data = new_price;
+    //                cout << "Updated!!!" << endl;
+    //            }
+    //
+    //            current = current->next;
+    //        }
+    //        cout << "not present" << endl;
+    //    }
+    //}
+
 
     int main() {
-        string p;
-        int a,c, entry = 0;
+        string p, c;
+        int a, entry = 0;
         cout << "How many entries you wanna do L" << endl;
         cin >> entry;
 
@@ -123,10 +142,11 @@ void deletehead() {
             insert(a, p, c);
         }
         print();
-        //update_data(3,23);
-        sort();
+        deletehead();
         print();
+        //update_data();
+        //print();
 
-        return 0;
-    }
+    return 0;
+}
 

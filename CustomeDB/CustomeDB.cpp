@@ -21,9 +21,9 @@ void insert(int prc, string nme, int id) {
     head = newNode;
 }
 
-void update_data(int id,int new_price) {
+void update_data(int id, int new_price) {
     struct Node* temp = head;
-    while ((temp->ID)!=id) {
+    while ((temp->ID) != id) {
         temp = temp->next;
     }
     temp->price = new_price;
@@ -42,12 +42,12 @@ void print() {
 }
 
 void sort() {
-    int a,c,d = 0;
+    int a, c, d = 0;
     string k;
     struct Node* temp = NULL;
     struct Node* current = head;
 
-    cout <<"Press 1 for ascending and 2 for descending"<< endl;
+    cout << "Press 1 for ascending and 2 for descending" << endl;
     cin >> a;
     if (a == 1) {
         while (current != NULL) {
@@ -62,7 +62,7 @@ void sort() {
                     current->price = temp->price;
                     temp->ID = c;
                     temp->name = k;
-                    temp->price =d;
+                    temp->price = d;
                 }
                 temp = temp->next;
             }
@@ -107,45 +107,25 @@ void deletehead() {
         head = head->next;
     }
 
-    //    void update_data(int old_price,int new_price) {
-    //        int pos = 0;
-    //
-    //        if (head == NULL) {
-    //            cout << "Linked list empty" << endl;
-    //        }
-    //
-    //        current = head;
-    //        while (current->next != NULL) {
-    //            if (current->price == old_price) {
-    //                current->data = new_price;
-    //                cout << "Updated!!!" << endl;
-    //            }
-    //
-    //            current = current->next;
-    //        }
-    //        cout << "not present" << endl;
-    //    }
-    //}
+}
 
+int main() {
+    string p;
+    int a, c, entry = 0;
+    cout << "How many entries you wanna do L" << endl;
+    cin >> entry;
 
-    int main() {
-        string p, c;
-        int a, entry = 0;
-        cout << "How many entries you wanna do L" << endl;
-        cin >> entry;
-
-        for (int i = 0;i < entry;i++) {
-            cout << "Enter the product then enter its price and lastly its ID" << endl;
-            cin >> p;
-            cin >> a;
-            cin >> c;
-            insert(a, p, c);
-        }
-        print();
-        deletehead();
-        print();
-        //update_data();
-        //print();
+    for (int i = 0;i < entry;i++) {
+        cout << "Enter the product then enter its price and lastly its ID" << endl;
+        cin >> p;
+        cin >> a;
+        cin >> c;
+        insert(a, p, c);
+    }
+    print();
+    //update_data(3,23);
+    sort();
+    print();
 
     return 0;
 }

@@ -1,8 +1,14 @@
 // CustomeDB.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+
 #include <iostream>
+#include <fstream>
+
 using namespace std;
+
+
+
 
 class Item {
 public:
@@ -24,7 +30,55 @@ public:
 
 class LinkedList {
     Node* head = NULL;
+    string fileName;
 public:
+    LinkedList() {
+        cout << "linked list created.\n";
+    }
+    
+    LinkedList(string fileName) {
+        this->fileName = fileName;
+        ifstream infile(fileName);
+        if (!infile) {
+            cout << "No such File. \n";
+        }
+        else {
+            cout << "i was here" << endl;
+            int id;
+            string name;
+            int price;
+            while (infile >> id >> name >> price) {
+                addAtEnd(id, name, price);
+            }
+            infile.close();
+        }
+    }
+    ~LinkedList() {
+        ofstream outfile;
+        outfile.open(fileName, ios::out | ios::trunc);
+        Node* cur = head;
+        while (cur != NULL) {
+            outfile << cur->data.id << " ";
+            outfile << cur->data.name << " ";
+            outfile << cur->data.price << endl;
+            cur = cur->next;
+        }
+        outfile.close();
+    }
+
+    void addAtHead(int id, string name, int price) {
+        Node* new_node = new Node(id, name, price);
+        new_node->next = NULL;
+        if (head == NULL) {
+            head = new_node;
+        }
+        else {
+            Node* temp = head;
+            head = new_node;
+            head->next = temp;
+        }
+    }
+
     void addAtEnd(int id, string name, int price) {
 
         Node* new_node = new Node(id, name, price);
@@ -203,16 +257,13 @@ public:
 
 int main()
 {
-    LinkedList l1;
-
-    for (int i = 0; i < 10000000; i++) {
-        l1.addAtEnd(1, "talha", 20);
-        l1.addAtEnd(2, "haseed", 10);
-        l1.addAtEnd(3, "bats", 25);
-        l1.displayList();
-        l1.deleteAtHead();
-        l1.deleteAtHead();
-        l1.deleteAtHead();
-    }
+    LinkedList l1("myFile.txt");
+    /*l1.addAtEnd(1, "talha", 20);
+    l1.addAtEnd(2, "haseed", 10);
+    l1.addAtEnd(3, "bats", 25);*/
+    l1.displayList();
+    LinkedList l2("newFile.txt");
+    /*l2.addAtEnd(4, "Abad", 30);*/
+    l2.displayList();
     return 0;
 }

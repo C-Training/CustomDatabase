@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include<fstream>
 using namespace std;
 
 struct Node {
@@ -39,6 +40,46 @@ void print() {
         cout << "The ID of the product is :- " << temp->ID << endl;
         temp = temp->next;
     }
+}
+
+void display() {
+    int a = 0;
+    string myText;
+    struct Node* temp = head;
+    cout << endl;
+    cout << "1 to write in new file and 2 to display contents of old file" << endl;
+    cin >> a;
+    if (a == 1) {
+        ofstream MyFile("L.txt");
+        while (temp != NULL) {
+            MyFile <<"Name is "<<temp->name << endl;
+            MyFile <<"Price is "<<temp->price << endl;
+            MyFile <<"ID is "<< temp->ID << endl;
+            temp = temp->next;
+        }
+        MyFile.close();
+    }
+    else if (a == 2) {
+        ifstream MyReadFile("L.txt");
+        while (getline(MyReadFile, myText)) {
+            cout << myText << endl;
+        }
+        MyReadFile.close();
+    }
+}
+
+void reverse() {
+    struct Node* temp = head;
+    struct Node* next = head;
+    struct Node* prev = NULL;
+
+    while (temp != NULL) {
+        next = temp->next;
+        temp->next = prev;
+        prev = temp;
+        temp = next;
+    }
+    head = prev;
 }
 
 void sort() {
@@ -95,6 +136,16 @@ void sort() {
 
 }
 
+void size() {
+    struct Node* temp = head;
+    int count = 0;
+    while (temp != NULL) {
+        count++;
+        temp = temp->next;
+    }
+    cout << "The size of the L linked list is " << count << endl;
+}
+
 void deletehead() {
     if (head == NULL) {
         cout << "Empty" << endl;
@@ -124,8 +175,12 @@ int main() {
     }
     print();
     //update_data(3,23);
-    sort();
-    print();
+    //sort();
+    //reverse();
+    //size();
+    display();
+    //print();
+    display();
 
     return 0;
 }

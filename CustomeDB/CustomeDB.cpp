@@ -2,25 +2,52 @@
 #include <cstdio>
 #include <vector>
 #include <iostream>
+#include <string>
 #include <algorithm>
+
 using namespace std;
 
-class node {
+
+class shop {
 public:
-	int data;
+	int id;
+	string name;
+	int price;
+};
+
+class node {
+
+public:
+	
+	shop s;
 	node* next;
+};
 
-	void insertatstart(int x) {
 
-		node* temp = new node;
-		temp->data = x;
+
+class linkedlist{
+	
+	
+	node* head = NULL;
+	node* tail = NULL;
+
+	public:
+
+
+	void insertatstart(int x, string y, int z ) {
+		node* temp = new node; 
+		temp->s.id = x ;
+		temp->s.name = y ;
+		temp->s.price = z ;
 		temp->next = head;
-		head = temp;
+		head = temp; 
 	}
 
-	void insertatend(int x) {
+	void insertatend(int x, string y, int z) {
 		node* temp = new node;
-		temp->data = x;
+		temp->s.id = x;
+		temp->s.name = y;
+		temp->s.price = z;
 		temp->next = NULL;
 		if (head == NULL) {
 			head = temp;
@@ -42,14 +69,13 @@ public:
 			cout << "Link list is already ded. \n";
 		}
 		else {
-			//		node * temp = new node;
-			//		temp->next=head;
+			node * temp = head;
 			head = head->next;
+			delete temp;
 		}
 	}
 
 	void deleteend() {
-		node* temp = new node;
 		if (head == NULL) {
 			cout << "Link list is already ded";
 		}
@@ -57,7 +83,7 @@ public:
 			head = NULL;
 		}
 		else {
-			temp = head;
+			node * temp = head;
 			while (temp->next != NULL) {
 				tail = temp;
 				temp = temp->next;
@@ -67,24 +93,26 @@ public:
 		}
 	}
 
-	void insertatnnode(int data, int pos) {
-		node* temp = new node;
+	void arrangeaccending() {
+		node* temp = head->next;
+		while (head->s.name < temp->s.name){
+			temp = temp->next;
 
-
+		}
+			
 	}
-
 
 
 	void print() {
 		node* temp = head;
 		while (temp != NULL) {
-			cout << temp->data << " ";
+			cout << temp->s.id << " ";
+			cout << temp->s.name << " ";
+			cout << temp->s.price << " ";
+			cout << "\n";
 			temp = temp->next;
 		}
 	}
-	node* head = NULL;
-	node* tail = NULL;
-
 };
 
 
@@ -114,16 +142,16 @@ public:
 
 int main() {
 
-	node list;
-	int size, num;
+	linkedlist list;
+	/*int size, num;*/
 
-	list.insertatstart(1);
-	list.insertatstart(2);
-	list.insertatstart(4);
-	list.insertatstart(5);
-	list.insertatstart(0);
-	list.deletehead();
-	list.deletehead();
+	list.insertatstart(1,"talha", 50);
+	list.insertatstart(2,"haseeb", 150);
+	list.insertatstart(3,"hamza", 250);
+	list.insertatstart(4,"sohaib", 350);
+	//list.deletehead();
+	list.arrangeaccending();
+	//list.deletehead();
 	list.print();
 
 	// list.insertatend(3);
@@ -154,5 +182,5 @@ int main() {
 	//		list.print();
 	//		cout<<"\n";
 	//	}
-
+	return 0;
 }

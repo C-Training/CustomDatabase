@@ -5,9 +5,18 @@ using namespace std;
 
 
 class Item {
-public:
+
     string name;
     int price;
     int id;
+public:
+    void setName(string name);
+    string getName();
+
+    void setId(int id);
+    int getId();
+
+    void setPrice(int price);
+    int getPrice();
 };
 

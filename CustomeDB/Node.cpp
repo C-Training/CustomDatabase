@@ -1,7 +1,7 @@
 #include "Node.h"
 
 Node::Node(int id, string name, int price) {
-    this->data.id = id;
-    this->data.name = name;
-    this->data.price = price;
+    this->data.setId(id);
+    this->data.setName(name);
+    this->data.setPrice(price);
 }

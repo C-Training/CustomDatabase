@@ -27,9 +27,9 @@ LinkedList::~LinkedList() {
     outfile.open(fileName, ios::out | ios::trunc);
     Node* cur = head;
     while (cur != NULL) {
-        outfile << cur->data.id << " ";
-        outfile << cur->data.name << " ";
-        outfile << cur->data.price << endl;
+        outfile << cur->data.getId() << " ";
+        outfile << cur->data.getName() << " ";
+        outfile << cur->data.getPrice() << endl;
         cur = cur->next;
     }
     outfile.close();
@@ -79,13 +79,13 @@ void LinkedList::deleteById(int id) {
     if (head == NULL) {
         cout << "linked list is empty \n";
     }
-    else if (head->data.id == id) {
+    else if (head->data.getId() == id) {
         deleteAtHead();
     }
     else {
         Node* cur = head;
         bool found = true;
-        while (cur->data.id != id) {
+        while (cur->data.getId() != id) {
             if (cur == NULL) {
                 found = false;
                 break;
@@ -109,9 +109,9 @@ void LinkedList::deleteById(int id) {
 void LinkedList::displayList() {
     Node* cur = head;
     while (cur != NULL) {
-        cout << cur->data.id << " ";
-        cout << cur->data.name << " ";
-        cout << cur->data.price << " \n";
+        cout << cur->data.getId() << " ";
+        cout << cur->data.getName() << " ";
+        cout << cur->data.getPrice() << " \n";
         cur = cur->next;
     }
     cout << endl;
@@ -125,8 +125,8 @@ void LinkedList::updatePrice(int old_val, int new_val) {
     }
     else {
         while (cur != NULL) {
-            if (cur->data.price == old_val) {
-                cur->data.price = new_val;
+            if (cur->data.getPrice() == old_val) {
+                cur->data.setPrice(new_val);
                 found = true;
                 break;
             }
@@ -140,15 +140,15 @@ void LinkedList::updatePrice(int old_val, int new_val) {
 
 void LinkedList::swapNodes(Node* cur, Node* index) {
     Item temp;
-    temp.id = cur->data.id;
-    temp.name = cur->data.name;
-    temp.price = cur->data.price;
-    cur->data.id = index->data.id;
-    cur->data.name = index->data.name;
-    cur->data.price = index->data.price;
-    index->data.id = temp.id;
-    index->data.name = temp.name;
-    index->data.price = temp.price;
+    temp.setId(cur->data.getId());
+    temp.setName(cur->data.getName());
+    temp.setPrice(cur->data.getPrice());
+    cur->data.setId(index->data.getId());
+    cur->data.setName(index->data.getName());
+    cur->data.setPrice(index->data.getPrice());
+    index->data.setId(temp.getId());
+    index->data.setName(temp.getName());
+    index->data.setPrice(temp.getPrice());
 }
 
 void LinkedList::sortByNameAes() {
@@ -161,7 +161,7 @@ void LinkedList::sortByNameAes() {
         while (cur != NULL) {
             index = cur->next;
             while (index != NULL) {
-                if (cur->data.name > index->data.name) {
+                if (cur->data.getName() > index->data.getName()) {
                     swapNodes(cur, index);
                 }
                 index = index->next;
@@ -181,7 +181,7 @@ void LinkedList::sortByNameDec() {
         while (cur != NULL) {
             index = cur->next;
             while (index != NULL) {
-                if (cur->data.name < index->data.name) {
+                if (cur->data.getName() < index->data.getName()) {
                     swapNodes(cur, index);
                 }
                 index = index->next;

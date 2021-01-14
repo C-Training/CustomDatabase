@@ -11,8 +11,8 @@ public:
 };
 
 class LinkedList {
-    Node* head = NULL;
 public:
+    Node* head = NULL;
     void addAtEnd(int val) {
 
         Node* new_node = new Node();
@@ -102,16 +102,100 @@ public:
 
 };
 
+
+class Test {
+public:
+    Node* t1 = NULL;
+
+    Test();
+    Test(Node* obj) {
+        t1 = new Node;
+        Node* temp = obj;
+        /*if (obj != NULL) {
+            t1->data = obj->data;
+            t1->next = NULL;
+        }*/
+        Node* cur = t1;
+        while (temp != NULL) {
+            cur->data = temp->data;
+            if (temp->next != NULL) {
+                cur->next = new Node;
+            }
+            else {
+                cur->next = NULL;
+            }
+            temp = temp->next;
+            cur = cur->next;
+        }
+        bool tatti = 0;
+        LinkedList something;
+        //something.head = obj;
+        something.
+        if (!check(obj)) {
+            tatti = 1;
+            break;
+        }
+
+        }
+        if (tatti) {
+            cout << "Blah blah failed";
+        }
+    }
+
+    bool check(Node* obj) {
+        
+        bool noer = 1;
+        while (t1->next != NULL && obj->next != NULL)
+        {
+            if (t1->data == obj->data) {
+                t1 = t1->next;
+                obj = obj->next;
+            }
+            else {
+                cout << "Lul your data is not inserted correctly" << endl;
+                noer = 0;
+                break;
+            }
+        }
+        if (noer) {
+            cout << "Test 1 pass" << endl;
+        }
+
+        t1 = NULL;
+        return noer;
+    }
+
+    void addAtEnd(int val) {
+        Node* new_node = new Node();
+        new_node->data = val;
+        new_node->next = NULL;
+        if (t1 == NULL) {
+            t1 = new_node;
+        }
+        else {
+            Node* cur = t1;
+            while (cur->next != NULL) {
+                cur = cur->next;
+            }
+            cur->next = new_node;
+        }
+    }  
+};
+
 int main()
 {
     LinkedList l1;
     l1.addAtEnd(5);
     l1.addAtEnd(70);
-    l1.deleteByValue(5);
+    //cout << l1.head;    
+    Test(l1.head);
+
+
+    /*l1.deleteByValue(5);
     l1.displayList();
 
     l1.updateValue(70, 20);
-    l1.displayList();
+    l1.displayList();*/
 
     
 

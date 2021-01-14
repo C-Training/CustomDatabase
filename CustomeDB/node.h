@@ -1,11 +1,12 @@
 #pragma once;
+#include "data.h"
 #include <string>;
 using namespace std;
 
 struct Node {
-    int price;
-    int ID;
-    string name;
+public:
+    Node(int price,int ID,string name);
+    item data;
     Node* next;
 };
 

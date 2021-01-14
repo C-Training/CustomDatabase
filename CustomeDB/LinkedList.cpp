@@ -36,6 +36,11 @@ LinkedList::~LinkedList() {
     outfile.close();
 }
 
+Node* LinkedList::getHead()
+{
+    return head;
+}
+
 void LinkedList::addAtHead(int id, string name, int price) {
     Node* new_node = new Node(id, name, price);
     new_node->next = NULL;

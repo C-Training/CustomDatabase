@@ -14,6 +14,8 @@ public:
     LinkedList(string fileName);
     ~LinkedList();
 
+    Node *getHead();
+
     void addAtHead(int id, string name, int price);
 
     void addAtEnd(int id, string name, int price);

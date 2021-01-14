@@ -93,14 +93,92 @@ class linkedlist{
 		}
 	}
 
-	void arrangeaccending() {
-		node* temp = head->next;
-		while (head->s.name < temp->s.name){
-			temp = temp->next;
+	void arrange() {
+		cout << "Press 1 to arrange in ascending order \n";
+		cout << "Press 2 to arrange in descending order \n";
+		int input, a, b;
+		string c;
+		node* temp = NULL;
+		node* curr = head;
 
-		}
-			
+		cin >> input;
+		
+		if(input==1){
+
+		while (curr != NULL) {
+			temp = curr->next;
+			while (temp != NULL) {
+				if (curr->s.name > temp->s.name) {
+					a = curr->s.id;
+					c = curr->s.name;
+					b = curr->s.price;
+
+					curr->s.id = temp->s.id;
+					curr->s.name = temp->s.name;
+					curr->s.price = temp->s.price;
+
+					temp->s.id = a;
+					temp->s.name = c;
+					temp->s.price = b;
+			}
+				temp = temp->next;
+
+			}
+			curr = curr->next;
+}
 	}
+		else if (input == 2) {
+
+			while (curr != NULL) {
+				temp = curr->next;
+				while (temp != NULL) {
+					if (curr->s.name < temp->s.name) {
+						a = curr->s.id;
+						c = curr->s.name;
+						b = curr->s.price;
+
+						curr->s.id = temp->s.id;
+						curr->s.name = temp->s.name;
+						curr->s.price = temp->s.price;
+
+						temp->s.id = a;
+						temp->s.name = c;
+						temp->s.price = b;
+					}
+					temp = temp->next;
+
+				}
+				curr = curr->next;
+			}
+		}
+		else {
+			cout << "Choose Either 1 or 2 ";
+		}
+}
+
+	void reverse() {
+		node* current= head;
+		node* prev = NULL;
+		node* temp;
+		while (current!=NULL){
+			temp = current->next;
+			current->next = prev;
+			prev = current;
+			current = temp;
+		}
+		head = prev; 
+	}
+
+	void size() {
+		int count = 0;
+		node* temp = head;
+		while (temp != NULL) {
+			temp = temp->next;
+			count++;
+		}
+		cout<<"Size of the list is :"<< count<<endl;
+	}
+
 
 
 	void print() {
@@ -116,30 +194,6 @@ class linkedlist{
 };
 
 
-
-
-
-
-
-
-//
-//deletestart(){
-//	if (head!=NULL){
-//	node*temp=head;
-//	head->next=head;
-//	delete head;	
-//	}
-//	
-//	
-//}
-
-
-
-
-
-
-
-
 int main() {
 
 	linkedlist list;
@@ -149,38 +203,12 @@ int main() {
 	list.insertatstart(2,"haseeb", 150);
 	list.insertatstart(3,"hamza", 250);
 	list.insertatstart(4,"sohaib", 350);
+	list.reverse();
 	//list.deletehead();
-	list.arrangeaccending();
+	//list.arrange();
 	//list.deletehead();
 	list.print();
+	//list.size();
 
-	// list.insertatend(3);
-	// list.insertatend(2);
-	// list.insertatend(1);
-	// list.deleteend();
-	// list.deleteend();
-	// list.print();
-	//	
-	//	cout<<"Enter the size of your linked list : ";
-	//	cin>>size;
-	//	cout<<"Enter numbers at start"<<endl;
-	//	for(int i=0; i<size; i++){
-	//		cout<<"Enter new num : ";
-	//		cin>>num;
-	//		list.insertatstart(num);
-	//		cout<<"The list now is : "<<endl;
-	//		list.print();
-	//		cout<<"\n";
-	//	}
-	//	
-	//	cout<<"Enter numbers at end now: ";
-	//	for(int i=0; i<size; i++){
-	//		cout<<"Enter new num : ";
-	//		cin>>num;
-	//		list.insertatend(num);
-	//		cout<<"The list now is : "<<endl;
-	//		list.print();
-	//		cout<<"\n";
-	//	}
 	return 0;
 }

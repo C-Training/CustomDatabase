@@ -17,6 +17,14 @@ Test::Test()
         tatti = 1;
     }
 
+    for (int i = 0; i < 10; i++) {
+        list1.deleteAtHead();
+        testdeleteAtHead();
+    }
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
+
     /*list1.sortByNameAes();
     testsortByNameAes();
 

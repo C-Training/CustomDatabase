@@ -27,7 +27,7 @@ LinkedList::~LinkedList() {
     ofstream outfile;
     outfile.open(fileName, ios::out | ios::trunc);
 
-    Node* cur = t1;
+    Node* cur = head;
 
     while (cur != NULL) {
         outfile << cur->getId() << " ";
@@ -40,21 +40,20 @@ LinkedList::~LinkedList() {
 
 Node* LinkedList::getHead()
 {
-
-    return t1;
+    return head;
 }
 
 void LinkedList::addAtHead(int id, string name, int price) {
     Node* new_node = new Node(id, name, price);
     new_node->next = NULL;
 
-    if (t1 == NULL) {
-        t1 = new_node;
+    if (head == NULL) {
+        head = new_node;
     }
     else {
-        Node* temp = t1;
-        t1 = new_node;
-        t1->next = temp;
+        Node* temp = head;
+        head = new_node;
+        head->next = temp;
 
     }
 }
@@ -64,11 +63,11 @@ void LinkedList::addAtEnd(int id, string name, int price) {
     Node* new_node = new Node(id, name, price);
     new_node->next = NULL;
 
-    if (t1 == NULL) {
-        t1 = new_node;
+    if (head == NULL) {
+        head = new_node;
     }
     else {
-        Node* cur = t1;
+        Node* cur = head;
 
         while (cur->next != NULL) {
             cur = cur->next;
@@ -79,12 +78,12 @@ void LinkedList::addAtEnd(int id, string name, int price) {
 }
 void LinkedList::deleteAtHead() {
 
-    if (t1 == NULL) {
+    if (head == NULL) {
         cout << "There is no linked list to delete" << endl;
     }
     else {
-        Node* temp = t1;
-        t1 = t1->next;
+        Node* temp = head;
+        head = head->next;
 
         delete temp;
     }
@@ -92,14 +91,14 @@ void LinkedList::deleteAtHead() {
 
 void LinkedList::deleteById(int id) {
 
-    if (t1 == NULL) {
+    if (head == NULL) {
         cout << "linked list is empty \n";
     }
-    else if (t1->getId() == id) {
+    else if (head->getId() == id) {
         deleteAtHead();
     }
     else {
-        Node* cur = t1;
+        Node* cur = head;
 
         bool found = true;
         while (cur->getId() != id) {
@@ -111,7 +110,7 @@ void LinkedList::deleteById(int id) {
         }
         if (found) {
 
-            Node* temp = t1;
+            Node* temp = head;
 
             while (temp->next != cur) {
                 temp = temp->next;
@@ -127,7 +126,7 @@ void LinkedList::deleteById(int id) {
 
 void LinkedList::displayList() {
 
-    Node* cur = t1;
+    Node* cur = head;
 
     while (cur != NULL) {
         cout << cur->getId() << " ";
@@ -140,9 +139,9 @@ void LinkedList::displayList() {
 
 void LinkedList::updatePrice(int old_val, int new_val) {
 
-    Node* cur = t1;
+    Node* cur = head;
     bool found = false;
-    if (t1 == NULL) {
+    if (head == NULL) {
 
         cout << "Linled list is empty" << endl;
     }
@@ -176,9 +175,9 @@ void LinkedList::swapNodes(Node* cur, Node* index) {
 
 void LinkedList::sortByNameAes() {
 
-    Node* cur = t1;
+    Node* cur = head;
     Node* index = NULL;
-    if (t1 == NULL) {
+    if (head == NULL) {
 
         cout << "Linked list empty, nothing to sort \n";
     }
@@ -198,9 +197,9 @@ void LinkedList::sortByNameAes() {
 
 void LinkedList::sortByNameDec() {
 
-    Node* cur = t1;
+    Node* cur = head;
     Node* index = NULL;
-    if (t1 == NULL) {
+    if (head == NULL) {
 
         cout << "Linked list empty, nothing to sort \n";
     }
@@ -220,7 +219,7 @@ void LinkedList::sortByNameDec() {
 
 size_t LinkedList::listSize() {
 
-    Node* cur = t1;
+    Node* cur = head;
 
     size_t counter = 0;
     while (cur != NULL) {
@@ -232,13 +231,13 @@ size_t LinkedList::listSize() {
 
 void LinkedList::reverseLinkedList() {
 
-    Node* cur = t1;
+    Node* cur = head;
     Node* temp = NULL;
     Node* prev = NULL;
-    if (t1 == NULL) {
+    if (head == NULL) {
         cout << "Linked list empty, nothing to reverse.\n";
     }
-    else if (t1->next == NULL) {
+    else if (head->next == NULL) {
 
         cout << "Only one element in List, nothing to reverse.\n";
     }
@@ -249,7 +248,6 @@ void LinkedList::reverseLinkedList() {
             prev = cur;
             cur = temp;
         }
-        t1 = prev;
-
+        head = prev;
     }
 }

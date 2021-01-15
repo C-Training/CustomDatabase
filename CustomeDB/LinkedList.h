@@ -7,7 +7,7 @@ using namespace std;
 
 class LinkedList {
 
-    Node* t1 = NULL;
+    Node* head = NULL;
 
     string fileName;
 public:

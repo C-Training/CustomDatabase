@@ -5,99 +5,37 @@ Test::Test()
 {
     LinkedList list1;
     bool tatti = 0;
-    //working
-    /*for (int i = 0; i < 10; i++) {
-        list1.addAtEnd(i, "talha", i + 1);
-        testaddAtEnd(i, "talha", i + 1);
-    }*/
     
-    //working
-    /*for (int i = 0; i < 10; i++) {
-        list1.addAtHead(i, "talha", i + 1);
-        testaddAtHead(i, "talha", i + 1);
-    }
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
+    int randomNumber;
 
-    //working
-    /*list1.deleteAtHead();
-    testdeleteAtHead();
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
-
-    //working
-    /*list1.deleteById(1);
-    testdeleteById(1);
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
-
-    //working
-    /*list1.updatePrice(6, 20);
-    testupdatePrice(6, 20);
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
-
-    //working
-    /*list1.swapNodes(list1.getHead(), list1.getHead()->next);
-    testswapNodes(t1, t1->next);
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
-
-    //had to comment everything cuz to test aescending and decending order hav to give new data set;
-    list1.addAtEnd(1, "talha", 10);
-    testaddAtEnd(1, "talha", 10);
-    list1.addAtEnd(2, "haseeb", 20);
-    testaddAtEnd(2, "haseeb", 20);
-    list1.addAtEnd(3, "bats", 30);
-    testaddAtEnd(3, "bats", 30);
-    list1.addAtEnd(4, "mimi", 40);
-    testaddAtEnd(4, "mimi", 40);
+    srand(time(NULL));
+    int n = 6;
     
-    if (!check(list1.getHead())) {
+    for (int i = 0; i < 20000; i++) {
+        randomNumber = rand();
+        list1.addAtEnd(i, printRandomString(n), randomNumber);
+    }
+    list1.displayList();
+
+    /*if (!check(list1.getHead())) {
         tatti = 1;
     }
 
+    testdisplayList();*/
+}
 
-    //working
-    list1.sortByNameAes();
-    testsortByNameAes();
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }
+string Test::printRandomString(int n)
+{
+    char alphabet[26] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+                          'h', 'i', 'j', 'k', 'l', 'm', 'n',
+                          'o', 'p', 'q', 'r', 's', 't', 'u',
+                          'v', 'w', 'x', 'y', 'z' };
 
-    //working
-    list1.sortByNameDec();
-    testsortByNameDec();
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }
+    string res = "";
+    for (int i = 0; i < n; i++)
+        res = res + alphabet[rand() % 26];
 
-    // checking if both linkedlist and test sizes are same or not.
-    //working
-    testNumber++;
-    int num = testNumber;
-    string test_check = "Test";
-    test_check += to_string(num);
-    if (list1.listSize() != testlistSize()) {
-        cout << test_check + "........................." + " failed\n";
-    }
-    else {
-        cout << test_check + "........................." + " passed\n";
-    }
-
-    //working
-    list1.reverseLinkedList();
-    testreverseLinkedList();
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }
-
-    testdisplayList();
+    return res;
 }
 
 bool Test::check(Node* obj) {

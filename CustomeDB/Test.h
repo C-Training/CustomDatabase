@@ -3,6 +3,8 @@
 #include "Node.h"
 #include "LinkedList.h"
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 class Test {
 public:
@@ -13,7 +15,7 @@ public:
     Test();
 
     bool check(Node* obj);
-
+    string printRandomString(int n);
     void testaddAtEnd(int id, string name, int price);
     void testaddAtHead(int id, string name, int price);
     void testdeleteAtHead();

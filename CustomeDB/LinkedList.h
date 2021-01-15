@@ -6,7 +6,9 @@
 using namespace std;
 
 class LinkedList {
+
     Node* t1 = NULL;
+
     string fileName;
 public:
     LinkedList();

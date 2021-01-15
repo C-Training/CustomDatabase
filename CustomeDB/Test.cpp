@@ -1,76 +1,95 @@
-#include "LinkedList.h"
+#include "Test.h"
 
 
-
-LinkedList::LinkedList() {
-    cout << "linked list created.\n";
-}
-
-LinkedList::LinkedList(string fileName) {
-    this->fileName = fileName;
-    ifstream infile(fileName);
-    if (!infile) {
-        cout << "No such File. \n";
-    }
-    else {
-        cout << "i was here" << endl;
-        int id;
-        string name;
-        int price;
-        while (infile >> id >> name >> price) {
-            addAtEnd(id, name, price);
-        }
-        infile.close();
-    }
-}
-LinkedList::~LinkedList() {
-    ofstream outfile;
-    outfile.open(fileName, ios::out | ios::trunc);
-    Node* cur = t1;
-    while (cur != NULL) {
-        outfile << cur->getId() << " ";
-        outfile << cur->getName() << " ";
-        outfile << cur->getPrice() << endl;
-        cur = cur->next;
-    }
-    outfile.close();
-}
-
-Node* LinkedList::getHead()
+Test::Test()
 {
-    return t1;
-}
+    LinkedList list1;
+    bool tatti = 0;
+    /*for (int i = 0; i < 10; i++) {
+        list1.addAtEnd(i, "talha", i + 1);
+        testaddAtEnd(i, "talha", i + 1);
+    }*/
+    for (int i = 0; i < 10; i++) {
+        list1.addAtHead(i, "talha", i + 1);
+        testaddAtHead(i, "talha", i + 1);
+    }
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
 
-void LinkedList::addAtHead(int id, string name, int price) {
-    Node* new_node = new Node(id, name, price);
-    new_node->next = NULL;
-    if (t1 == NULL) {
-        t1 = new_node;
+    /*list1.sortByNameAes();
+    testsortByNameAes();
+
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }*/
+
+    if (tatti) {
+        cout << "Blah blah failed";
     }
     else {
-        Node* temp = t1;
-        t1 = new_node;
-        t1->next = temp;
+        cout << "ggez";
     }
 }
 
-void LinkedList::addAtEnd(int id, string name, int price) {
+bool Test::check(Node* obj) {
+    bool noer = 1;
+    Node* cur = this->t1;
+    Node* temp = obj;
+    while (cur->next != NULL && temp->next != NULL)
+    {
+        if (cur->getId() == temp->getId() && cur->getName() == temp->getName() && cur->getPrice() == temp->getPrice()) {
+            cur = cur->next;
+            temp = temp->next;
+        }
+        else {
+            cout << "Lul your data is not inserted correctly" << endl;
+            noer = 0;
+            break;
+        }
+    }
+    if (noer) {
+        cout << "Test 1 pass" << endl;
+    }
 
+    t1 = NULL;
+    return noer;
+}
+
+void Test::testaddAtEnd(int id, string name, int price) {
     Node* new_node = new Node(id, name, price);
+    new_node->setId(id);
+    new_node->setName(name);
+    new_node->setPrice(price);
     new_node->next = NULL;
-    if (t1 == NULL) {
-        t1 = new_node;
+    if (this->t1 == NULL) {
+        this->t1 = new_node;
     }
     else {
-        Node* cur = t1;
+        Node* cur = this->t1;
         while (cur->next != NULL) {
             cur = cur->next;
         }
         cur->next = new_node;
     }
-
 }
-void LinkedList::deleteAtHead() {
+
+void Test::testaddAtHead(int id, string name, int price)
+{
+    Node* new_node = new Node(id, name, price);
+    new_node->next = NULL;
+    if (t1 == NULL) {
+        t1 = new_node;
+    }
+    else {
+        Node* temp = this->t1;
+        t1 = new_node;
+        t1->next = temp;
+    }
+}
+
+void Test::testdeleteAtHead()
+{
     if (t1 == NULL) {
         cout << "There is no linked list to delete" << endl;
     }
@@ -81,12 +100,13 @@ void LinkedList::deleteAtHead() {
     }
 }
 
-void LinkedList::deleteById(int id) {
+void Test::testdeleteById(int id)
+{
     if (t1 == NULL) {
         cout << "linked list is empty \n";
     }
     else if (t1->getId() == id) {
-        deleteAtHead();
+        testdeleteAtHead();
     }
     else {
         Node* cur = t1;
@@ -112,7 +132,8 @@ void LinkedList::deleteById(int id) {
     }
 }
 
-void LinkedList::displayList() {
+void Test::testdisplayList()
+{
     Node* cur = t1;
     while (cur != NULL) {
         cout << cur->getId() << " ";
@@ -123,7 +144,8 @@ void LinkedList::displayList() {
     cout << endl;
 }
 
-void LinkedList::updatePrice(int old_val, int new_val) {
+void Test::testupdatePrice(int old_val, int new_val)
+{
     Node* cur = t1;
     bool found = false;
     if (t1 == NULL) {
@@ -144,7 +166,7 @@ void LinkedList::updatePrice(int old_val, int new_val) {
     }
 }
 
-void LinkedList::swapNodes(Node* cur, Node* index) {
+void Test::testswapNodes(Node* cur, Node* index) {
     Item temp;
     temp.id = cur->getId();
     temp.name = cur->getName();
@@ -157,7 +179,7 @@ void LinkedList::swapNodes(Node* cur, Node* index) {
     index->setPrice(temp.price);
 }
 
-void LinkedList::sortByNameAes() {
+inline void Test::testsortByNameAes() {
     Node* cur = t1;
     Node* index = NULL;
     if (t1 == NULL) {
@@ -168,7 +190,7 @@ void LinkedList::sortByNameAes() {
             index = cur->next;
             while (index != NULL) {
                 if (cur->getName() > index->getName()) {
-                    swapNodes(cur, index);
+                    testswapNodes(cur, index);
                 }
                 index = index->next;
             }
@@ -177,7 +199,7 @@ void LinkedList::sortByNameAes() {
     }
 }
 
-void LinkedList::sortByNameDec() {
+void Test::testsortByNameDec() {
     Node* cur = t1;
     Node* index = NULL;
     if (t1 == NULL) {
@@ -188,7 +210,7 @@ void LinkedList::sortByNameDec() {
             index = cur->next;
             while (index != NULL) {
                 if (cur->getName() < index->getName()) {
-                    swapNodes(cur, index);
+                    testswapNodes(cur, index);
                 }
                 index = index->next;
             }
@@ -197,7 +219,7 @@ void LinkedList::sortByNameDec() {
     }
 }
 
-size_t LinkedList::listSize() {
+size_t Test::testlistSize() {
     Node* cur = t1;
     size_t counter = 0;
     while (cur != NULL) {
@@ -207,7 +229,7 @@ size_t LinkedList::listSize() {
     return counter;
 }
 
-void LinkedList::reverseLinkedList() {
+void Test::testreverseLinkedList() {
     Node* cur = t1;
     Node* temp = NULL;
     Node* prev = NULL;

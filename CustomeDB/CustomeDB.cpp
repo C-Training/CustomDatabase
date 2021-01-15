@@ -22,7 +22,7 @@ int main()
     //LinkedList l2("newFile.txt");
     ///*l2.addAtEnd(4, "Abad", 30);*/
     //l2.displayList();
-    cout << 'g' << endl;
+
     Test ();
 
 

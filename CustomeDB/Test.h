@@ -2,11 +2,12 @@
 #include <iostream>
 #include "Node.h"
 #include "LinkedList.h"
+#include <string>
 
 class Test {
 public:
     Node* t1 = NULL;
-
+    int testNumber = 0;
     //void test();
 
     Test();

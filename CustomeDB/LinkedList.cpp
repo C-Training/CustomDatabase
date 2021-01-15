@@ -100,10 +100,10 @@ void LinkedList::deleteById(int id) {
     else {
         Node* cur = head;
 
-        bool found = true;
-        while (cur->getId() != id) {
-            if (cur == NULL) {
-                found = false;
+        bool found = false;
+        while (cur != NULL) {
+            if (cur->getId() == id ) {
+                found = true;
                 break;
             }
             cur = cur->next;

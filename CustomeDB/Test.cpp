@@ -11,10 +11,19 @@ Test::Test()
     srand(time(NULL));
     int n = 6;
     
-    for (int i = 0; i < 20000; i++) {
+    for (int i = 0; i < 10000; i++) {
         randomNumber = rand();
         list1.addAtEnd(i, printRandomString(n), randomNumber);
     }
+    //working
+    /*for (int i = 0; i < 19998; i++) {
+        list1.deleteAtHead();
+    }
+    list1.displayList();
+    randomNumber = rand();
+    list1.deleteById(1);*/
+
+    list1.sortByNameAes();
     list1.displayList();
 
     /*if (!check(list1.getHead())) {

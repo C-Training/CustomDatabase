@@ -1,21 +1,22 @@
 #include "linkedlist.h"
 
+
 void linkedlist::update_data(int id, int new_price) {
     struct Node* temp = head;
-    while ((temp->data.ID) != id) {
+    while ((temp->getid()) != id) {
         temp = temp->next;
     }
-    temp->data.price = new_price;
-    cout << "New price of " << (temp->data.ID) << "is " << (temp->data.price) << endl;
+    temp->setprice(new_price);
+    cout << "New price of " << (temp->getid()) << "is " << (temp->getprice()) << endl;
 }
 
 void linkedlist::print() {
     struct Node* temp = head;
     while (temp != NULL) {
         cout << endl;
-        cout << "The price is :- " << temp->data.price << endl;
-        cout << "The name of the product is :- " << temp->data.name << endl;
-        cout << "The ID of the product is :- " << temp->data.ID << endl;
+        cout << "The price is :- " << temp->getprice() << endl;
+        cout << "The name of the product is :- " << temp->getname() << endl;
+        cout << "The ID of the product is :- " << temp->getid() << endl;
         temp = temp->next;
     }
 }
@@ -30,9 +31,9 @@ void linkedlist::display() {
     if (a == 1) {
         ofstream MyFile("L.txt");
         while (temp != NULL) {
-            MyFile << "Name is " << temp->data.name << endl;
-            MyFile << "Price is " << temp->data.price << endl;
-            MyFile << "ID is " << temp->data.ID << endl;
+            MyFile << "Name is " << temp->getname() << endl;
+            MyFile << "Price is " << temp->getprice() << endl;
+            MyFile << "ID is " << temp->getid() << endl;
             temp = temp->next;
         }
         MyFile.close();
@@ -72,16 +73,16 @@ void linkedlist::sort() {
         while (current != NULL) {
             temp = current->next;
             while (temp != NULL) {
-                if (current->data.ID > temp->data.ID) {
-                    c = current->data.ID;
-                    k = current->data.name;
-                    d = current->data.price;
-                    current->data.ID = temp->data.ID;
-                    current->data.name = temp->data.name;
-                    current->data.price = temp->data.price;
-                    temp->data.ID = c;
-                    temp->data.name = k;
-                    temp->data.price = d;
+                if (current->getid() > temp->getid()) {
+                    c = current->getid();
+                    k = current->getname();
+                    d = current->getprice();
+                    current->setid(temp->getid());
+                    current->setname(temp->getname());
+                    current->setprice(temp->getprice());
+                    temp->setid(c);
+                    temp->setname(k);
+                    temp->setprice(d);
                 }
                 temp = temp->next;
             }
@@ -92,16 +93,16 @@ void linkedlist::sort() {
         while (current != NULL) {
             temp = current->next;
             while (temp != NULL) {
-                if (current->data.ID < temp->data.ID) {
-                    c = current->data.ID;
-                    k = current->data.name;
-                    d = current->data.price;
-                    current->data.ID = temp->data.ID;
-                    current->data.name = temp->data.name;
-                    current->data.price = temp->data.price;
-                    temp->data.ID = c;
-                    temp->data.name = k;
-                    temp->data.price = d;
+                if (current->getid() < temp->getid()) {
+                    c = current->getid();
+                    k = current->getname();
+                    d = current->getprice();
+                    current->setid(temp->getid());
+                    current->setname(temp->getname());
+                    current->setprice(temp->getprice());
+                    temp->setid(c);
+                    temp->setname(k);
+                    temp->setprice(d);
                 }
                 temp = temp->next;
             }
@@ -131,9 +132,9 @@ void linkedlist::deletehead() {
     else {
         Node* temp = head;
         cout << endl;
-        cout << head->data.price << " is removed." << endl;
-        cout << head->data.name << " is removed." << endl;
-        cout << head->data.ID << " is removed." << endl;
+        cout << head->getprice() << " is removed." << endl;
+        cout << head->getname() << " is removed." << endl;
+        cout << head->getid() << " is removed." << endl;
         head = head->next;
         delete(temp);
     }

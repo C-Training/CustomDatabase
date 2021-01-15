@@ -12,42 +12,85 @@ Test::Test()
     }*/
     
     //working
-    for (int i = 0; i < 10; i++) {
+    /*for (int i = 0; i < 10; i++) {
         list1.addAtHead(i, "talha", i + 1);
         testaddAtHead(i, "talha", i + 1);
     }
     if (!check(list1.getHead())) {
         tatti = 1;
-    }
+    }*/
 
     //working
-    list1.deleteAtHead();
+    /*list1.deleteAtHead();
     testdeleteAtHead();
     if (!check(list1.getHead())) {
         tatti = 1;
-    }
+    }*/
 
     //working
-    list1.deleteById(1);
+    /*list1.deleteById(1);
     testdeleteById(1);
     if (!check(list1.getHead())) {
         tatti = 1;
-    }
+    }*/
 
     //working
-    list1.updatePrice(6, 20);
+    /*list1.updatePrice(6, 20);
     testupdatePrice(6, 20);
     if (!check(list1.getHead())) {
         tatti = 1;
-    }
+    }*/
 
-    list1.swapNodes(list1.getHead(), list1.getHead()->next);
+    //working
+    /*list1.swapNodes(list1.getHead(), list1.getHead()->next);
     testswapNodes(t1, t1->next);
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }*/
 
+    //had to comment everything cuz to test aescending and decending order hav to give new data set;
+    list1.addAtEnd(1, "talha", 10);
+    testaddAtEnd(1, "talha", 10);
+    list1.addAtEnd(2, "haseeb", 20);
+    testaddAtEnd(2, "haseeb", 20);
+    list1.addAtEnd(3, "bats", 30);
+    testaddAtEnd(3, "bats", 30);
+    list1.addAtEnd(4, "mimi", 40);
+    testaddAtEnd(4, "mimi", 40);
+
+    //working
+    list1.sortByNameAes();
+    testsortByNameAes();
     if (!check(list1.getHead())) {
         tatti = 1;
     }
 
+    //working
+    list1.sortByNameDec();
+    testsortByNameDec();
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
+
+    // checking if both linkedlist and test sizes are same or not.
+    //working
+    testNumber++;
+    int num = testNumber;
+    string test_check = "Test";
+    test_check += to_string(num);
+    if (list1.listSize() != testlistSize()) {
+        cout << test_check + " failed\n";
+    }
+    else {
+        cout << test_check + " passed\n";
+    }
+
+    //working
+    list1.reverseLinkedList();
+    testreverseLinkedList();
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
 
     
     /*if (!check(list1.getHead())) {

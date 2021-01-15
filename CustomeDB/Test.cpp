@@ -57,6 +57,11 @@ Test::Test()
     testaddAtEnd(3, "bats", 30);
     list1.addAtEnd(4, "mimi", 40);
     testaddAtEnd(4, "mimi", 40);
+    
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
+
 
     //working
     list1.sortByNameAes();
@@ -79,10 +84,10 @@ Test::Test()
     string test_check = "Test";
     test_check += to_string(num);
     if (list1.listSize() != testlistSize()) {
-        cout << test_check + " failed\n";
+        cout << test_check + "........................." + " failed\n";
     }
     else {
-        cout << test_check + " passed\n";
+        cout << test_check + "........................." + " passed\n";
     }
 
     //working
@@ -92,24 +97,6 @@ Test::Test()
         tatti = 1;
     }
 
-    
-    /*if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
-
-    /*list1.sortByNameAes();
-    testsortByNameAes();
-
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
-
-    /*if (tatti) {
-        cout << "Blah blah failed.\n";
-    }
-    else {
-        cout << "ggez\n";
-    }*/
     testdisplayList();
 }
 
@@ -136,11 +123,11 @@ bool Test::check(Node* obj) {
     }
     if (noer) {
         pass_or_failed = " passed";
-        cout << test_check + pass_or_failed << endl;
+        cout << test_check + "........................." + pass_or_failed << endl;
     }
     else {
         pass_or_failed = " failed";
-        cout << test_check + pass_or_failed << endl;
+        cout << test_check + "........................." + pass_or_failed << endl;
     }
 
     //t1 = NULL;

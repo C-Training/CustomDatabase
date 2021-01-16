@@ -5,42 +5,107 @@ Test::Test()
 {
     LinkedList list1;
     bool tatti = 0;
+    //working
     /*for (int i = 0; i < 10; i++) {
         list1.addAtEnd(i, "talha", i + 1);
         testaddAtEnd(i, "talha", i + 1);
     }*/
-    for (int i = 0; i < 10; i++) {
+    
+    //working
+    /*for (int i = 0; i < 10; i++) {
         list1.addAtHead(i, "talha", i + 1);
         testaddAtHead(i, "talha", i + 1);
     }
     if (!check(list1.getHead())) {
         tatti = 1;
-    }
+    }*/
 
-    for (int i = 0; i < 10; i++) {
-        list1.deleteAtHead();
-        testdeleteAtHead();
-    }
-    if (!check(list1.getHead())) {
-        tatti = 1;
-    }
-
-    /*list1.sortByNameAes();
-    testsortByNameAes();
-
+    //working
+    /*list1.deleteAtHead();
+    testdeleteAtHead();
     if (!check(list1.getHead())) {
         tatti = 1;
     }*/
 
-    if (tatti) {
-        cout << "Blah blah failed";
+    //working
+    /*list1.deleteById(1);
+    testdeleteById(1);
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }*/
+
+    //working
+    /*list1.updatePrice(6, 20);
+    testupdatePrice(6, 20);
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }*/
+
+    //working
+    /*list1.swapNodes(list1.getHead(), list1.getHead()->next);
+    testswapNodes(t1, t1->next);
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }*/
+
+    //had to comment everything cuz to test aescending and decending order hav to give new data set;
+    list1.addAtEnd(1, "talha", 10);
+    testaddAtEnd(1, "talha", 10);
+    list1.addAtEnd(2, "haseeb", 20);
+    testaddAtEnd(2, "haseeb", 20);
+    list1.addAtEnd(3, "bats", 30);
+    testaddAtEnd(3, "bats", 30);
+    list1.addAtEnd(4, "mimi", 40);
+    testaddAtEnd(4, "mimi", 40);
+    
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
+
+
+    //working
+    list1.sortByNameAes();
+    testsortByNameAes();
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
+
+    //working
+    list1.sortByNameDec();
+    testsortByNameDec();
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
+
+    // checking if both linkedlist and test sizes are same or not.
+    //working
+    testNumber++;
+    int num = testNumber;
+    string test_check = "Test";
+    test_check += to_string(num);
+    if (list1.listSize() != testlistSize()) {
+        cout << test_check + "........................." + " failed\n";
     }
     else {
-        cout << "ggez";
+        cout << test_check + "........................." + " passed\n";
     }
+
+    //working
+    list1.reverseLinkedList();
+    testreverseLinkedList();
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
+
+    testdisplayList();
 }
 
 bool Test::check(Node* obj) {
+    string test_check = "Test";
+    string pass_or_failed;
+    testNumber++;
+    int num = testNumber;
+    test_check += to_string(num);
     bool noer = 1;
     Node* cur = this->t1;
     Node* temp = obj;
@@ -57,18 +122,20 @@ bool Test::check(Node* obj) {
         }
     }
     if (noer) {
-        cout << "Test 1 pass" << endl;
+        pass_or_failed = " passed";
+        cout << test_check + "........................." + pass_or_failed << endl;
+    }
+    else {
+        pass_or_failed = " failed";
+        cout << test_check + "........................." + pass_or_failed << endl;
     }
 
-    t1 = NULL;
+    //t1 = NULL;
     return noer;
 }
 
 void Test::testaddAtEnd(int id, string name, int price) {
     Node* new_node = new Node(id, name, price);
-    new_node->setId(id);
-    new_node->setName(name);
-    new_node->setPrice(price);
     new_node->next = NULL;
     if (this->t1 == NULL) {
         this->t1 = new_node;

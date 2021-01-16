@@ -11,10 +11,12 @@ Test::Test()
     srand(time(NULL));
     int n = 6;
     
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < 10; i++) {
         randomNumber = rand();
         list1.addAtEnd(i, printRandomString(n), randomNumber);
     }
+    list1.deleteAtHead();
+    list1.displayList();
     //working
     /*for (int i = 0; i < 19998; i++) {
         list1.deleteAtHead();
@@ -23,14 +25,14 @@ Test::Test()
     randomNumber = rand();
     list1.deleteById(1);*/
 
-    list1.sortByNameAes();
-    list1.displayList();
+    /*list1.sortByNameAes();
+    list1.displayList();*/
 
     /*if (!check(list1.getHead())) {
         tatti = 1;
-    }
+    }*/
 
-    testdisplayList();*/
+    
 }
 
 string Test::printRandomString(int n)

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <fstream>
 
 using namespace std;
 
@@ -14,6 +15,8 @@ public:
 	string name;
 	int price;
 };
+
+
 
 class node {
 
@@ -179,6 +182,44 @@ class linkedlist{
 		cout<<"Size of the list is :"<< count<<endl;
 	}
 
+	void display() {
+
+		int option;
+		node* temp = head;
+		cout << "Press 1 to read and 2 to write in the file : ";
+		cin >> option;
+		if (option == 1) {
+			ifstream read("MyDatabase.txt");
+			if (!"MyDatabase.txt") {
+				cout << "File not found \n";
+			}
+			else {
+				int id, price;
+				string name;
+				while (read >> id >> name >> price) {
+					insertatend(id, name, price);
+				}
+			}
+			read.close();
+		}
+		else if (option == 2) {
+			ofstream write;
+			write.open("MyDatabase.txt");
+			while (temp != NULL) {
+
+				write << temp->s.id << " ";
+				write << temp->s.name << " ";
+				write << temp->s.price << " \n";
+				temp = temp->next;
+			}
+
+			write.close();
+		}
+		else {
+			cout << "Wrong option";
+		}
+	}
+
 
 
 	void print() {
@@ -199,11 +240,13 @@ int main() {
 	linkedlist list;
 	/*int size, num;*/
 
-	list.insertatstart(1,"talha", 50);
+	/*list.insertatstart(1,"talha", 50);
 	list.insertatstart(2,"haseeb", 150);
 	list.insertatstart(3,"hamza", 250);
 	list.insertatstart(4,"sohaib", 350);
-	list.reverse();
+	list.insertatstart(5,"batman", 450);*/
+	//list.reverse();
+	list.display();
 	//list.deletehead();
 	//list.arrange();
 	//list.deletehead();

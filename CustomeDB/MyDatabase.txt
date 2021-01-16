@@ -1,0 +1,5 @@
+5 batman 450 
+4 sohaib 350 
+3 hamza 250 
+2 haseeb 150 
+1 talha 50 

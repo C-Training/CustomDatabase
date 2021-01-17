@@ -26,7 +26,9 @@ LinkedList::LinkedList(string fileName) {
 LinkedList::~LinkedList() {
     ofstream outfile;
     outfile.open(fileName, ios::out | ios::trunc);
+
     Node* cur = head;
+
     while (cur != NULL) {
         outfile << cur->getId() << " ";
         outfile << cur->getName() << " ";
@@ -44,6 +46,7 @@ Node* LinkedList::getHead()
 void LinkedList::addAtHead(int id, string name, int price) {
     Node* new_node = new Node(id, name, price);
     new_node->next = NULL;
+
     if (head == NULL) {
         head = new_node;
     }
@@ -51,6 +54,7 @@ void LinkedList::addAtHead(int id, string name, int price) {
         Node* temp = head;
         head = new_node;
         head->next = temp;
+
     }
 }
 
@@ -58,11 +62,13 @@ void LinkedList::addAtEnd(int id, string name, int price) {
 
     Node* new_node = new Node(id, name, price);
     new_node->next = NULL;
+
     if (head == NULL) {
         head = new_node;
     }
     else {
         Node* cur = head;
+
         while (cur->next != NULL) {
             cur = cur->next;
         }
@@ -71,17 +77,20 @@ void LinkedList::addAtEnd(int id, string name, int price) {
 
 }
 void LinkedList::deleteAtHead() {
+
     if (head == NULL) {
         cout << "There is no linked list to delete" << endl;
     }
     else {
         Node* temp = head;
         head = head->next;
+
         delete temp;
     }
 }
 
 void LinkedList::deleteById(int id) {
+
     if (head == NULL) {
         cout << "linked list is empty \n";
     }
@@ -90,16 +99,19 @@ void LinkedList::deleteById(int id) {
     }
     else {
         Node* cur = head;
-        bool found = true;
-        while (cur->getId() != id) {
-            if (cur == NULL) {
-                found = false;
+
+        bool found = false;
+        while (cur != NULL) {
+            if (cur->getId() == id ) {
+                found = true;
                 break;
             }
             cur = cur->next;
         }
         if (found) {
+
             Node* temp = head;
+
             while (temp->next != cur) {
                 temp = temp->next;
             }
@@ -113,7 +125,9 @@ void LinkedList::deleteById(int id) {
 }
 
 void LinkedList::displayList() {
+
     Node* cur = head;
+
     while (cur != NULL) {
         cout << cur->getId() << " ";
         cout << cur->getName() << " ";
@@ -124,9 +138,11 @@ void LinkedList::displayList() {
 }
 
 void LinkedList::updatePrice(int old_val, int new_val) {
+
     Node* cur = head;
     bool found = false;
     if (head == NULL) {
+
         cout << "Linled list is empty" << endl;
     }
     else {
@@ -158,9 +174,11 @@ void LinkedList::swapNodes(Node* cur, Node* index) {
 }
 
 void LinkedList::sortByNameAes() {
+
     Node* cur = head;
     Node* index = NULL;
     if (head == NULL) {
+
         cout << "Linked list empty, nothing to sort \n";
     }
     else {
@@ -178,9 +196,11 @@ void LinkedList::sortByNameAes() {
 }
 
 void LinkedList::sortByNameDec() {
+
     Node* cur = head;
     Node* index = NULL;
     if (head == NULL) {
+
         cout << "Linked list empty, nothing to sort \n";
     }
     else {
@@ -198,7 +218,9 @@ void LinkedList::sortByNameDec() {
 }
 
 size_t LinkedList::listSize() {
+
     Node* cur = head;
+
     size_t counter = 0;
     while (cur != NULL) {
         cur = cur->next;
@@ -208,6 +230,7 @@ size_t LinkedList::listSize() {
 }
 
 void LinkedList::reverseLinkedList() {
+
     Node* cur = head;
     Node* temp = NULL;
     Node* prev = NULL;
@@ -215,6 +238,7 @@ void LinkedList::reverseLinkedList() {
         cout << "Linked list empty, nothing to reverse.\n";
     }
     else if (head->next == NULL) {
+
         cout << "Only one element in List, nothing to reverse.\n";
     }
     else {

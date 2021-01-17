@@ -28,7 +28,7 @@ public:
 
     void displayList();
 
-    void updatePrice(int old_val, int new_val);
+    void updatePrice(int id, string name, int new_price);
 
     void swapNodes(Node* cur, Node* index);
 

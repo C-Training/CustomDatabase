@@ -1,3 +1,3 @@
-1 talha 20
+1 talha 100
 2 haseed 10
 3 bats 25

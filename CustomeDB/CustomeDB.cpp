@@ -261,9 +261,10 @@ class linkedlist{
 };
 
 
-int main() {
+int main()
+{
 
-	linkedlist list;
+  linkedlist list;
 
 	list.insertatstart(1,"talha", 50);
 	list.insertatstart(2,"haseeb", 150);

@@ -1,17 +1,19 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include<fstream>
 #include "node.h"
+#include <iostream>
+#include<fstream>
 using namespace std;
 
 class linkedlist {
+    Node* head = NULL;
+
 public:
+    Node* getHead();
     void insert(int prc, string nme, int id);
 
-    void update_data(int id, int new_price);
+    void update_price(int id, int new_price);
 
-    void print(); 
+    void print();
 
     void display();
 

@@ -18,7 +18,7 @@ int main() {
         L.insert(a, p, c);
     }
     L.print();
-    //update_data(3,23);
+    //update_price(3,23);
     //sort();
     //reverse();
     //size();

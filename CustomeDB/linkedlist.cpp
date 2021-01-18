@@ -1,7 +1,24 @@
 #include "linkedlist.h"
+using namespace std;
 
 
-void linkedlist::update_data(int id, int new_price) {
+void linkedlist::insert(int prc, string nme, int id) {
+
+    struct Node* newNode = new Node(prc, id, nme);
+    newNode->setprice(prc);
+
+    newNode->setname(nme);
+    newNode->setid(id);
+    newNode->next = head;
+    head = newNode;
+}
+
+Node* linkedlist::getHead()
+{
+    return head;
+}
+
+void linkedlist::update_price(int id, int new_price) {
     struct Node* temp = head;
     while ((temp->getid()) != id) {
         temp = temp->next;

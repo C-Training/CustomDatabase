@@ -1,6 +1,6 @@
-#pragma once;
+#pragma once
 #include "data.h"
-#include <string>;
+#include <string>
 using namespace std;
 
 struct Node {
@@ -19,5 +19,3 @@ public:
 private:
     item data;
 };
-
-struct Node* head = NULL;

@@ -10,29 +10,83 @@ Test::Test()
 
     srand(time(NULL));
     int n = 6;
+    string randomString;
     
-    for (int i = 0; i < 10; i++) {
-        randomNumber = rand();
-        list1.addAtEnd(i, printRandomString(n), randomNumber);
-    }
-    list1.deleteAtHead();
-    list1.displayList();
     //working
-    /*for (int i = 0; i < 19998; i++) {
-        list1.deleteAtHead();
+    for (int i = 0; i < 20000; i++) {
+        randomString = printRandomString(n);
+		randomNumber = rand();
+        list1.addAtEnd(list1.listSize() + 1, randomString, randomNumber);
+        testaddAtEnd(testlistSize() + 1, randomString, randomNumber);
+        if (i % 1000 == 0) {
+            cout << ".";
+        }
     }
-    list1.displayList();
-    randomNumber = rand();
-    list1.deleteById(1);*/
+	if (!check(list1.getHead())) {
+		tatti = 1;
+	}
+  
+	//working
+	for (int i = 0; i < 5000; i++) {
+		randomString = printRandomString(n);
+		randomNumber = rand();
+		list1.addAtHead(list1.listSize() + 1, randomString, randomNumber);
+		testaddAtHead(testlistSize() + 1, randomString, randomNumber);
+		if (i % 1000 == 0) {
+			cout << ".";
+		}
+	}
+	if (!check(list1.getHead())) {
+		tatti = 1;
+	}
 
-    /*list1.sortByNameAes();
-    list1.displayList();*/
+	//working
+	for (int i = 15000; i < 24000; i++) {
+		list1.deleteById(i);
+		testdeleteById(i);
+		if (i % 1000 == 0) {
+			cout << ".";
+		}
+	}
+	if (!check(list1.getHead())) {
+		tatti = 1;
+	}
 
-    /*if (!check(list1.getHead())) {
-        tatti = 1;
-    }*/
-
+    //working
+    for (int i = 0; i < 15000; i++) {
+        list1.deleteAtHead();
+        testdeleteAtHead();
+		if (i % 1000 == 0) {
+			cout << ".";
+		}
+    }
+	if (!check(list1.getHead())) {
+		tatti = 1;
+	}
     
+    
+
+    //working
+    list1.reverseLinkedList();
+    testreverseLinkedList();
+	if (!check(list1.getHead())) {
+		tatti = 1;
+	}
+
+    //working
+	list1.sortByNameAes();
+	testsortByNameAes();
+	if (!check(list1.getHead())) {
+		tatti = 1;
+	}
+
+    //working
+	list1.sortByNameDec();
+	testsortByNameDec();
+	if (!check(list1.getHead())) {
+		tatti = 1;
+	}
+
 }
 
 string Test::printRandomString(int n)

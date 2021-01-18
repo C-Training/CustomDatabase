@@ -10,6 +10,7 @@ Test::Test()
 
     srand(time(NULL));
     int n = 6;
+
     string randomString;
     
     //working
@@ -86,6 +87,7 @@ Test::Test()
 	if (!check(list1.getHead())) {
 		tatti = 1;
 	}
+
 
 }
 

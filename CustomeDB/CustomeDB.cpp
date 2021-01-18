@@ -10,10 +10,36 @@ using namespace std;
 
 
 class shop {
-public:
+private:
 	int id;
 	string name;
 	int price;
+
+public:
+
+	void setid(int id) {
+		this->id = id;
+	}
+
+	void setname(string name) {
+		this->name = name;
+	}
+
+	void setprice(int price) {
+		this->price = price;
+	}
+
+	int getid() {
+		return id;
+	}
+
+	string getname() {
+		return name;
+	}
+
+	int getprice() {
+		return price;
+	}
 };
 
 
@@ -39,18 +65,18 @@ class linkedlist{
 
 	void insertatstart(int x, string y, int z ) {
 		node* temp = new node; 
-		temp->s.id = x ;
-		temp->s.name = y ;
-		temp->s.price = z ;
+		temp->s.setid(x);
+		temp->s.setname(y);
+		temp->s.setprice(z);
 		temp->next = head;
 		head = temp; 
 	}
 
 	void insertatend(int x, string y, int z) {
 		node* temp = new node;
-		temp->s.id = x;
-		temp->s.name = y;
-		temp->s.price = z;
+		temp->s.setid(x); 
+		temp->s.setname(y);
+		temp->s.setprice(z);
 		temp->next = NULL;
 		if (head == NULL) {
 			head = temp;
@@ -111,18 +137,18 @@ class linkedlist{
 		while (curr != NULL) {
 			temp = curr->next;
 			while (temp != NULL) {
-				if (curr->s.name > temp->s.name) {
-					a = curr->s.id;
-					c = curr->s.name;
-					b = curr->s.price;
+				if (curr->s.getname() > temp->s.getname()) {
+					a = curr->s.getid();
+					c = curr->s.getname();
+					b = curr->s.getprice();
 
-					curr->s.id = temp->s.id;
-					curr->s.name = temp->s.name;
-					curr->s.price = temp->s.price;
+					curr->s.setid(temp->s.getid());
+					curr->s.setname(temp->s.getname());
+					curr->s.setprice(temp->s.getprice());
 
-					temp->s.id = a;
-					temp->s.name = c;
-					temp->s.price = b;
+					temp->s.setid(a); 
+					temp->s.setname(c); 
+					temp->s.setprice(b); 
 			}
 				temp = temp->next;
 
@@ -135,18 +161,18 @@ class linkedlist{
 			while (curr != NULL) {
 				temp = curr->next;
 				while (temp != NULL) {
-					if (curr->s.name < temp->s.name) {
-						a = curr->s.id;
-						c = curr->s.name;
-						b = curr->s.price;
+					if (curr->s.getname() < temp->s.getname()) {
+						a = curr->s.getid();
+						c = curr->s.getname();
+						b = curr->s.getprice();
 
-						curr->s.id = temp->s.id;
-						curr->s.name = temp->s.name;
-						curr->s.price = temp->s.price;
+						curr->s.setid(temp->s.getid());
+						curr->s.setname(temp->s.getname());
+						curr->s.setprice(temp->s.getprice());
 
-						temp->s.id = a;
-						temp->s.name = c;
-						temp->s.price = b;
+						temp->s.setid(a);
+						temp->s.setname(c);
+						temp->s.setprice(b);
 					}
 					temp = temp->next;
 
@@ -207,9 +233,9 @@ class linkedlist{
 			write.open("MyDatabase.txt");
 			while (temp != NULL) {
 
-				write << temp->s.id << " ";
-				write << temp->s.name << " ";
-				write << temp->s.price << " \n";
+				write << temp->s.getid() << " ";
+				write << temp->s.getname() << " ";
+				write << temp->s.getprice() << " \n";
 				temp = temp->next;
 			}
 
@@ -225,9 +251,9 @@ class linkedlist{
 	void print() {
 		node* temp = head;
 		while (temp != NULL) {
-			cout << temp->s.id << " ";
-			cout << temp->s.name << " ";
-			cout << temp->s.price << " ";
+			cout << temp->s.getid() << " ";
+			cout << temp->s.getname() << " ";
+			cout << temp->s.getprice() << " ";
 			cout << "\n";
 			temp = temp->next;
 		}
@@ -238,15 +264,14 @@ class linkedlist{
 int main() {
 
 	linkedlist list;
-	/*int size, num;*/
 
-	/*list.insertatstart(1,"talha", 50);
+	list.insertatstart(1,"talha", 50);
 	list.insertatstart(2,"haseeb", 150);
 	list.insertatstart(3,"hamza", 250);
 	list.insertatstart(4,"sohaib", 350);
-	list.insertatstart(5,"batman", 450);*/
-	//list.reverse();
-	list.display();
+	list.insertatstart(5,"batman", 450);
+	list.reverse();
+	//list.display();
 	//list.deletehead();
 	//list.arrange();
 	//list.deletehead();

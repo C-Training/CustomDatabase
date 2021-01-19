@@ -5,7 +5,7 @@ using namespace std;
 
 struct Node {
 public:
-    Node(int price,int ID,string name);
+    Node(int price, int ID, string name);
     Node* next;
 
     int getid();

@@ -1,41 +1,38 @@
-#include "Node.h"
+#include "node.h"
 
-Node::Node(int id, string name, int price) {
-    this->data.id = id;
+Node::Node(int price, int ID, string name)
+{
+    this->data.ID = ID;
     this->data.name = name;
     this->data.price = price;
 }
 
-string Node::getName()
+int Node::getid()
+{
+    return data.ID;
+}
+
+string Node::getname()
 {
     return data.name;
 }
 
-int Node::getId()
-{
-    return data.id;
-}
-
-int Node::getPrice()
+int Node::getprice()
 {
     return data.price;
 }
 
-void Node::setName(string name)
+void Node::setid(int id)
+{
+    this->data.ID = id;
+}
+
+void Node::setname(string name)
 {
     this->data.name = name;
 }
 
-void Node::setId(int id)
-{
-    this->data.id = id;
-}
-
-void Node::setPrice(int price)
+void Node::setprice(int price)
 {
     this->data.price = price;
 }
-
-
-
-

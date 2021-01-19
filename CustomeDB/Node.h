@@ -1,21 +1,21 @@
 #pragma once
+#include "data.h"
 #include <string>
-#include "item.h"
-
 using namespace std;
 
-class Node {
-
-    Item data;
+struct Node {
 public:
-
-    Node(int id, string name, int price);
+    Node(int price, int ID, string name);
     Node* next;
-    string getName();
-    int getId();
-    int getPrice();
-    void setName(string name);
-    void setId(int id);
-    void setPrice(int price);
-};
 
+    int getid();
+    string getname();
+    int getprice();
+
+    void setid(int id);
+    void setname(string name);
+    void setprice(int price);
+
+private:
+    item data;
+};

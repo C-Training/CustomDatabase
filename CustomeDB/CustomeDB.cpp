@@ -25,5 +25,7 @@ int main() {
     L.display();
     //print();
     L.display();
+
+    return 0;
 }
 

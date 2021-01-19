@@ -1,44 +1,27 @@
 #pragma once
-#include "Node.h"
+#include "node.h"
 #include <iostream>
-#include <fstream>
-
+#include<fstream>
 using namespace std;
 
-class LinkedList {
-
+class linkedlist {
     Node* head = NULL;
 
-    string fileName;
 public:
-    LinkedList();
+    Node* getHead();
+    void insert(int prc, string nme, int id);
 
-    LinkedList(string fileName);
-    ~LinkedList();
+    void update_price(int id, int new_price);
 
-    Node *getHead();
+    void print();
 
-    void addAtHead(int id, string name, int price);
+    void display();
 
-    void addAtEnd(int id, string name, int price);
+    void reverse();
 
-    void deleteAtHead();
+    void sort();
 
-    void deleteById(int id);
+    void size();
 
-    void displayList();
-
-    void updatePrice(int old_val, int new_val);
-
-    void swapNodes(Node* cur, Node* index);
-
-    void sortByNameAes();
-
-    void sortByNameDec();
-
-    size_t listSize();
-
-    void reverseLinkedList();
-
+    void deletehead();
 };
-

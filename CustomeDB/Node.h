@@ -5,10 +5,9 @@
 using namespace std;
 
 class Node {
-
+private:
     Item data;
 public:
-
     Node(int id, string name, int price);
     Node* next;
     string getName();

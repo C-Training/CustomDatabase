@@ -61,11 +61,9 @@ Test::Test()
 			cout << ".";
 		}
     }
-	if (!check(list1.getHead())) {
-		tatti = 1;
-	}
-    
-    
+    if (!check(list1.getHead())) {
+        tatti = 1;
+    }
 
     //working
     list1.reverseLinkedList();
@@ -87,8 +85,6 @@ Test::Test()
 	if (!check(list1.getHead())) {
 		tatti = 1;
 	}
-
-
 }
 
 string Test::printRandomString(int n)
@@ -101,7 +97,6 @@ string Test::printRandomString(int n)
     string res = "";
     for (int i = 0; i < n; i++)
         res = res + alphabet[rand() % 26];
-
     return res;
 }
 
@@ -134,8 +129,6 @@ bool Test::check(Node* obj) {
         pass_or_failed = " failed";
         cout << test_check + "........................." + pass_or_failed << endl;
     }
-
-    //t1 = NULL;
     return noer;
 }
 

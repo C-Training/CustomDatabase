@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-class client {
+class Client {
 
     string name;
     int id;

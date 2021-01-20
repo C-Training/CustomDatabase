@@ -1,51 +1,51 @@
 #include "client.h"
 
-void client::setname(string name) {
+void Client::setname(string name) {
 
     this->name = name;
 }
 
-void client::setid(int id) {
+void Client::setid(int id) {
 
     this->id = id;
 }
 
-void client::setphone(string phone) {
+void Client::setphone(string phone) {
 
     this->phone = phone;
 }
 
-void client::setaddress(string address) {
+void Client::setaddress(string address) {
 
     this->address = address;
 }
 
-void client::setproject_id(int project_id) {
+void Client::setproject_id(int project_id) {
 
     this->project_id = project_id;
 }
 
-string client::getname() {
+string Client::getname() {
 
     return name;
 }
 
-int client::getid() {
+int Client::getid() {
 
     return id;
 }
 
-string client::getphone() {
+string Client::getphone() {
 
     return phone;
 }
 
-string client::getaddress() {
+string Client::getaddress() {
 
     return address;
 }
 
-int client::getproject_id() {
+int Client::getproject_id() {
 
     return project_id;
 }

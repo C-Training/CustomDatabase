@@ -143,17 +143,15 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Node.cpp" />
-
+    <ClCompile Include="Project.cpp" />
     <ClCompile Include="Test.cpp" />
-
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Node.h" />
-
+    <ClInclude Include="Project.h" />
     <ClInclude Include="Test.h" />
-
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

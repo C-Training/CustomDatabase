@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CustomeDB.cpp" />
+    <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Employee.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Node.h" />

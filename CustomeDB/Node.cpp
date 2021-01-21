@@ -1,41 +1,30 @@
 #include "Node.h"
 
-Node::Node(int id, string name, int price) {
-    this->data.id = id;
-    this->data.name = name;
-    this->data.price = price;
-}
-
-string Node::getName()
+Node::Node()
 {
-    return data.name;
+	emp.setName("");
+	emp.setId(0);
+	emp.setSalary(0.0);
+	emp.setProject("");
+	emp.setJoiningDate("");
+	emp.setPhone("");
+	emp.setAddress("");
 }
 
-int Node::getId()
+Node::Node(string name, int id, double salary, string project, string joiningDate, string phone, string address)
 {
-    return data.id;
+	emp.setName(name);
+	emp.setId(id);
+	emp.setSalary(salary);
+	emp.setProject(project);
+	emp.setJoiningDate(joiningDate);
+	emp.setPhone(phone);
+	emp.setAddress(address);
 }
 
-int Node::getPrice()
+Employee Node::getEmployee()
 {
-    return data.price;
+	return emp;
 }
-
-void Node::setName(string name)
-{
-    this->data.name = name;
-}
-
-void Node::setId(int id)
-{
-    this->data.id = id;
-}
-
-void Node::setPrice(int price)
-{
-    this->data.price = price;
-}
-
-
 
 

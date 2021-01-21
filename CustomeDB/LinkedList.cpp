@@ -14,11 +14,13 @@ LinkedList::LinkedList(string fileName) {
     }
     else {
         cout << "i was here" << endl;
-        int id;
         string name;
-        int price;
-        while (infile >> id >> name >> price) {
-            addAtEnd(id, name, price);
+        int id;
+        string phone; 
+        string address;
+        int project_id;
+        while (infile >> name >> id >> phone>>address>>project_id) {
+            addAtEnd(name, id, phone, address, project_id);
         }
         infile.close();
     }
@@ -27,47 +29,49 @@ LinkedList::~LinkedList() {
     ofstream outfile;
     outfile.open(fileName, ios::out | ios::trunc);
 
-    Node* cur = head;
+    Node* cur = clienthead;
 
     while (cur != NULL) {
-        outfile << cur->getId() << " ";
-        outfile << cur->getName() << " ";
-        outfile << cur->getPrice() << endl;
+        outfile << cur->getClient().getname() << " ";
+        outfile << cur->getClient().getid() << " ";
+        outfile << cur->getClient().getphone() << " ";
+        outfile << cur->getClient().getaddress() << " ";
+        outfile << cur->getClient().getproject_id() << endl;
         cur = cur->next;
     }
     outfile.close();
 }
 
-Node* LinkedList::getHead()
+Node* LinkedList::getclientHead()
 {
-    return head;
+    return clienthead;
 }
 
-void LinkedList::addAtHead(int id, string name, int price) {
-    Node* new_node = new Node(id, name, price);
+void LinkedList::addAtHead(string name, int id, string phone, string address, int project_id) {
+    Node* new_node = new Node(name, id, phone, address, project_id);
     new_node->next = NULL;
 
-    if (head == NULL) {
-        head = new_node;
+    if (clienthead == NULL) {
+        clienthead = new_node;
     }
     else {
-        Node* temp = head;
-        head = new_node;
-        head->next = temp;
+        Node* temp = clienthead;
+        clienthead = new_node;
+        clienthead->next = temp;
 
     }
 }
 
-void LinkedList::addAtEnd(int id, string name, int price) {
+void LinkedList::addAtEnd(string name, int id, string phone, string address, int project_id) {
 
-    Node* new_node = new Node(id, name, price);
+    Node* new_node = new Node(name, id, phone, address, project_id);
     new_node->next = NULL;
 
-    if (head == NULL) {
-        head = new_node;
+    if (clienthead == NULL) {
+        clienthead = new_node;
     }
     else {
-        Node* cur = head;
+        Node* cur = clienthead;
 
         while (cur->next != NULL) {
             cur = cur->next;
@@ -78,12 +82,12 @@ void LinkedList::addAtEnd(int id, string name, int price) {
 }
 void LinkedList::deleteAtHead() {
 
-    if (head == NULL) {
+    if (clienthead == NULL) {
         cout << "There is no linked list to delete" << endl;
     }
     else {
-        Node* temp = head;
-        head = head->next;
+        Node* temp = clienthead;
+        clienthead = clienthead->next;
 
         delete temp;
     }
@@ -91,18 +95,18 @@ void LinkedList::deleteAtHead() {
 
 void LinkedList::deleteById(int id) {
 
-    if (head == NULL) {
+    if (clienthead == NULL) {
         cout << "linked list is empty \n";
     }
-    else if (head->getId() == id) {
+    else if (clienthead->getClient().getid() == id) {
         deleteAtHead();
     }
     else {
-        Node* cur = head;
+        Node* cur = clienthead;
 
         bool found = false;
         while (cur != NULL) {
-            if (cur->getId() == id ) {
+            if (cur->getClient().getid() == id ) {
                 found = true;
                 break;
             }
@@ -110,7 +114,7 @@ void LinkedList::deleteById(int id) {
         }
         if (found) {
 
-            Node* temp = head;
+            Node* temp = clienthead;
 
             while (temp->next != cur) {
                 temp = temp->next;
@@ -126,58 +130,66 @@ void LinkedList::deleteById(int id) {
 
 void LinkedList::displayList() {
 
-    Node* cur = head;
+    Node* cur = clienthead;
 
     while (cur != NULL) {
-        cout << cur->getId() << " ";
-        cout << cur->getName() << " ";
-        cout << cur->getPrice() << " \n";
+        cout << cur->getClient().getname() << " ";
+        cout << cur->getClient().getid() << " ";
+        cout << cur->getClient().getphone() << " ";
+        cout << cur->getClient().getaddress() << " ";
+        cout << cur->getClient().getproject_id() << " \n";
         cur = cur->next;
     }
     cout << endl;
 }
 
-void LinkedList::updatePrice(int old_val, int new_val) {
-
-    Node* cur = head;
-    bool found = false;
-    if (head == NULL) {
-
-        cout << "Linled list is empty" << endl;
-    }
-    else {
-        while (cur != NULL) {
-            if (cur->getPrice() == old_val) {
-                cur->setPrice(new_val);
-                found = true;
-                break;
-            }
-            cur = cur->next;
-        }
-        if (!found) {
-            cout << "Price not found in linked iist.\n";
-        }
-    }
-}
+//void LinkedList::updatePrice(int old_val, int new_val) {
+//
+//    Node* cur = head;
+//    bool found = false;
+//    if (head == NULL) {
+//
+//        cout << "Linled list is empty" << endl;
+//    }
+//    else {
+//        while (cur != NULL) {
+//            if (cur->getPrice() == old_val) {
+//                cur->setPrice(new_val);
+//                found = true;
+//                break;
+//            }
+//            cur = cur->next;
+//        }
+//        if (!found) {
+//            cout << "Price not found in linked iist.\n";
+//        }
+//    }
+//}
 
 void LinkedList::swapNodes(Node* cur, Node* index) {
-    Item temp;
-    temp.id = cur->getId();
-    temp.name = cur->getName();
-    temp.price = cur->getPrice();
-    cur->setId(index->getId());
-    cur->setName(index->getName());
-    cur->setPrice(index->getPrice());
-    index->setId(temp.id);
-    index->setName(temp.name);
-    index->setPrice(temp.price);
+    Client temp;    
+    temp.setname(cur->getClient().getname());
+    temp.setid(cur->getClient().getid());
+    temp.setphone(cur->getClient().getphone());
+    temp.setaddress(cur->getClient().getaddress());
+    temp.setproject_id(cur->getClient().getproject_id());
+    cur->getClient().setname(index->getClient().getname());
+    cur->getClient().setid(index->getClient().getid());
+    cur->getClient().setphone(index->getClient().getphone());
+    cur->getClient().setaddress(index->getClient().getaddress());
+    cur->getClient().setproject_id(index->getClient().getproject_id());
+    index->getClient().setname(temp.getname());
+    index->getClient().setid(temp.getid());
+    index->getClient().setphone(temp.getphone());
+    index->getClient().setaddress(temp.getaddress());
+    index->getClient().setproject_id(temp.getproject_id());
 }
 
 void LinkedList::sortByNameAes() {
 
-    Node* cur = head;
+    Node* cur = clienthead;
     Node* index = NULL;
-    if (head == NULL) {
+    if (clienthead == NULL) {
 
         cout << "Linked list empty, nothing to sort \n";
     }
@@ -185,7 +197,7 @@ void LinkedList::sortByNameAes() {
         while (cur != NULL) {
             index = cur->next;
             while (index != NULL) {
-                if (cur->getName() > index->getName()) {
+                if (cur->getClient().getname() > index->getClient().getname()) {
                     swapNodes(cur, index);
                 }
                 index = index->next;
@@ -197,9 +209,9 @@ void LinkedList::sortByNameAes() {
 
 void LinkedList::sortByNameDec() {
 
-    Node* cur = head;
+    Node* cur = clienthead;
     Node* index = NULL;
-    if (head == NULL) {
+    if (clienthead == NULL) {
 
         cout << "Linked list empty, nothing to sort \n";
     }
@@ -207,7 +219,7 @@ void LinkedList::sortByNameDec() {
         while (cur != NULL) {
             index = cur->next;
             while (index != NULL) {
-                if (cur->getName() < index->getName()) {
+                if (cur->getClient().getname() < index->getClient().getname()) {
                     swapNodes(cur, index);
                 }
                 index = index->next;
@@ -219,7 +231,7 @@ void LinkedList::sortByNameDec() {
 
 size_t LinkedList::listSize() {
 
-    Node* cur = head;
+    Node* cur = clienthead;
 
     size_t counter = 0;
     while (cur != NULL) {
@@ -231,13 +243,13 @@ size_t LinkedList::listSize() {
 
 void LinkedList::reverseLinkedList() {
 
-    Node* cur = head;
+    Node* cur = clienthead;
     Node* temp = NULL;
     Node* prev = NULL;
-    if (head == NULL) {
+    if (clienthead == NULL) {
         cout << "Linked list empty, nothing to reverse.\n";
     }
-    else if (head->next == NULL) {
+    else if (clienthead->next == NULL) {
 
         cout << "Only one element in List, nothing to reverse.\n";
     }
@@ -248,6 +260,6 @@ void LinkedList::reverseLinkedList() {
             prev = cur;
             cur = temp;
         }
-        head = prev;
+        clienthead = prev;
     }
 }

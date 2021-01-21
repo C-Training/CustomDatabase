@@ -7,7 +7,9 @@ using namespace std;
 
 class LinkedList {
 
-    Node* head = NULL;
+    Node* clienthead = NULL;
+    Node* emphead = NULL;
+    Node* projhead = NULL;
 
     string fileName;
 public:
@@ -16,11 +18,11 @@ public:
     LinkedList(string fileName);
     ~LinkedList();
 
-    Node *getHead();
+    Node *getclientHead();
 
-    void addAtHead(int id, string name, int price);
+    void addAtHead(string name, int id, string phone, string address, int project_id);
 
-    void addAtEnd(int id, string name, int price);
+    void addAtEnd(string name, int id, string phone, string address, int project_id);
 
     void deleteAtHead();
 
@@ -28,7 +30,7 @@ public:
 
     void displayList();
 
-    void updatePrice(int old_val, int new_val);
+//    void updatePhone(int old_val, int new_val);
 
     void swapNodes(Node* cur, Node* index);
 

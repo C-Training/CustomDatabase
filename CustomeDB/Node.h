@@ -1,20 +1,17 @@
 #pragma once
 #include <string>
 #include "item.h"
+#include "client.h"
 
 using namespace std;
 
 class Node {
 private:
-    Item data;
+    Client client;
 public:
-    Node(int id, string name, int price);
+    Node();
+    Node(string name,int id,string phone,string address,int project_id);
     Node* next;
-    string getName();
-    int getId();
-    int getPrice();
-    void setName(string name);
-    void setId(int id);
-    void setPrice(int price);
+    Client getClient();
 };
 

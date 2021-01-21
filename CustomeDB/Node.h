@@ -1,20 +1,16 @@
 #pragma once
 #include <string>
-#include "item.h"
+#include "Employee.h"
 
 using namespace std;
 
 class Node {
 private:
-    Item data;
+    Employee emp;
 public:
-    Node(int id, string name, int price);
+	Node();
+    Node(string name, int id, double salary, string project, string joiningDate, string phone, string address);
     Node* next;
-    string getName();
-    int getId();
-    int getPrice();
-    void setName(string name);
-    void setId(int id);
-    void setPrice(int price);
+    Employee getEmployee();
 };
 

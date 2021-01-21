@@ -7,20 +7,20 @@ using namespace std;
 
 class LinkedList {
 
-    Node* head = NULL;
+    Node* emphead = NULL;
 
     string fileName;
 public:
-    LinkedList();
 
     LinkedList(string fileName);
     ~LinkedList();
 
-    Node *getHead();
 
-    void addAtHead(int id, string name, int price);
+    Node *getempHead();
 
-    void addAtEnd(int id, string name, int price);
+    void addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+
+    void addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address);
 
     void deleteAtHead();
 
@@ -28,7 +28,7 @@ public:
 
     void displayList();
 
-    void updatePrice(int old_val, int new_val);
+    void updateSalary(int id, string name, double new_salary);
 
     void swapNodes(Node* cur, Node* index);
 

@@ -42,7 +42,7 @@ LinkedList::~LinkedList() {
     outfile.close();
 }
 
-LinkedList::LinkedList(string fileName) {
+LinkedList::cliLinkedList(string fileName) {
     this->fileName = fileName;
     ifstream infile(fileName);
     if (!infile) {
@@ -61,7 +61,7 @@ LinkedList::LinkedList(string fileName) {
         infile.close();
     }
 }
-LinkedList::~LinkedList() {
+LinkedList::~cliLinkedList() {
     ofstream outfile;
     outfile.open(fileName, ios::out | ios::trunc);
 
@@ -103,7 +103,7 @@ void LinkedList::addAtHead(string name, int id, double salary, string project, s
 	}
 }
 
-void LinkedList::addAtHead(string name, int id, string phone, string address, int project_id) {
+void LinkedList::addAtcliHead(string name, int id, string phone, string address, int project_id) {
     Node* new_node = new Node(name, id, phone, address, project_id);
     new_node->next = NULL;
 
@@ -137,7 +137,7 @@ void LinkedList::addAtEnd(string name, int id, double salary, string project, st
 
 }
 
-void LinkedList::addAtEnd(string name, int id, string phone, string address, int project_id) {
+void LinkedList::addAtcliEnd(string name, int id, string phone, string address, int project_id) {
 
     Node* new_node = new Node(name, id, phone, address, project_id);
     new_node->next = NULL;
@@ -169,7 +169,7 @@ void LinkedList::deleteAtHead() {
     }
 }
 
-void LinkedList::deleteAtHead() {
+void LinkedList::deleteAtcliHead() {
 
     if (clienthead == NULL) {
         cout << "There is no linked list to delete" << endl;
@@ -217,7 +217,7 @@ void LinkedList::deleteById(int id) {
     }
 }
 
-void LinkedList::deleteById(int id) {
+void LinkedList::deleteBycliId(int id) {
 
     if (clienthead == NULL) {
         cout << "linked list is empty \n";
@@ -269,7 +269,7 @@ void LinkedList::displayList() {
     cout << endl;
 }
 
-void LinkedList::displayList() {
+void LinkedList::displaycliList() {
 
     Node* cur = clienthead;
 
@@ -332,7 +332,7 @@ void LinkedList::swapNodes(Node* cur, Node* index) {
     index->getEmployee().setAddress(temp.getAddress());
 }
 
-void LinkedList::swapNodes(Node* cur, Node* index) {
+void LinkedList::swapcliNodes(Node* cur, Node* index) {
     Client temp;
     temp.setname(cur->getClient().getname());
     temp.setid(cur->getClient().getid());
@@ -373,7 +373,7 @@ void LinkedList::sortByNameAes() {
     }
 }
 
-void LinkedList::sortByNameAes() {
+void LinkedList::sortBycliNameAes() {
 
     Node* cur = clienthead;
     Node* index = NULL;
@@ -417,7 +417,7 @@ void LinkedList::sortByNameDec() {
     }
 }
 
-void LinkedList::sortByNameDec() {
+void LinkedList::sortBycliNameDec() {
 
     Node* cur = clienthead;
     Node* index = NULL;
@@ -451,7 +451,7 @@ size_t LinkedList::listSize() {
     return counter;
 }
 
-size_t LinkedList::listSize() {
+size_t LinkedList::clilistSize() {
 
     Node* cur = clienthead;
 
@@ -486,7 +486,7 @@ void LinkedList::reverseLinkedList() {
     }
 }
 
-void LinkedList::reverseLinkedList() {
+void LinkedList::reversecliLinkedList() {
 
     Node* cur = clienthead;
     Node* temp = NULL;

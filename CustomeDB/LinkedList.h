@@ -15,45 +15,45 @@ public:
 
     LinkedList(string fileName);
     ~LinkedList();
-    cliLinkedList(string fileName);
-    ~cliLinkedList();
+    LinkedList(string fileName);
+    ~LinkedList();
 
 
     Node *getempHead();
     Node *getclientHead();
 
     void addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address);
-    void addAtcliHead(string name, int id, string phone, string address, int project_id);
+    void addAtHead(string name, int id, string phone, string address, int project_id);
 
     void addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address);
-    void addAtcliEnd(string name, int id, string phone, string address, int project_id);
+    void addAtEnd(string name, int id, string phone, string address, int project_id);
 
     void deleteAtHead();
-    void deleteAtcliHead();
+    void deleteAtHead();
 
     void deleteById(int id);
-    void deleteBycliId(int id);
+    void deleteById(int id);
 
     void displayList();
-    void displaycliList();
+    void displayList();
 
     void updateSalary(int id, string name, double new_salary);
 
 
     void swapNodes(Node* cur, Node* index);
-    void swapcliNodes(Node* cur, Node* index);
+    void swapNodes(Node* cur, Node* index);
 
     void sortByNameAes();
-    void sortBycliNameAes();
+    void sortByNameAes();
 
     void sortByNameDec();
-    void sortBycliNameDec();
+    void sortByNameDec();
 
     size_t listSize();
-    size_t clilistSize();
+    size_t listSize();
 
     void reverseLinkedList();
-    void reversecliLinkedList();
+    void reverseLinkedList();
 
 };
 

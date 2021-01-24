@@ -1,9 +1,12 @@
 #pragma once
+
 #include "LinkedList.h"
 #include <string>
 using namespace std;
 
-class Acitivity {
+
+class Activity
+{
 	LinkedList database;
 	Employee emp;
 public:

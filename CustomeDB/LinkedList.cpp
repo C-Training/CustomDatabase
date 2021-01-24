@@ -42,42 +42,6 @@ LinkedList::~LinkedList() {
     outfile.close();
 }
 
-LinkedList::LinkedList(string fileName) {
-    this->fileName = fileName;
-    ifstream infile(fileName);
-    if (!infile) {
-        cout << "No such File. \n";
-    }
-    else {
-        cout << "i was here" << endl;
-        string name;
-        int id;
-        string phone;
-        string address;
-        int project_id;
-        while (infile >> name >> id >> phone >> address >> project_id) {
-            addAtEnd(name, id, phone, address, project_id);
-        }
-        infile.close();
-    }
-}
-LinkedList::~LinkedList() {
-    ofstream outfile;
-    outfile.open(fileName, ios::out | ios::trunc);
-
-    Node* cur = clienthead;
-
-    while (cur != NULL) {
-        outfile << cur->getClient().getname() << " ";
-        outfile << cur->getClient().getid() << " ";
-        outfile << cur->getClient().getphone() << " ";
-        outfile << cur->getClient().getaddress() << " ";
-        outfile << cur->getClient().getproject_id() << endl;
-        cur = cur->next;
-    }
-    outfile.close();
-}
-
 Node* LinkedList::getempHead()
 {
     return emphead;

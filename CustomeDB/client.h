@@ -5,7 +5,7 @@ using namespace std;
 class Client {
 
     string name;
-    int id;
+    int cl_id;
     string phone;
     string address;
     int project_id;
@@ -13,13 +13,13 @@ class Client {
 public:
 
     void setname(string name);
-    void setid(int id);
+    void setcl_id(int cl_id);
     void setphone(string phone);
     void setaddress(string address);
     void setproject_id(int id);
 
     string getname();
-    int getid();
+    int getcl_id();
     string getphone();
     string getaddress();
     int getproject_id();

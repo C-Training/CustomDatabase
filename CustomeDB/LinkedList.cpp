@@ -2,6 +2,11 @@
 
 
 
+LinkedList::LinkedList()
+{
+    cout << "something" << endl;
+}
+
 LinkedList::LinkedList(string fileName) {
     this->fileName = fileName;
     ifstream infile(fileName);
@@ -42,41 +47,41 @@ LinkedList::~LinkedList() {
     outfile.close();
 }
 
-LinkedList::cliLinkedList(string fileName) {
-    this->fileName = fileName;
-    ifstream infile(fileName);
-    if (!infile) {
-        cout << "No such File. \n";
-    }
-    else {
-        cout << "i was here" << endl;
-        string name;
-        int id;
-        string phone;
-        string address;
-        int project_id;
-        while (infile >> name >> id >> phone >> address >> project_id) {
-            addAtEnd(name, id, phone, address, project_id);
-        }
-        infile.close();
-    }
-}
-LinkedList::~cliLinkedList() {
-    ofstream outfile;
-    outfile.open(fileName, ios::out | ios::trunc);
-
-    Node* cur = clienthead;
-
-    while (cur != NULL) {
-        outfile << cur->getClient().getname() << " ";
-        outfile << cur->getClient().getid() << " ";
-        outfile << cur->getClient().getphone() << " ";
-        outfile << cur->getClient().getaddress() << " ";
-        outfile << cur->getClient().getproject_id() << endl;
-        cur = cur->next;
-    }
-    outfile.close();
-}
+//LinkedList::LinkedList(string fileName) {
+//    this->fileName = fileName;
+//    ifstream infile(fileName);
+//    if (!infile) {
+//        cout << "No such File. \n";
+//    }
+//    else {
+//        cout << "i was here" << endl;
+//        string name;
+//        int cl_id;
+//        string phone;
+//        string address;
+//        int project_id;
+//        while (infile >> name >> cl_id >> phone >> address >> project_id) {
+//            addAtEnd(name, cl_id, phone, address, project_id);
+//        }
+//        infile.close();
+//    }
+//}
+//LinkedList::~LinkedList() {
+//    ofstream outfile;
+//    outfile.open(fileName, ios::out | ios::trunc);
+//
+//    Node* cur = clienthead;
+//
+//    while (cur != NULL) {
+//        outfile << cur->getClient().getname() << " ";
+//        outfile << cur->getClient().getid() << " ";
+//        outfile << cur->getClient().getphone() << " ";
+//        outfile << cur->getClient().getaddress() << " ";
+//        outfile << cur->getClient().getproject_id() << endl;
+//        cur = cur->next;
+//    }
+//    outfile.close();
+//}
 
 Node* LinkedList::getempHead()
 {
@@ -103,8 +108,8 @@ void LinkedList::addAtHead(string name, int id, double salary, string project, s
 	}
 }
 
-void LinkedList::addAtcliHead(string name, int id, string phone, string address, int project_id) {
-    Node* new_node = new Node(name, id, phone, address, project_id);
+void LinkedList::addAtHead(string name, int cl_id, string phone, string address, int project_id) {
+    Node* new_node = new Node(name, cl_id, phone, address, project_id);
     new_node->next = NULL;
 
     if (clienthead == NULL) {
@@ -137,9 +142,9 @@ void LinkedList::addAtEnd(string name, int id, double salary, string project, st
 
 }
 
-void LinkedList::addAtcliEnd(string name, int id, string phone, string address, int project_id) {
+void LinkedList::addAtEnd(string name, int cl_id, string phone, string address, int project_id) {
 
-    Node* new_node = new Node(name, id, phone, address, project_id);
+    Node* new_node = new Node(name, cl_id, phone, address, project_id);
     new_node->next = NULL;
 
     if (clienthead == NULL) {
@@ -217,12 +222,12 @@ void LinkedList::deleteById(int id) {
     }
 }
 
-void LinkedList::deleteBycliId(int id) {
+void LinkedList::deleteBycliId(int cl_id) {
 
     if (clienthead == NULL) {
         cout << "linked list is empty \n";
     }
-    else if (clienthead->getClient().getid() == id) {
+    else if (clienthead->getClient().getcl_id() == cl_id) {
         deleteAtHead();
     }
     else {
@@ -230,7 +235,7 @@ void LinkedList::deleteBycliId(int id) {
 
         bool found = false;
         while (cur != NULL) {
-            if (cur->getClient().getid() == id) {
+            if (cur->getClient().getcl_id() == cl_id) {
                 found = true;
                 break;
             }
@@ -275,7 +280,7 @@ void LinkedList::displaycliList() {
 
     while (cur != NULL) {
         cout << cur->getClient().getname() << " ";
-        cout << cur->getClient().getid() << " ";
+        cout << cur->getClient().getcl_id() << " ";
         cout << cur->getClient().getphone() << " ";
         cout << cur->getClient().getaddress() << " ";
         cout << cur->getClient().getproject_id() << " \n";
@@ -335,17 +340,17 @@ void LinkedList::swapNodes(Node* cur, Node* index) {
 void LinkedList::swapcliNodes(Node* cur, Node* index) {
     Client temp;
     temp.setname(cur->getClient().getname());
-    temp.setid(cur->getClient().getid());
+    temp.setcl_id(cur->getClient().getcl_id());
     temp.setphone(cur->getClient().getphone());
     temp.setaddress(cur->getClient().getaddress());
     temp.setproject_id(cur->getClient().getproject_id());
     cur->getClient().setname(index->getClient().getname());
-    cur->getClient().setid(index->getClient().getid());
+    cur->getClient().setcl_id(index->getClient().getcl_id());
     cur->getClient().setphone(index->getClient().getphone());
     cur->getClient().setaddress(index->getClient().getaddress());
     cur->getClient().setproject_id(index->getClient().getproject_id());
     index->getClient().setname(temp.getname());
-    index->getClient().setid(temp.getid());
+    index->getClient().setcl_id(temp.getcl_id());
     index->getClient().setphone(temp.getphone());
     index->getClient().setaddress(temp.getaddress());
     index->getClient().setproject_id(temp.getproject_id());
@@ -386,7 +391,7 @@ void LinkedList::sortBycliNameAes() {
             index = cur->next;
             while (index != NULL) {
                 if (cur->getClient().getname() > index->getClient().getname()) {
-                    swapNodes(cur, index);
+                    swapcliNodes(cur, index);
                 }
                 index = index->next;
             }
@@ -430,7 +435,7 @@ void LinkedList::sortBycliNameDec() {
             index = cur->next;
             while (index != NULL) {
                 if (cur->getClient().getname() < index->getClient().getname()) {
-                    swapNodes(cur, index);
+                    swapcliNodes(cur, index);
                 }
                 index = index->next;
             }

@@ -5,9 +5,9 @@ void Client::setname(string name) {
     this->name = name;
 }
 
-void Client::setid(int id) {
+void Client::setcl_id(int cl_id) {
 
-    this->id = id;
+    this->cl_id = cl_id;
 }
 
 void Client::setphone(string phone) {
@@ -30,9 +30,9 @@ string Client::getname() {
     return name;
 }
 
-int Client::getid() {
+int Client::getcl_id() {
 
-    return id;
+    return cl_id;
 }
 
 string Client::getphone() {

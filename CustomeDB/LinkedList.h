@@ -13,26 +13,26 @@ class LinkedList {
     string fileName;
 public:
 
+    LinkedList();
     LinkedList(string fileName);
     ~LinkedList();
-    cliLinkedList(string fileName);
-    ~cliLinkedList();
+    
 
 
     Node *getempHead();
     Node *getclientHead();
 
     void addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address);
-    void addAtcliHead(string name, int id, string phone, string address, int project_id);
+    void addAtHead(string name, int cl_id, string phone, string address, int project_id);
 
     void addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address);
-    void addAtcliEnd(string name, int id, string phone, string address, int project_id);
+    void addAtEnd(string name, int cl_id, string phone, string address, int project_id);
 
     void deleteAtHead();
     void deleteAtcliHead();
 
     void deleteById(int id);
-    void deleteBycliId(int id);
+    void deleteBycliId(int cl_id);
 
     void displayList();
     void displaycliList();

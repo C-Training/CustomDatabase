@@ -8,9 +8,7 @@ private:
 	LinkedList database;
 	Client cli;
 public:
-	void setdata(string name, int id, string phone, string address, int project_id);
+	void setdata(string name, int cl_id, string phone, string address, int project_id);
 
 	void entertodatabase();
-
-	void displaydatabase();
 };

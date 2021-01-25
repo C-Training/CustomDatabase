@@ -1,19 +1,19 @@
 #include "Node.h"
 
-Node::Node()
-{
-	emp.setName("");
-	emp.setId(0);
-	emp.setSalary(0.0);
-	emp.setProject("");
-	emp.setJoiningDate("");
-	emp.setPhone("");
-	emp.setAddress("");
-}
+//Node::Node()
+//{
+//	emp.setName("");
+//	emp.setId(0);
+//	emp.setSalary(0.0);
+//	emp.setProject("");
+//	emp.setJoiningDate("");
+//	emp.setPhone("");
+//	emp.setAddress("");
+//}
 
 Node::Node() {
 	client.setname("");
-	client.setid(0);
+	client.setcl_id(0);
 	client.setphone("");
 	client.setaddress("");
 	client.setproject_id(0);
@@ -30,9 +30,9 @@ Node::Node(string name, int id, double salary, string project, string joiningDat
 	emp.setAddress(address);
 }
 
-Node::Node(string name, int id, string phone, string address, int project_id) {
+Node::Node(string name, int cl_id, string phone, string address, int project_id) {
 	client.setname(name);
-	client.setid(id);
+	client.setcl_id(cl_id);
 	client.setphone(phone);
 	client.setaddress(address);
 	client.setproject_id(project_id);

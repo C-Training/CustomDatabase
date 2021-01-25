@@ -139,8 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Acitivity.cpp" />
     <ClCompile Include="Activity.cpp" />
+    <ClCompile Include="client.cpp" />
     <ClCompile Include="CustomeDB.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -150,7 +150,8 @@
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Acitivity.h" />
+    <ClInclude Include="Activity.h" />
+    <ClInclude Include="client.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="LinkedList.h" />

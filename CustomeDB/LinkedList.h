@@ -16,11 +16,11 @@ public:
     LinkedList();
     LinkedList(string fileName);
     ~LinkedList();
-    
 
 
-    Node *getempHead();
-    Node *getclientHead();
+
+    Node* getempHead();
+    Node* getclientHead();
 
     void addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address);
     void addAtHead(string name, int cl_id, string phone, string address, int project_id);

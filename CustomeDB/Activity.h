@@ -3,12 +3,14 @@
 #include <string>
 using namespace std;
 
-class Acitivity {
+class Activity {
 private:
 	LinkedList database;
 	Client cli;
 public:
 	void setdata(string name, int cl_id, string phone, string address, int project_id);
 
-	void entertodatabase();
+	void entertoclidatabase();
+
+	void displaydatabase();
 };

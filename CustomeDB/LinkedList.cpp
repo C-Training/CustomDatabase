@@ -95,17 +95,17 @@ Node* LinkedList::getclientHead()
 
 void LinkedList::addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address)
 {
-	Node* new_node = new Node(name, id, salary, project, joiningDate, phone, address);
-	new_node->next = NULL;
+    Node* new_node = new Node(name, id, salary, project, joiningDate, phone, address);
+    new_node->next = NULL;
 
-	if (emphead == NULL) {
-		emphead = new_node;
-	}
-	else {
-		Node* temp = emphead;
-		emphead = new_node;
-		emphead->next = temp;
-	}
+    if (emphead == NULL) {
+        emphead = new_node;
+    }
+    else {
+        Node* temp = emphead;
+        emphead = new_node;
+        emphead->next = temp;
+    }
 }
 
 void LinkedList::addAtHead(string name, int cl_id, string phone, string address, int project_id) {
@@ -200,7 +200,7 @@ void LinkedList::deleteById(int id) {
 
         bool found = false;
         while (cur != NULL) {
-            if (cur->getEmployee().getId() == id ) {
+            if (cur->getEmployee().getId() == id) {
                 found = true;
                 break;
             }
@@ -324,7 +324,7 @@ void LinkedList::swapNodes(Node* cur, Node* index) {
     cur->getEmployee().setName(index->getEmployee().getName());
     cur->getEmployee().setId(index->getEmployee().getId());
     cur->getEmployee().setSalary(index->getEmployee().getSalary());
-	cur->getEmployee().setProject(index->getEmployee().getProject());
+    cur->getEmployee().setProject(index->getEmployee().getProject());
     cur->getEmployee().setJoiningDate(index->getEmployee().getJoiningDate());
     cur->getEmployee().setPhone(index->getEmployee().getPhone());
     cur->getEmployee().setAddress(index->getEmployee().getAddress());

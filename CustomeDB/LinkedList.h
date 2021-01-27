@@ -38,7 +38,7 @@ public:
     void displaycliList();
 
     void updateSalary(int id, string name, double new_salary);
-
+    void updateid(int project_id, int new_project_id);
 
     void swapNodes(Node* cur, Node* index);
     void swapcliNodes(Node* cur, Node* index);

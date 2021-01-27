@@ -313,6 +313,15 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
     }
 }
 
+void LinkedList::updateid(int project_id, int new_project_id) {
+    struct Node* temp = clienthead;
+    while ((temp->getClient().getproject_id()) != project_id) {
+        temp = temp->next;
+    }
+    temp->getClient().setproject_id(new_project_id);
+    cout << "ID is updated" << endl;
+}
+
 void LinkedList::swapNodes(Node* cur, Node* index) {
     Employee temp;
     temp.setName(cur->getEmployee().getName());

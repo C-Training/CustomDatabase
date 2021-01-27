@@ -39,7 +39,10 @@
     <ClCompile Include="Activity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+
     <ClCompile Include="client.cpp">
+    <ClCompile Include="Acitivity.cpp">
+
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,10 +65,13 @@
     <ClInclude Include="Employee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+
     <ClInclude Include="client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Activity.h">
+    <ClInclude Include="Acitivity.h">
+
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

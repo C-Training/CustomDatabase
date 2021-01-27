@@ -83,6 +83,7 @@ LinkedList::~LinkedList() {
 //    outfile.close();
 //}
 
+
 Node* LinkedList::getempHead()
 {
     return emphead;

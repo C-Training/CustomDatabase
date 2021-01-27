@@ -16,6 +16,8 @@ public:
   void enterToDatabase();
   void entertoclidatabase();
 	
+  void updateprojectidclidatabase(int project_id, int new_project_id);
+	
   void displayDatabase();
   void displaydatabase();
 };

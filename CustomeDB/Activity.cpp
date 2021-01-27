@@ -13,6 +13,10 @@ void Activity::entertoclidatabase() {
 	database.addAtHead(cli.getname(), cli.getcl_id(), cli.getphone(), cli.getaddress(), cli.getproject_id());
 }
 
+void Activity::updateprojectidclidatabase(int project_id, int new_project_id) {
+	database.updateid(project_id,new_project_id);
+};
+
 void Activity::displaydatabase()
 {
 	database.displaycliList();

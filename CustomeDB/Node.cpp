@@ -20,11 +20,11 @@ Node::Node(string name, int id, double salary, string project, string joiningDat
 }
 
 Node::Node(string name, int id, string phone, string address, int project_id) {
-	client.setname(name);
-	client.setid(id);
-	client.setphone(phone);
-	client.setaddress(address);
-	client.setproject_id(project_id);
+	client.setName(name);
+	client.setId(id);
+	client.setPhone(phone);
+	client.setAddress(address);
+	client.setProject_Id(project_id);
 }
 
 Node::Node(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {

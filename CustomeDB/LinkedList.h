@@ -19,8 +19,6 @@ public:
     LinkedList(string fileName);
     ~LinkedList();
 
-
-
     Node *getempHead();
     Node *getclientHead();
     Node *getProjectHead();
@@ -52,12 +50,15 @@ public:
 
     void deleteAtEmployeeHead();
     void deleteAtHead();
+    void deleteAtCliHead();
 
+    
+    void deleteById();
     void deleteByEmployeeId(int id);
     void deleteById(int id);
 
     void displayEmployeeList();
-    void displayList();
+    void displayCliList();
 
 
     void updateSalary(int id, string name, double new_salary);
@@ -71,22 +72,28 @@ public:
     size_t listSize();
     size_t listSizeProj();
 
+    void updateCliList();
 
+    void swapCliNodes(Node* cur, Node* index);
     void swapEmployeeNodes(Node* cur, Node* index);
     void swapNodes(Node* cur, Node* index);
 
     void sortByEmployeeNameAes();
     void sortByNameAes();
+    void sortByCliNameAes();
 
     void sortByEmployeeNameDec();
     void sortByNameDec();
+    void sortByCliNameDec();
 
     size_t employeeListSize();
     
 
     void reverseEmployeeLinkedList();
+    size_t ClilistSize();
 
     void reverseLinkedList();
+    void reverseCliLinkedList();
 
 };
 

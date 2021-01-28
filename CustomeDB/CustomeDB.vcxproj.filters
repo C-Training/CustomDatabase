@@ -39,10 +39,10 @@
     <ClCompile Include="Activity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="client.cpp">
+    <ClCompile Include="Display.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
+    <ClCompile Include="client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,13 +65,13 @@
     <ClInclude Include="Employee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Activity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="client.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Display.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

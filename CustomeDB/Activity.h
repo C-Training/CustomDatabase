@@ -23,10 +23,20 @@ class Activity
 	void enterToEmployeeDatabase();				//Entering to the database should be a private function and should not be accesed in main
 												//It should rather be called inside the setData function;
 
+	Client cli;
 public:
 
 
 	void setData(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+	void setData(string name, int id, string phone, string address, int project_id);
+
+	void enterToDatabase();
+	void enterToCliDatabase();
+	
+	void updateCliDataById();
+
+	void deleteCliDataById();
+
 
 	void setData(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 	void enterToDatabasePrj();
@@ -37,7 +47,7 @@ public:
 	
 	void displayProjectDatabase();
 	void displayEmployeeDatabase();
-	void updateDatabase(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+	void updateEmployeeDatabase(string name, int id, double salary, string project, string joiningDate, string phone, string address);
 	void deleteEmployee(int id);
 
 

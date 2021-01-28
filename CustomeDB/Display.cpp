@@ -12,3 +12,7 @@ void Display::showEmployee(LinkedList database)
 
 }
 
+void Display::showClient(LinkedList database)
+{
+	database.displayCliList();
+}

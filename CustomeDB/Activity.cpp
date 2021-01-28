@@ -24,8 +24,17 @@ void Activity::setData(string name, int id, string description, int client_id, s
 }
 
 
-void Activity::enterToEmployeeDatabase()
+void Activity::setData(string name, int id, string phone, string address, int project_id)
+{
+	cli.setName(name);
+	cli.setId(id);
+	cli.setPhone(phone);
+	cli.setAddress(address);
+	cli.setProject_Id(project_id);
+}
 
+
+void Activity::enterToEmployeeDatabase()
 {
 	database.addAtEnd(emp.getName(), emp.getId(), emp.getSalary(), emp.getProject(), emp.getJoiningDate(), emp.getPhone(), emp.getAddress());
 }
@@ -61,9 +70,21 @@ void Activity::displayEmployeeDatabase()
 	display.showEmployee(database);
 }
 
-void Activity::updateDatabase(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+void Activity::updateEmployeeDatabase(string name, int id, double salary, string project, string joiningDate, string phone, string address)
 {
 	database.updateEmployee(name, id, salary, project, joiningDate, phone, address);
+}
+void Activity::enterToCliDatabase()
+{
+	database.addAtEnd(cli.getName(), cli.getId(), cli.getPhone(), cli.getAddress(), cli.getProject_Id());
+}
+
+void Activity::updateCliDataById() {
+	database.updateCliList();
+}
+
+void Activity::deleteCliDataById() {
+	database.deleteById();
 }
 
 void Activity::deleteEmployee(int id)

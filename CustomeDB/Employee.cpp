@@ -1,8 +1,8 @@
 #include "Employee.h"
 
-void Employee::setName(string name)
+void Employee::setName(string testname)
 {
-	this->name = name;
+	this->name = testname;
 }
 
 string Employee::getName()

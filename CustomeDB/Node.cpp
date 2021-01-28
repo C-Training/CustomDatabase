@@ -11,13 +11,6 @@ Node::Node()
 	emp.setAddress("");
 }
 
-Node::Node() {
-	client.setname("");
-	client.setid(0);
-	client.setphone("");
-	client.setaddress("");
-	client.setproject_id(0);
-}
 
 Node::Node(string name, int id, double salary, string project, string joiningDate, string phone, string address)
 {
@@ -40,7 +33,7 @@ Node::Node(string name, int id, string phone, string address, int project_id) {
 
 Employee Node::getEmployee()
 {
-	return emp;
+	return this->emp;
 }
 
 Client Node::getClient()

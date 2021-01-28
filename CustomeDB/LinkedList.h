@@ -12,9 +12,7 @@ class LinkedList {
 
     string fileName;
 public:
-
-    LinkedList(string fileName);
-    ~LinkedList();
+    LinkedList();
     LinkedList(string fileName);
     ~LinkedList();
 
@@ -28,31 +26,32 @@ public:
     void addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address);
     void addAtEnd(string name, int id, string phone, string address, int project_id);
 
-    void deleteAtHead();
+    void deleteAtEmployeeHead();
     void deleteAtHead();
 
-    void deleteById(int id);
+    void deleteByEmployeeId(int id);
     void deleteById(int id);
 
-    void displayList();
+    void displayEmployeeList();
     void displayList();
 
     void updateSalary(int id, string name, double new_salary);
 
+    void updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address);
 
+    void swapEmployeeNodes(Node* cur, Node* index);
     void swapNodes(Node* cur, Node* index);
-    void swapNodes(Node* cur, Node* index);
 
+    void sortByEmployeeNameAes();
     void sortByNameAes();
-    void sortByNameAes();
 
+    void sortByEmployeeNameDec();
     void sortByNameDec();
-    void sortByNameDec();
 
-    size_t listSize();
+    size_t employeeListSize();
     size_t listSize();
 
-    void reverseLinkedList();
+    void reverseEmployeeLinkedList();
     void reverseLinkedList();
 
 };

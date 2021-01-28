@@ -20,7 +20,7 @@ void Project::setclient_id(int client_id)
 	this->client_id = client_id;
 }
 
-void Project::setmoney_earned(int money_earned)
+void Project::setmoney_earned(string money_earned)
 {
 	this->money_earned = money_earned;
 }
@@ -55,7 +55,7 @@ int Project::getclient_id()
 	return client_id;
 }
 
-int Project::getmoney_earned()
+string Project::getmoney_earned()
 {
 	return money_earned;
 }

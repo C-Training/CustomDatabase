@@ -28,7 +28,7 @@ Node::Node(string name, int id, string phone, string address, int project_id) {
 	client.setproject_id(project_id);
 }
 
-Node::Node(string name, int id, string description, int client_id, int money_earned, string deadline, string complete_date) {
+Node::Node(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
 	prj.setname(name);
 	prj.setid(id);
 	prj.setdescription(description);
@@ -44,7 +44,7 @@ Employee Node::getEmployee()
 }
 
 Project Node::getProject() {
-	return this->prj;
+	return prj;
 }
 
 Client Node::getClient()

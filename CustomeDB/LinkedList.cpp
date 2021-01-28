@@ -46,6 +46,10 @@ LinkedList::~LinkedList() {
     outfile.close();
 }
 
+Node* LinkedList::getProjectHead() {
+    return prjhead;
+}
+
 Node* LinkedList::getempHead()
 {
     return emphead;
@@ -86,7 +90,7 @@ void LinkedList::addAtHead(string name, int id, string phone, string address, in
     }
 }
 
-void LinkedList::addAtHead(string name, int id, string description, int client_id, int money_earned, string deadline, string complete_date) {
+void LinkedList::addAtHead(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
     Node* temp = new Node(name, id, description, client_id, money_earned, deadline, complete_date);
     temp->next = prjhead;
     prjhead = temp;
@@ -131,8 +135,9 @@ void LinkedList::addAtEnd(string name, int id, string phone, string address, int
 
 }
 
-void LinkedList :: addAtEnd(string name, int id, string description, int client_id, int money_earned, string deadline, string complete_date) {
+void LinkedList :: addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
     Node* temp = new Node(name, id, description, client_id, money_earned, deadline, complete_date);
+    temp->next = NULL;
     if (prjhead == NULL) {
         prjhead = temp;
     }
@@ -142,7 +147,6 @@ void LinkedList :: addAtEnd(string name, int id, string description, int client_
             prjtail = prjtail->next;
         }
         prjtail->next = temp;
-        prjtail = temp;
     }
 }
 
@@ -280,15 +284,15 @@ void LinkedList::deleteByIdPrj(int id) {
     if (prjhead == NULL) {
         cout << "linked list is empty \n";
     }
-    else if (prjhead->getProject().getid() == id) {
-        deleteAtHead();
+      if (prjhead->prj.getid() == id) {
+        deleteAtHeadPrj();
     }
     else {
         Node* cur = prjhead;
 
         bool found = false;
         while (cur != NULL) {
-            if (cur->getProject().getid() == id) {
+            if (cur->prj.getid() == id) {
                 found = true;
                 break;
             }
@@ -309,6 +313,76 @@ void LinkedList::deleteByIdPrj(int id) {
         }
     }
 }
+
+void LinkedList::updateByIdPrj() {
+
+    if (prjhead == NULL) {
+        cout << "We're sorry but this linked list has same number of entries as you have girls";
+    }
+    else {
+        cout << "Enter the id that you want to update : ";
+        int id;
+        cin >> id;
+        Node* temp = prjhead;
+        bool found = false;
+        while (temp != NULL) {
+            if (temp->prj.getid() == id) {
+                found = true;
+                break;
+            }
+            temp = temp->next;
+        }
+        if (found) {
+            cout << "What do you want to update in this class ? \n";
+            cout << "Press 1 to update name \n";
+            cout << "Press 2 to update description \n";
+            cout << "Press 3 to update client_id \n";
+            cout << "Press 4 to update money earned \n";
+            cout << "Press 5 to update deadline \n";
+            int input;
+            cin >> input;
+
+            if (input == 1) {
+                string name;
+                cout << " enter the new name : ";
+                cin >> name;
+                temp->prj.setname(name);
+            }
+            else if (input == 2) {
+                string description;
+                cout << " enter the new description : ";
+                cin >> description;
+                temp->prj.setdescription(description);
+            }
+            else if (input == 3) {
+                int client_id;
+                cout << " enter the new client_id : ";
+                cin >> client_id;
+                temp->prj.setclient_id(client_id);
+            }
+            else if (input == 4) {
+                string money_earned;
+                cout << " enter the new amount of money earned : ";
+                cin >> money_earned;
+                temp->prj.setmoney_earned(money_earned);
+            }
+            else if (input == 5) {
+                string deadline;
+                cout << " enter the new deadline : ";
+                cin >> deadline;
+                temp->prj.setdeadline(deadline);
+            }
+            else {
+                cout << "Choose betweem given numbers \n";
+            }
+        }
+        if (!found) {
+            cout << "This id is not present in database. \n";
+        }
+
+    }
+}
+
 
 //void LinkedList::displayList() {
 //
@@ -352,6 +426,7 @@ void LinkedList::displayListPrj() {
         cout << temp->getProject().getmoney_earned() << " \n";
         cout << temp->getProject().getdeadline() << " \n";
         cout << temp->getProject().getcomplete_date() << " \n";
+        cout << "\n";
         temp = temp->next;
     }
 }

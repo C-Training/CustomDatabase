@@ -2,6 +2,8 @@
 #include <string>
 #include "Test.h"
 #include "Activity.h"
+#include "LinkedList.h"
+#include "Display.h"
 using namespace std;
 
 int main()
@@ -9,14 +11,20 @@ int main()
 
     Activity test;
     
-    for (int i = 0; i < 10; i++) {
-        test.setData("Talha", i, "fuckboi", 69, 9000000, "3 hours", "1/25/2021");
+    for (int i = 1; i < 6; i++) {
+        test.setData("Talha", i, "fuckboi", 69, "9000000", "3 hours", "1/25/2021");
         test.enterToDatabasePrj();
     }
-    test.deleteEndProjectDatabase();
-    test.deleteEndProjectDatabase();
-    test.deleteHeadProjectDatabase();
-        test.displayDatabase();
+    //test.deleteHeadProjectDatabase();
+    //test.deleteHeadProjectDatabase();
+    //test.deleteEndProjectDatabase();
+    //test.deleteByIdPrj(2);
+    //test.displayDatabase();
+
+    //test.updateByIdPrj();
+
+    test.display();
+
 
 
 

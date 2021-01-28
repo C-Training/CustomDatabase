@@ -23,15 +23,19 @@ public:
 
     Node *getempHead();
     Node *getclientHead();
+    Node *getProjectHead();
     
 
     void addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address);
     void addAtHead(string name, int id, string phone, string address, int project_id);
-    void addAtHead(string name, int id, string description, int client_id, int money_earned, string deadline, string complete_date);
+    void addAtHead(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
     void addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address);
     void addAtEnd(string name, int id, string phone, string address, int project_id);
-    void addAtEnd(string name, int id, string description, int client_id, int money_earned, string deadline, string complete_date);
+    void addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 
+    
+    
+    void updateByIdPrj();
     //void deleteAtHead();
     void deleteAtHead();
     void deleteAtHeadPrj();

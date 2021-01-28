@@ -11,7 +11,7 @@ void Activity::setData(string name, int id, double salary, string project, strin
 	emp.setAddress(address);
 }
 
-void Activity::setData(string name, int id, string description, int client_id, int money_earned, string deadline, string complete_date) {
+void Activity::setData(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
 	prj.setname(name);
 	prj.setid(id);
 	prj.setdescription(description);
@@ -38,7 +38,19 @@ void Activity::enterToDatabasePrj() {
 	database.addAtEnd(prj.getname(), prj.getid(), prj.getdescription(), prj.getclient_id(), prj.getmoney_earned(), prj.getdeadline(), prj.getcomplete_date());
 }
 
+void Activity::deleteByIdPrj(int id) {
+	database.deleteByIdPrj(id);
+}
+
+void Activity::updateByIdPrj() {
+	database.updateByIdPrj();
+}
+
 void Activity::displayDatabase()
 {
 	database.displayListPrj();
+}
+
+void Activity::display(){
+	dis.showProjectDatabase(database);
 }

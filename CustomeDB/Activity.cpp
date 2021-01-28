@@ -74,8 +74,15 @@ void Activity::updateEmployeeDatabase(string name, int id, double salary, string
 {
 	database.updateEmployee(name, id, salary, project, joiningDate, phone, address);
 }
-void Activity::enterToCliDatabase()
+
+
+
+void Activity::deleteEmployee(int id)
+
 {
+	database.deleteByEmployeeId(id);
+}
+void Activity::enterToCliDatabase(){
 	database.addAtEnd(cli.getName(), cli.getId(), cli.getPhone(), cli.getAddress(), cli.getProject_Id());
 }
 
@@ -86,10 +93,4 @@ void Activity::updateCliDataById() {
 void Activity::deleteCliDataById() {
 	database.deleteById();
 }
-
-void Activity::deleteEmployee(int id)
-{
-	database.deleteByEmployeeId(id);
-}
-
 

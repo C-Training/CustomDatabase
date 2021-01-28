@@ -385,6 +385,17 @@ void LinkedList::displayEmployeeList() {
 	cout << endl;
 }
 
+void LinkedList::displayCliList() {
+
+    Node* cur = clienthead;
+
+    while (cur != NULL) {
+        cout << cur->getClient().getName() << " ";
+        cout << cur->getClient().getId() << " ";
+        cout << cur->getClient().getPhone() << " ";
+        cout << cur->getClient().getAddress() << " ";
+        cout << cur->getClient().getProject_Id() << " \n";
+        cur = cur->next;
 void LinkedList::displayListPrj() {
     Node* temp = prjhead;
     while (temp != NULL) {
@@ -423,29 +434,31 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
     }
 }
 
-
-void LinkedList::updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address)
-{
-    bool check = false;
-    Node* cur = this->emphead;
-    while (cur != NULL) {
-        if (cur->getEmployee().getId() == id) {
-            check = true;
-            break;
+void LinkedList:: updateCliList() {
+    Node* current = clienthead;
+    string name, phone, address;
+    int id = 0;
+    int new_id = 0;
+    int project_id = 0;
+    cout << "Enter the id whose client data you want to change" << endl;
+    cin >> id;
+    cout << "Enter the name,id,phone,address and project id " << endl;
+    cin >> name;
+    cin >> new_id;
+    cin >> phone;
+    cin >> address;
+    cin >> project_id;
+    while ((current->next)!=NULL) {
+        if ((current->getClient().getId())==id) {
+            current->getClient().setName(name);
+            current->getClient().setId(new_id);
+            current->getClient().setPhone(phone);
+            current->getClient().setAddress(address);
+            current->getClient().setProject_Id(project_id);
+            cout << "Updated Data" << endl;
+        }else {
+            current = current->next;
         }
-        cur = cur->next;
-    }
-    if (check) {
-		cur->emp.setName(name);
-		cur->emp.setSalary(salary);
-		cur->emp.setProject(project);
-		cur->emp.setJoiningDate(joiningDate);
-		cur->emp.setPhone(phone);
-		cur->emp.setAddress(address);
-		cout << "database updated.\n";
-    }
-    else {
-        cout << "The Empoyee that you are trying to access is either classified or doesnt exist. Check your id.\n";
     }
 }
 
@@ -562,16 +575,21 @@ void LinkedList::sortByEmployeeNameDec() {
 
 
 size_t LinkedList::employeeListSize() {
-
     Node* cur = emphead;
 
     size_t counter = 0;
     while (cur != NULL) {
         cur = cur->next;
         counter++;
+        cout << "Linked list empty, nothing to sort \n";
     }
     return counter;
+
 }
+  
+
+        
+  
 size_t LinkedList::ClilistSize() {
 
     Node* cur = clienthead;

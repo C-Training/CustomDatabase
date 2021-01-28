@@ -53,8 +53,9 @@ public:
     void deleteAtCliHead();
 
     
-    void deleteById();
+    void deleteByCliId();
     void deleteByEmployeeId(int id);
+    void deleteByPrjId(int id);
     void deleteById(int id);
 
     void displayEmployeeList();
@@ -64,6 +65,7 @@ public:
     void updateSalary(int id, string name, double new_salary);
 
     void updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+    void updateCliList();
 
 
  
@@ -77,6 +79,7 @@ public:
     void swapCliNodes(Node* cur, Node* index);
     void swapEmployeeNodes(Node* cur, Node* index);
     void swapNodes(Node* cur, Node* index);
+    
 
     void sortByEmployeeNameAes();
     void sortByNameAes();

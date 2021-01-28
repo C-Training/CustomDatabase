@@ -12,16 +12,16 @@ class Client {
 
 public:
 
-    void setname(string name);
-    void setid(int id);
-    void setphone(string phone);
-    void setaddress(string address);
-    void setproject_id(int id);
+    void setName(string name);
+    void setId(int id);
+    void setPhone(string phone);
+    void setAddress(string address);
+    void setProject_Id(int id);
 
-    string getname();
-    int getid();
-    string getphone();
-    string getaddress();
-    int getproject_id();
+    string getName();
+    int getId();
+    string getPhone();
+    string getAddress();
+    int getProject_Id();
 
 };

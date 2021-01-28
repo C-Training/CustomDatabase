@@ -11,12 +11,30 @@ void Activity::setData(string name, int id, double salary, string project, strin
 	emp.setAddress(address);
 }
 
+void Activity::setData(string name, int id, string phone, string address, int project_id)
+{
+	cli.setName(name);
+	cli.setId(id);
+	cli.setPhone(phone);
+	cli.setAddress(address);
+	cli.setProject_Id(project_id);
+}
+
 void Activity::enterToDatabase()
 {
 	database.addAtEnd(emp.getName(), emp.getId(), emp.getSalary(), emp.getProject(), emp.getJoiningDate(), emp.getPhone(), emp.getAddress());
 }
 
-void Activity::displayDatabase()
+void Activity::enterToCliDatabase()
 {
-	database.displayList();
+	database.addAtEnd(cli.getName(), cli.getId(), cli.getPhone(), cli.getAddress(), cli.getProject_Id());
 }
+
+void Activity::updateCliDataById() {
+	database.updateCliList();
+}
+
+void Activity::deleteCliDataById() {
+	database.deleteById();
+}
+

@@ -9,9 +9,17 @@ class Activity
 {
 	LinkedList database;
 	Employee emp;
+	Client cli;
 public:
 	void setData(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+	void setData(string name, int id, string phone, string address, int project_id);
+
 	void enterToDatabase();
-	void displayDatabase();
+	void enterToCliDatabase();
+	
+	void updateCliDataById();
+
+	void deleteCliDataById();
+
 };
 

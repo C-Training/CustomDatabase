@@ -13,11 +13,10 @@ class LinkedList {
     string fileName;
 public:
 
-    LinkedList(string fileName);
-    ~LinkedList();
-    LinkedList(string fileName);
-    ~LinkedList();
+    LinkedList();
 
+    LinkedList(string fileName);
+    ~LinkedList();
 
     Node *getempHead();
     Node *getclientHead();
@@ -29,31 +28,31 @@ public:
     void addAtEnd(string name, int id, string phone, string address, int project_id);
 
     void deleteAtHead();
-    void deleteAtHead();
+    void deleteAtCliHead();
 
     void deleteById(int id);
-    void deleteById(int id);
+    void deleteById();
 
-    void displayList();
-    void displayList();
+    void displayEmployeeList();
+    void displayCliList();
 
     void updateSalary(int id, string name, double new_salary);
-
+    void updateCliList();
 
     void swapNodes(Node* cur, Node* index);
-    void swapNodes(Node* cur, Node* index);
+    void swapCliNodes(Node* cur, Node* index);
 
     void sortByNameAes();
-    void sortByNameAes();
+    void sortByCliNameAes();
 
     void sortByNameDec();
-    void sortByNameDec();
+    void sortByCliNameDec();
 
     size_t listSize();
-    size_t listSize();
+    size_t ClilistSize();
 
     void reverseLinkedList();
-    void reverseLinkedList();
+    void reverseCliLinkedList();
 
 };
 

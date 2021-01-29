@@ -7,6 +7,5 @@ using namespace std;
 class Display
 {
 public:
-	void showEmployee(LinkedList);
 	void showClient(LinkedList);
 };

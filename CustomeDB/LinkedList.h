@@ -37,7 +37,7 @@ public:
     void displayCliList();
 
     void updateSalary(int id, string name, double new_salary);
-    void updateCliList();
+    void updateClient(string name, int id, string phone, string address, int project_id);
 
     void swapNodes(Node* cur, Node* index);
     void swapCliNodes(Node* cur, Node* index);
@@ -55,4 +55,3 @@ public:
     void reverseCliLinkedList();
 
 };
-

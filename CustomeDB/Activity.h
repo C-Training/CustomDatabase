@@ -17,9 +17,9 @@ public:
 	void enterToDatabase();
 	void enterToCliDatabase();
 	
-	void updateCliDataById();
+	void updateClientData(string name, int id, string phone, string address, int project_id);
 
 	void deleteCliDataById();
 
+	void displayCliList();
 };
-

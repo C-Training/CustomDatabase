@@ -18,4 +18,3 @@ public:
     Employee getEmployee();
     Client getClient();
 };
-

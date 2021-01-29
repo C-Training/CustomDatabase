@@ -75,6 +75,7 @@ public:
     size_t listSizeProj();
 
     void updateCliList();
+    void updateClient(string name, int id, string phone, string address, int project_id);
 
     void swapCliNodes(Node* cur, Node* index);
     void swapEmployeeNodes(Node* cur, Node* index);
@@ -99,4 +100,3 @@ public:
     void reverseCliLinkedList();
 
 };
-

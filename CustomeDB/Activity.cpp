@@ -86,11 +86,14 @@ void Activity::enterToCliDatabase(){
 	database.addAtEnd(cli.getName(), cli.getId(), cli.getPhone(), cli.getAddress(), cli.getProject_Id());
 }
 
-void Activity::updateCliDataById() {
-	database.updateCliList();
+void Activity::updateClientData(string name, int id, string phone, string address, int project_id) {
+	database.updateClient(name, id, phone,  address,  project_id);
 }
 
 void Activity::deleteCliDataById() {
 	database.deleteById();
 }
 
+void Activity::displayCliList() {
+	database.displayCliList();
+}

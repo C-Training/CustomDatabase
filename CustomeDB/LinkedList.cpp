@@ -262,6 +262,7 @@ void LinkedList::deleteById() {
     }
     else if (clienthead->getClient().getId() == id) {
         deleteAtCliHead();
+        cout << "Head is no more" << endl;
     }
     else {
         Node* cur = clienthead;
@@ -283,6 +284,7 @@ void LinkedList::deleteById() {
             }
             temp->next = cur->next;
             delete cur;
+            cout << "Deleted!!" << endl;
         }
         else {
             cout << "Id doesnt exist in linked list \n";
@@ -434,33 +436,29 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
     }
 }
 
-void LinkedList:: updateCliList() {
-    Node* current = clienthead;
-    string name, phone, address;
-    int id = 0;
-    int new_id = 0;
-    int project_id = 0;
-    cout << "Enter the id whose client data you want to change" << endl;
-    cin >> id;
-    cout << "Enter the name,id,phone,address and project id " << endl;
-    cin >> name;
-    cin >> new_id;
-    cin >> phone;
-    cin >> address;
-    cin >> project_id;
-    while ((current->next)!=NULL) {
-        if ((current->getClient().getId())==id) {
-            current->getClient().setName(name);
-            current->getClient().setId(new_id);
-            current->getClient().setPhone(phone);
-            current->getClient().setAddress(address);
-            current->getClient().setProject_Id(project_id);
-            cout << "Updated Data" << endl;
-        }else {
-            current = current->next;
+void LinkedList::updateClient(string name, int id, string phone, string address, int project_id)
+{
+    bool check = false;
+    Node* cur = clienthead;
+    while (cur != NULL) {
+        if (cur->getClient().getId() == id) {
+            check = true;
+            break;
         }
+        cur = cur->next;
+    }
+    if (check) {
+        cur->getClient().setName(name);
+        cur->getClient().setPhone(phone);
+        cur->getClient().setAddress(address);
+        cur->getClient().setProject_Id(project_id);
+        cout << "database updated.\n";
+    }
+    else {
+        cout << "The Empoyee that you are trying to access is either classified or doesnt exist. Check your id.\n";
     }
 }
+
 
 void LinkedList::swapNodes(Node* cur, Node* index) {
     Employee temp;

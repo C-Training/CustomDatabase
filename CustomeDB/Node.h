@@ -27,4 +27,3 @@ public:
     Client getClient();
     Project getProject();
 };
-

@@ -60,20 +60,6 @@ Node* LinkedList::getclientHead()
     return clienthead;
 }
 
-void LinkedList::addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address)
-{
-	Node* new_node = new Node(name, id, salary, project, joiningDate, phone, address);
-	new_node->next = NULL;
-
-	if (emphead == NULL) {
-		emphead = new_node;
-	}
-	else {
-		Node* temp = emphead;
-		emphead = new_node;
-		emphead->next = temp;
-	}
-}
 
 void LinkedList::addAtHead(string name, int id, string phone, string address, int project_id) {
     Node* new_node = new Node(name, id, phone, address, project_id);
@@ -97,24 +83,6 @@ void LinkedList::addAtHead(string name, int id, string description, int client_i
 
 }
 
-void LinkedList::addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address) {
-
-    Node* new_node = new Node(name, id, salary, project, joiningDate, phone, address);
-    new_node->next = NULL;
-
-    if (emphead == NULL) {
-        emphead = new_node;
-    }
-    else {
-        Node* cur = emphead;
-
-        while (cur->next != NULL) {
-            cur = cur->next;
-        }
-        cur->next = new_node;
-    }
-
-}
 
 void LinkedList::addAtEnd(string name, int id, string phone, string address, int project_id) {
 
@@ -411,6 +379,7 @@ void LinkedList::displayListPrj() {
         cout << "\n";
         temp = temp->next;
     }
+    cout << endl;
 }
 
 void LinkedList::updateSalary(int id, string name, double new_salary) {                //The old function was updatePrice
@@ -570,7 +539,27 @@ void LinkedList::sortByEmployeeNameDec() {
     }
 }
 
+void LinkedList::sortByCliNameDec() {
 
+    Node* cur = clienthead;
+    Node* index = NULL;
+    if (clienthead == NULL) {
+
+        cout << "Linked list empty, nothing to sort \n";
+    }
+    else {
+        while (cur != NULL) {
+            index = cur->next;
+            while (index != NULL) {
+                if (cur->getClient().getName() < index->getClient().getName()) {
+                    swapCliNodes(cur, index);
+                }
+                index = index->next;
+            }
+            cur = cur->next;
+        }
+    }
+}
 
 size_t LinkedList::employeeListSize() {
     Node* cur = emphead;

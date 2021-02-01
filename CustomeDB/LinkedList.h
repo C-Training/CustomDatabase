@@ -7,7 +7,6 @@ using namespace std;
 
 class LinkedList {
 
-    Node* emphead = NULL;
     Node* clienthead = NULL;
     Node* prjhead = NULL;
     Node* prjtail = NULL;
@@ -19,7 +18,6 @@ public:
     LinkedList(string fileName);
     ~LinkedList();
 
-    Node *getempHead();
     Node *getclientHead();
     Node *getProjectHead();
     
@@ -31,7 +29,17 @@ public:
     void addAtEnd(string name, int id, string phone, string address, int project_id);
     void addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 
+    void deleteAtCliHead();
 
+    void deleteById();
+
+    void displayCliList();
+
+    void updateClient(string name, int id, string phone, string address, int project_id);
+
+    void swapCliNodes(Node* cur, Node* index);
+
+    void sortByCliNameAes();
     
     
     void updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
@@ -39,6 +47,7 @@ public:
     
     void deleteAtHeadPrj();
 
+    void sortByCliNameDec();
     void deleteAtEndPrj();
 
     
@@ -47,6 +56,7 @@ public:
     
     
     void displayListPrj();
+    size_t ClilistSize();
 
     void deleteAtEmployeeHead();
     void deleteAtHead();
@@ -61,6 +71,8 @@ public:
     void displayEmployeeList();
     void displayCliList();
 
+    void reverseCliLinkedList();
+    void displayList();
 
     void updateSalary(int id, string name, double new_salary);
 
@@ -74,7 +86,6 @@ public:
     size_t listSize();
     size_t listSizeProj();
 
-    void updateCliList();
     void updateClient(string name, int id, string phone, string address, int project_id);
 
     void swapCliNodes(Node* cur, Node* index);
@@ -86,7 +97,6 @@ public:
     void sortByNameAes();
     void sortByCliNameAes();
 
-    void sortByEmployeeNameDec();
     void sortByNameDec();
     void sortByCliNameDec();
 

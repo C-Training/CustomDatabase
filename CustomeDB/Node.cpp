@@ -6,7 +6,13 @@ Node::Node()
 	next = NULL;
 }
 
-
+Node::Node() {
+	client.setName("");
+	client.setId(0);
+	client.setPhone("");
+	client.setAddress("");
+	client.setProject_Id(0);
+}
 
 Node::Node(string name, int id, double salary, string project, string joiningDate, string phone, string address)
 {
@@ -19,13 +25,7 @@ Node::Node(string name, int id, double salary, string project, string joiningDat
 	emp.setAddress(address);
 }
 
-Node::Node(string name, int id, string phone, string address, int project_id) {
-	client.setName(name);
-	client.setId(id);
-	client.setPhone(phone);
-	client.setAddress(address);
-	client.setProject_Id(project_id);
-}
+
 
 Node::Node(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
 	prj.setname(name);

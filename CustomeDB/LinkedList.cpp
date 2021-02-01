@@ -7,44 +7,44 @@ LinkedList::LinkedList()
  }
 
 
-LinkedList::LinkedList(string fileName) {
-    this->fileName = fileName;
-    ifstream infile(fileName);
-    if (infile.fail()) {
-        cerr << "Error Opening File. \n";
-    }
-    else {
-        string name;
-        int id;
-        double salary;
-        string project;
-        string joiningDate;
-        string phone;
-        string address;
-        while (infile >> name >> id >> salary >> project >> joiningDate >> phone >> address) {
-            addAtEnd(name, id, salary, project, joiningDate, phone, address);
-        }
-        infile.close();
-    }
-}
-LinkedList::~LinkedList() {
-    ofstream outfile;
-    outfile.open(fileName, ios::out | ios::trunc);
-
-    Node* cur = emphead;
-
-    while (cur != NULL) {
-        outfile << cur->getEmployee().getName() << " ";
-        outfile << cur->getEmployee().getId() << " ";
-        outfile << cur->getEmployee().getSalary() << " ";
-        outfile << cur->getEmployee().getProject() << " ";
-        outfile << cur->getEmployee().getJoiningDate() << " ";
+//LinkedList::LinkedList(string fileName) {
+  //  this->fileName = fileName;
+ //   ifstream infile(fileName);
+ //   if (infile.fail()) {
+    //    cerr << "Error Opening File. \n";
+  //  }
+//    else {
+ //       string name;
+      //  int id;
+    //    double salary;
+  //      string project;
+//        string joiningDate;
+    //    string phone;
+    //    string address;
+  //      while (infile >> name >> id >> salary >> project >> joiningDate >> phone >> address) {
+        //    addAtEnd(name, id, salary, project, joiningDate, phone, address);
+      //  }
+    //    infile.close();
+  //  }
+//}
+//LinkedList::~LinkedList() {
+    //ofstream outfile;
+  //  outfile.open(fileName, ios::out | ios::trunc);
+//
+  //  Node* cur = emphead;
+//
+   // while (cur != NULL) {
+        //outfile << cur->getEmployee().getName() << " ";
+        //outfile << cur->getEmployee().getId() << " ";
+        //outfile << cur->getEmployee().getSalary() << " ";
+        //outfile << cur->getEmployee().getProject() << " ";
+        //outfile << cur->getEmployee().getJoiningDate() << " ";
         outfile << cur->getEmployee().getPhone() << " ";
-        outfile << cur->getEmployee().getAddress() << endl;
-        cur = cur->next;
-    }
-    outfile.close();
-}
+       // outfile << cur->getEmployee().getAddress() << endl;
+     //   cur = cur->next;
+   // }
+ //   outfile.close();
+//}
 
 Node* LinkedList::getProjectHead() {
     return prjhead;

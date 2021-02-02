@@ -4,7 +4,8 @@
 
 LinkedList::LinkedList()
 {
-}
+ }
+
 
 LinkedList::LinkedList(string fileName) {
     this->fileName = fileName;
@@ -43,6 +44,10 @@ LinkedList::~LinkedList() {
         cur = cur->next;
     }
     outfile.close();
+}
+
+Node* LinkedList::getProjectHead() {
+    return prjhead;
 }
 
 Node* LinkedList::getempHead()
@@ -85,6 +90,13 @@ void LinkedList::addAtHead(string name, int id, string phone, string address, in
     }
 }
 
+void LinkedList::addAtHead(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
+    Node* temp = new Node(name, id, description, client_id, money_earned, deadline, complete_date);
+    temp->next = prjhead;
+    prjhead = temp;
+
+}
+
 void LinkedList::addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address) {
 
     Node* new_node = new Node(name, id, salary, project, joiningDate, phone, address);
@@ -123,7 +135,26 @@ void LinkedList::addAtEnd(string name, int id, string phone, string address, int
 
 }
 
+
+void LinkedList :: addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
+    Node* temp = new Node(name, id, description, client_id, money_earned, deadline, complete_date);
+    temp->next = NULL;
+    if (prjhead == NULL) {
+        prjhead = temp;
+    }
+    else {
+        prjtail = prjhead;
+        while (prjtail->next != NULL) {
+            prjtail = prjtail->next;
+        }
+        prjtail->next = temp;
+    }
+}
+
+
+
 void LinkedList::deleteAtEmployeeHead() {
+
 
     if (emphead == NULL) {
         cout << "There is no linked list to delete" << endl;
@@ -149,7 +180,43 @@ void LinkedList::deleteAtHead() {
     }
 }
 
+
+void LinkedList::deleteAtHeadPrj() {
+
+    if (prjhead == NULL) {
+        cout << "There is no linked list to delete" << endl;
+    }
+    else {
+        Node* temp = prjhead;
+        prjhead = prjhead->next;
+
+        delete temp;
+    }
+}
+
+void LinkedList::deleteAtEndPrj() {
+    if (prjhead == NULL) {
+        cout << "LinkedList is already empty";
+    }
+    else if (prjhead->next == NULL) {
+        prjhead = NULL;
+    }
+    else {
+        Node* temp = prjhead;
+        while (temp->next != NULL) {
+            prjtail = temp;
+            temp = temp->next;
+        }
+        prjtail->next = NULL;
+        delete temp;
+        }
+}
+
+
+
+
 void LinkedList::deleteByEmployeeId(int id) {
+
 
     if (emphead == NULL) {
         cout << "linked list is empty \n";
@@ -219,22 +286,70 @@ void LinkedList::deleteById(int id) {
     }
 }
 
-void LinkedList::displayEmployeeList() {
 
-    Node* cur = emphead;
+void LinkedList::deleteByIdPrj(int id) {
 
+    if (prjhead == NULL) {
+        cout << "linked list is empty \n";
+    }
+      if (prjhead->prj.getid() == id) {
+        deleteAtHeadPrj();
+    }
+    else {
+        Node* cur = prjhead;
+
+        bool found = false;
+        while (cur != NULL) {
+            if (cur->prj.getid() == id) {
+                found = true;
+                break;
+            }
+            cur = cur->next;
+        }
+        if (found) {
+
+            Node* temp = prjhead;
+
+            while (temp->next != cur) {
+                temp = temp->next;
+            }
+            temp->next = cur->next;
+            delete cur;
+        }
+        else {
+            cout << "Id doesnt exist in linked list \n";
+        }
+    }
+}
+
+void LinkedList::updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date)
+{
+    bool check = false;
+    Node* cur = prjhead;
     while (cur != NULL) {
-        cout << cur->getEmployee().getName() << " ";
-        cout << cur->getEmployee().getId() << " ";
-        cout << cur->getEmployee().getSalary() << " ";
-        cout << cur->getEmployee().getProject() << " ";
-        cout << cur->getEmployee().getJoiningDate() << " ";
-        cout << cur->getEmployee().getPhone() << " ";
-        cout << cur->getEmployee().getAddress() << " \n";
+        if (cur->getProject().getid() == id) {
+            check = true;
+            break;
+        }
         cur = cur->next;
     }
-    cout << endl;
+    if (check) {
+        cur->prj.setname(name);
+        cur->prj.setid(id);
+        cur->prj.setdescription(description);
+        cur->prj.setclient_id(client_id);
+        cur->prj.setmoney_earned(money_earned);
+        cur->prj.setdeadline(deadline);
+        cur->prj.setcomplete_date(complete_date);
+
+        cout << "database updated.\n";
+    }
+    if (!check) {
+        cout << "We're sorry but this id doesn't exist. \n";
+    }
 }
+
+
 
 void LinkedList::displayList() {
 
@@ -249,6 +364,38 @@ void LinkedList::displayList() {
         cur = cur->next;
     }
     cout << endl;
+}
+
+void LinkedList::displayEmployeeList() {
+
+	Node* cur = emphead;
+
+	while (cur != NULL) {
+		cout << cur->getEmployee().getName() << " ";
+		cout << cur->getEmployee().getId() << " ";
+		cout << cur->getEmployee().getSalary() << " ";
+		cout << cur->getEmployee().getProject() << " ";
+		cout << cur->getEmployee().getJoiningDate() << " ";
+		cout << cur->getEmployee().getPhone() << " ";
+		cout << cur->getEmployee().getAddress() << " \n";
+		cur = cur->next;
+	}
+	cout << endl;
+}
+
+void LinkedList::displayListPrj() {
+    Node* temp = prjhead;
+    while (temp != NULL) {
+        cout << temp->getProject().getid() << " \n";
+        cout << temp->getProject().getname() << " \n";
+        cout << temp->getProject().getdescription() << " \n";
+        cout << temp->getProject().getclient_id() << " \n";
+        cout << temp->getProject().getmoney_earned() << " \n";
+        cout << temp->getProject().getdeadline() << " \n";
+        cout << temp->getProject().getcomplete_date() << " \n";
+        cout << "\n";
+        temp = temp->next;
+    }
 }
 
 void LinkedList::updateSalary(int id, string name, double new_salary) {                //The old function was updatePrice
@@ -273,6 +420,7 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
         }
     }
 }
+
 
 void LinkedList::updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address)
 {
@@ -409,27 +557,7 @@ void LinkedList::sortByEmployeeNameDec() {
     }
 }
 
-void LinkedList::sortByNameDec() {
 
-    Node* cur = clienthead;
-    Node* index = NULL;
-    if (clienthead == NULL) {
-
-        cout << "Linked list empty, nothing to sort \n";
-    }
-    else {
-        while (cur != NULL) {
-            index = cur->next;
-            while (index != NULL) {
-                if (cur->getClient().getname() < index->getClient().getname()) {
-                    swapNodes(cur, index);
-                }
-                index = index->next;
-            }
-            cur = cur->next;
-        }
-    }
-}
 
 size_t LinkedList::employeeListSize() {
 
@@ -455,7 +583,20 @@ size_t LinkedList::listSize() {
     return counter;
 }
 
+
+size_t LinkedList::listSizeProj() {
+    Node* temp = prjhead;
+    size_t counter = 0;
+    while (temp != NULL) {
+        temp = temp->next;
+        counter++;
+    }
+    return counter;
+}
+
+
 void LinkedList::reverseEmployeeLinkedList() {
+
 
     Node* cur = emphead;
     Node* temp = NULL;
@@ -478,25 +619,3 @@ void LinkedList::reverseEmployeeLinkedList() {
     }
 }
 
-void LinkedList::reverseLinkedList() {
-
-    Node* cur = clienthead;
-    Node* temp = NULL;
-    Node* prev = NULL;
-    if (clienthead == NULL) {
-        cout << "Linked list empty, nothing to reverse.\n";
-    }
-    else if (clienthead->next == NULL) {
-
-        cout << "Only one element in List, nothing to reverse.\n";
-    }
-    else {
-        while (cur != NULL) {
-            temp = cur->next;
-            cur->next = prev;
-            prev = cur;
-            cur = temp;
-        }
-        clienthead = prev;
-    }
-}

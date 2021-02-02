@@ -9,7 +9,9 @@ void Activity::setData(string name, int id, double salary, string project, strin
 	emp.setJoiningDate(joiningDate);
 	emp.setPhone(phone);
 	emp.setAddress(address);
+	enterToEmployeeDatabase();
 }
+
 
 void Activity::setData(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
 	prj.setname(name);
@@ -21,10 +23,13 @@ void Activity::setData(string name, int id, string description, int client_id, s
 	prj.setcomplete_date(complete_date);
 }
 
-void Activity::enterToDatabase()
+
+void Activity::enterToEmployeeDatabase()
+
 {
 	database.addAtEnd(emp.getName(), emp.getId(), emp.getSalary(), emp.getProject(), emp.getJoiningDate(), emp.getPhone(), emp.getAddress());
 }
+
 
 void Activity::deleteEndProjectDatabase() {
 	database.deleteAtEndPrj();
@@ -54,3 +59,20 @@ void Activity::displayDatabase()
 void Activity::display(){
 	dis.showProjectDatabase(database);
 }
+
+void Activity::displayEmployeeDatabase()
+{
+	display.showEmployee(database);
+}
+
+void Activity::updateDatabase(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+{
+	database.updateEmployee(name, id, salary, project, joiningDate, phone, address);
+}
+
+void Activity::deleteEmployee(int id)
+{
+	database.deleteByEmployeeId(id);
+}
+
+

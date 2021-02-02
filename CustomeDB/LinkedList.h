@@ -18,7 +18,7 @@ public:
     LinkedList();
     LinkedList(string fileName);
     ~LinkedList();
-    
+
 
 
     Node *getempHead();
@@ -33,39 +33,59 @@ public:
     void addAtEnd(string name, int id, string phone, string address, int project_id);
     void addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 
+
     
     
     void updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
-    //void deleteAtHead();
-    void deleteAtHead();
+    
+    
     void deleteAtHeadPrj();
 
     void deleteAtEndPrj();
 
-    void deleteById(int id);
-    //void deleteById(int id);
+    
+    
     void deleteByIdPrj(int id);
-    void displayList();
-    //void displayList();
+    
+    
     void displayListPrj();
+
+    void deleteAtEmployeeHead();
+    void deleteAtHead();
+
+    void deleteByEmployeeId(int id);
+    void deleteById(int id);
+
+    void displayEmployeeList();
+    void displayList();
+
 
     void updateSalary(int id, string name, double new_salary);
 
-
-    //void swapNodes(Node* cur, Node* index);
-    
-
-    //void sortByNameAes();
+    void updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address);
 
 
-    //void sortByNameDec();
  
 
-    //size_t listSize();
+    
     size_t listSize();
     size_t listSizeProj();
 
-    //void reverseLinkedList();
+
+    void swapEmployeeNodes(Node* cur, Node* index);
+    void swapNodes(Node* cur, Node* index);
+
+    void sortByEmployeeNameAes();
+    void sortByNameAes();
+
+    void sortByEmployeeNameDec();
+    void sortByNameDec();
+
+    size_t employeeListSize();
+    
+
+    void reverseEmployeeLinkedList();
+
     void reverseLinkedList();
 
 };

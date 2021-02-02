@@ -4,14 +4,14 @@
 
 LinkedList::LinkedList()
 {
-  }
+ }
+
 
 LinkedList::LinkedList(string fileName) {
     this->fileName = fileName;
     ifstream infile(fileName);
     if (infile.fail()) {
         cerr << "Error Opening File. \n";
-        //exit(1);
     }
     else {
         string name;
@@ -135,6 +135,7 @@ void LinkedList::addAtEnd(string name, int id, string phone, string address, int
 
 }
 
+
 void LinkedList :: addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
     Node* temp = new Node(name, id, description, client_id, money_earned, deadline, complete_date);
     temp->next = NULL;
@@ -150,7 +151,10 @@ void LinkedList :: addAtEnd(string name, int id, string description, int client_
     }
 }
 
-void LinkedList::deleteAtHead() {
+
+
+void LinkedList::deleteAtEmployeeHead() {
+
 
     if (emphead == NULL) {
         cout << "There is no linked list to delete" << endl;
@@ -175,6 +179,7 @@ void LinkedList::deleteAtHead() {
         delete temp;
     }
 }
+
 
 void LinkedList::deleteAtHeadPrj() {
 
@@ -209,20 +214,22 @@ void LinkedList::deleteAtEndPrj() {
 
 
 
-void LinkedList::deleteById(int id) {
+
+void LinkedList::deleteByEmployeeId(int id) {
+
 
     if (emphead == NULL) {
         cout << "linked list is empty \n";
     }
     else if (emphead->getEmployee().getId() == id) {
-        deleteAtHead();
+        deleteAtEmployeeHead();
     }
     else {
         Node* cur = emphead;
 
         bool found = false;
         while (cur != NULL) {
-            if (cur->getEmployee().getId() == id ) {
+            if (cur->getEmployee().getId() == id) {
                 found = true;
                 break;
             }
@@ -279,7 +286,11 @@ void LinkedList::deleteById(int id) {
     }
 }
 
+
 void LinkedList::deleteByIdPrj(int id) {
+
+void LinkedList::displayEmployeeList() {
+
 
     if (prjhead == NULL) {
         cout << "linked list is empty \n";
@@ -341,22 +352,7 @@ void LinkedList::updateByIdPrj(string name, int id, string description, int clie
     }
 }
 
-//void LinkedList::displayList() {
-//
-//    Node* cur = emphead;
-//
-//    while (cur != NULL) {
-//        cout << cur->getEmployee().getName() << " ";
-//        cout << cur->getEmployee().getId() << " ";
-//        cout << cur->getEmployee().getSalary() << " ";
-//        cout << cur->getEmployee().getProject() << " ";
-//        cout << cur->getEmployee().getJoiningDate() << " ";
-//        cout << cur->getEmployee().getPhone() << " ";
-//        cout << cur->getEmployee().getAddress() << " \n";
-//        cur = cur->next;
-//    }
-//    cout << endl;
-//}
+
 
 void LinkedList::displayList() {
 
@@ -398,8 +394,8 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
     }
     else {
         while (cur != NULL) {
-            if (cur->getEmployee().getId() == id && cur->getEmployee().getName() == name) {
-                cur->getEmployee().setSalary(new_salary);
+            if (cur->emp.getId() == id && cur->getEmployee().getName() == name) {
+                cur->emp.setSalary(new_salary);
                 found = true;
                 break;
             }
@@ -412,9 +408,147 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
 }
 
 
+void LinkedList::updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+{
+    bool check = false;
+    Node* cur = this->emphead;
+    while (cur != NULL) {
+        if (cur->getEmployee().getId() == id) {
+            check = true;
+            break;
+        }
+        cur = cur->next;
+    }
+    if (check) {
+		cur->emp.setName(name);
+		cur->emp.setSalary(salary);
+		cur->emp.setProject(project);
+		cur->emp.setJoiningDate(joiningDate);
+		cur->emp.setPhone(phone);
+		cur->emp.setAddress(address);
+		cout << "database updated.\n";
+    }
+    else {
+        cout << "The Empoyee that you are trying to access is either classified or doesnt exist. Check your id.\n";
+    }
+}
+
+void LinkedList::swapEmployeeNodes(Node* cur, Node* index) {
+    Employee temp;
+    temp.setName(cur->getEmployee().getName());
+    temp.setId(cur->getEmployee().getId());
+    temp.setSalary(cur->getEmployee().getSalary());
+    temp.setProject(cur->getEmployee().getProject());
+    temp.setJoiningDate(cur->getEmployee().getJoiningDate());
+    temp.setPhone(cur->getEmployee().getPhone());
+    temp.setAddress(cur->getEmployee().getAddress());
+    cur->getEmployee().setName(index->getEmployee().getName());
+    cur->getEmployee().setId(index->getEmployee().getId());
+    cur->getEmployee().setSalary(index->getEmployee().getSalary());
+	cur->getEmployee().setProject(index->getEmployee().getProject());
+    cur->getEmployee().setJoiningDate(index->getEmployee().getJoiningDate());
+    cur->getEmployee().setPhone(index->getEmployee().getPhone());
+    cur->getEmployee().setAddress(index->getEmployee().getAddress());
+    index->getEmployee().setName(temp.getName());
+    index->getEmployee().setId(temp.getId());
+    index->getEmployee().setSalary(temp.getSalary());
+    index->getEmployee().setProject(temp.getProject());
+    index->getEmployee().setJoiningDate(temp.getJoiningDate());
+    index->getEmployee().setPhone(temp.getPhone());
+    index->getEmployee().setAddress(temp.getAddress());
+}
+
+void LinkedList::swapNodes(Node* cur, Node* index) {
+    Client temp;
+    temp.setname(cur->getClient().getname());
+    temp.setid(cur->getClient().getid());
+    temp.setphone(cur->getClient().getphone());
+    temp.setaddress(cur->getClient().getaddress());
+    temp.setproject_id(cur->getClient().getproject_id());
+    cur->getClient().setname(index->getClient().getname());
+    cur->getClient().setid(index->getClient().getid());
+    cur->getClient().setphone(index->getClient().getphone());
+    cur->getClient().setaddress(index->getClient().getaddress());
+    cur->getClient().setproject_id(index->getClient().getproject_id());
+    index->getClient().setname(temp.getname());
+    index->getClient().setid(temp.getid());
+    index->getClient().setphone(temp.getphone());
+    index->getClient().setaddress(temp.getaddress());
+    index->getClient().setproject_id(temp.getproject_id());
+}
+
+void LinkedList::sortByEmployeeNameAes() {
+
+    Node* cur = emphead;
+    Node* index = NULL;
+    if (emphead == NULL) {
+
+        cout << "Linked list empty, nothing to sort \n";
+    }
+    else {
+        while (cur != NULL) {
+            index = cur->next;
+            while (index != NULL) {
+                if (cur->getEmployee().getName() > index->getEmployee().getName()) {
+                    swapEmployeeNodes(cur, index);
+                }
+                index = index->next;
+            }
+            cur = cur->next;
+        }
+    }
+}
+
+void LinkedList::sortByNameAes() {
+
+    Node* cur = clienthead;
+    Node* index = NULL;
+    if (clienthead == NULL) {
+
+        cout << "Linked list empty, nothing to sort \n";
+    }
+    else {
+        while (cur != NULL) {
+            index = cur->next;
+            while (index != NULL) {
+                if (cur->getClient().getname() > index->getClient().getname()) {
+                    swapNodes(cur, index);
+                }
+                index = index->next;
+            }
+            cur = cur->next;
+        }
+    }
+}
+
+void LinkedList::sortByEmployeeNameDec() {
+
+    Node* cur = emphead;
+    Node* index = NULL;
+    if (emphead == NULL) {
+
+        cout << "Linked list empty, nothing to sort \n";
+    }
+    else {
+        while (cur != NULL) {
+            index = cur->next;
+            while (index != NULL) {
+                if (cur->getEmployee().getName() < index->getEmployee().getName()) {
+                    swapNodes(cur, index);
+                }
+                index = index->next;
+            }
+            cur = cur->next;
+        }
+    }
+}
+
+void LinkedList::sortByNameDec() {
 
 
-size_t LinkedList::listSize() {
+
+
+size_t LinkedList::employeeListSize() {
 
     Node* cur = emphead;
 
@@ -438,6 +572,7 @@ size_t LinkedList::listSize() {
     return counter;
 }
 
+
 size_t LinkedList::listSizeProj() {
     Node* temp = prjhead;
     size_t counter = 0;
@@ -449,6 +584,9 @@ size_t LinkedList::listSizeProj() {
 }
 
 void LinkedList::reverseLinkedList() {
+
+void LinkedList::reverseEmployeeLinkedList() {
+
 
     Node* cur = emphead;
     Node* temp = NULL;

@@ -8,7 +8,6 @@ Node::Node()
 
 
 
-
 Node::Node(string name, int id, double salary, string project, string joiningDate, string phone, string address)
 {
 	emp.setName(name);
@@ -40,7 +39,7 @@ Node::Node(string name, int id, string description, int client_id, string money_
 
 Employee Node::getEmployee()
 {
-	return emp;
+	return this->emp;
 }
 
 Project Node::getProject() {

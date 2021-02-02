@@ -61,7 +61,7 @@ Node* LinkedList::getclientHead()
 }
 
 
-void LinkedList::addAtHead(string name, int id, string phone, string address, int project_id) {
+void LinkedList::addAtCliHead(string name, int id, string phone, string address, int project_id) {
     Node* new_node = new Node(name, id, phone, address, project_id);
     new_node->next = NULL;
 

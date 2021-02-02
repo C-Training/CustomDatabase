@@ -289,9 +289,6 @@ void LinkedList::deleteById(int id) {
 
 void LinkedList::deleteByIdPrj(int id) {
 
-void LinkedList::displayEmployeeList() {
-
-
     if (prjhead == NULL) {
         cout << "linked list is empty \n";
     }
@@ -367,6 +364,23 @@ void LinkedList::displayList() {
         cur = cur->next;
     }
     cout << endl;
+}
+
+void LinkedList::displayEmployeeList() {
+
+	Node* cur = emphead;
+
+	while (cur != NULL) {
+		cout << cur->getEmployee().getName() << " ";
+		cout << cur->getEmployee().getId() << " ";
+		cout << cur->getEmployee().getSalary() << " ";
+		cout << cur->getEmployee().getProject() << " ";
+		cout << cur->getEmployee().getJoiningDate() << " ";
+		cout << cur->getEmployee().getPhone() << " ";
+		cout << cur->getEmployee().getAddress() << " \n";
+		cur = cur->next;
+	}
+	cout << endl;
 }
 
 void LinkedList::displayListPrj() {
@@ -543,9 +557,6 @@ void LinkedList::sortByEmployeeNameDec() {
     }
 }
 
-void LinkedList::sortByNameDec() {
-
-
 
 
 size_t LinkedList::employeeListSize() {
@@ -583,7 +594,6 @@ size_t LinkedList::listSizeProj() {
     return counter;
 }
 
-void LinkedList::reverseLinkedList() {
 
 void LinkedList::reverseEmployeeLinkedList() {
 

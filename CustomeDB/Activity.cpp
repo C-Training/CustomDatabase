@@ -51,13 +51,9 @@ void Activity::updateByIdPrj(string name, int id, string description, int client
 	database.updateByIdPrj(name,id,description,client_id,money_earned,deadline,complete_date);
 }
 
-void Activity::displayDatabase()
-{
-	database.displayListPrj();
-}
 
-void Activity::display(){
-	dis.showProjectDatabase(database);
+void Activity::displayProjectDatabase(){
+	display.showProjectDatabase(database);
 }
 
 void Activity::displayEmployeeDatabase()

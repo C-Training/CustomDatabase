@@ -21,10 +21,6 @@ public:
     Node(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 
     Node* next;
-
-	
- 
-    
 	Employee emp;
 
     Employee getEmployee();

@@ -23,7 +23,7 @@ public:
 	void deleteHeadProjectDatabase();	
 	void deleteEndProjectDatabase();
 	void deleteByIdPrj(int id);
-	void updateByIdPrj();
+	void updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 	
 	void display();
 

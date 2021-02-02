@@ -163,18 +163,18 @@ void LinkedList::deleteAtHead() {
     }
 }
 
-//void LinkedList::deleteAtHead() {
-//
-//    if (clienthead == NULL) {
-//        cout << "There is no linked list to delete" << endl;
-//    }
-//    else {
-//        Node* temp = clienthead;
-//        clienthead = clienthead->next;
-//
-//        delete temp;
-//    }
-//}
+void LinkedList::deleteAtHead() {
+
+    if (clienthead == NULL) {
+        cout << "There is no linked list to delete" << endl;
+    }
+    else {
+        Node* temp = clienthead;
+        clienthead = clienthead->next;
+
+        delete temp;
+    }
+}
 
 void LinkedList::deleteAtHeadPrj() {
 
@@ -209,40 +209,40 @@ void LinkedList::deleteAtEndPrj() {
 
 
 
-//void LinkedList::deleteById(int id) {
-//
-//    if (emphead == NULL) {
-//        cout << "linked list is empty \n";
-//    }
-//    else if (emphead->getEmployee().getId() == id) {
-//        deleteAtHead();
-//    }
-//    else {
-//        Node* cur = emphead;
-//
-//        bool found = false;
-//        while (cur != NULL) {
-//            if (cur->getEmployee().getId() == id ) {
-//                found = true;
-//                break;
-//            }
-//            cur = cur->next;
-//        }
-//        if (found) {
-//
-//            Node* temp = emphead;
-//
-//            while (temp->next != cur) {
-//                temp = temp->next;
-//            }
-//            temp->next = cur->next;
-//            delete cur;
-//        }
-//        else {
-//            cout << "Id doesnt exist in linked list \n";
-//        }
-//    }
-//}
+void LinkedList::deleteById(int id) {
+
+    if (emphead == NULL) {
+        cout << "linked list is empty \n";
+    }
+    else if (emphead->getEmployee().getId() == id) {
+        deleteAtHead();
+    }
+    else {
+        Node* cur = emphead;
+
+        bool found = false;
+        while (cur != NULL) {
+            if (cur->getEmployee().getId() == id ) {
+                found = true;
+                break;
+            }
+            cur = cur->next;
+        }
+        if (found) {
+
+            Node* temp = emphead;
+
+            while (temp->next != cur) {
+                temp = temp->next;
+            }
+            temp->next = cur->next;
+            delete cur;
+        }
+        else {
+            cout << "Id doesnt exist in linked list \n";
+        }
+    }
+}
 
 void LinkedList::deleteById(int id) {
 
@@ -314,75 +314,32 @@ void LinkedList::deleteByIdPrj(int id) {
     }
 }
 
-void LinkedList::updateByIdPrj() {
-
-    if (prjhead == NULL) {
-        cout << "We're sorry but this linked list has same number of entries as you have girls";
+void LinkedList::updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date)
+{
+    bool check = false;
+    Node* cur = prjhead;
+    while (cur != NULL) {
+        if (cur->getProject().getid() == id) {
+            check = true;
+            break;
+        }
+        cur = cur->next;
     }
-    else {
-        cout << "Enter the id that you want to update : ";
-        int id;
-        cin >> id;
-        Node* temp = prjhead;
-        bool found = false;
-        while (temp != NULL) {
-            if (temp->prj.getid() == id) {
-                found = true;
-                break;
-            }
-            temp = temp->next;
-        }
-        if (found) {
-            cout << "What do you want to update in this class ? \n";
-            cout << "Press 1 to update name \n";
-            cout << "Press 2 to update description \n";
-            cout << "Press 3 to update client_id \n";
-            cout << "Press 4 to update money earned \n";
-            cout << "Press 5 to update deadline \n";
-            int input;
-            cin >> input;
+    if (check) {
+        cur->prj.setname(name);
+        cur->prj.setid(id);
+        cur->prj.setdescription(description);
+        cur->prj.setclient_id(client_id);
+        cur->prj.setmoney_earned(money_earned);
+        cur->prj.setdeadline(deadline);
+        cur->prj.setcomplete_date(complete_date);
 
-            if (input == 1) {
-                string name;
-                cout << " enter the new name : ";
-                cin >> name;
-                temp->prj.setname(name);
-            }
-            else if (input == 2) {
-                string description;
-                cout << " enter the new description : ";
-                cin >> description;
-                temp->prj.setdescription(description);
-            }
-            else if (input == 3) {
-                int client_id;
-                cout << " enter the new client_id : ";
-                cin >> client_id;
-                temp->prj.setclient_id(client_id);
-            }
-            else if (input == 4) {
-                string money_earned;
-                cout << " enter the new amount of money earned : ";
-                cin >> money_earned;
-                temp->prj.setmoney_earned(money_earned);
-            }
-            else if (input == 5) {
-                string deadline;
-                cout << " enter the new deadline : ";
-                cin >> deadline;
-                temp->prj.setdeadline(deadline);
-            }
-            else {
-                cout << "Choose betweem given numbers \n";
-            }
-        }
-        if (!found) {
-            cout << "This id is not present in database. \n";
-        }
-
+        cout << "database updated.\n";
+    }
+    if (!check) {
+        cout << "We're sorry but this id doesn't exist. \n";
     }
 }
-
 
 //void LinkedList::displayList() {
 //
@@ -456,112 +413,6 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
 
 
 
-//void LinkedList::swapNodes(Node* cur, Node* index) {
-//    Client temp;
-//    temp.setname(cur->getClient().getname());
-//    temp.setid(cur->getClient().getid());
-//    temp.setphone(cur->getClient().getphone());
-//    temp.setaddress(cur->getClient().getaddress());
-//    temp.setproject_id(cur->getClient().getproject_id());
-//    cur->getClient().setname(index->getClient().getname());
-//    cur->getClient().setid(index->getClient().getid());
-//    cur->getClient().setphone(index->getClient().getphone());
-//    cur->getClient().setaddress(index->getClient().getaddress());
-//    cur->getClient().setproject_id(index->getClient().getproject_id());
-//    index->getClient().setname(temp.getname());
-//    index->getClient().setid(temp.getid());
-//    index->getClient().setphone(temp.getphone());
-//    index->getClient().setaddress(temp.getaddress());
-//    index->getClient().setproject_id(temp.getproject_id());
-//}
-
-//void LinkedList::sortByNameAes() {
-//
-//    Node* cur = emphead;
-//    Node* index = NULL;
-//    if (emphead == NULL) {
-//
-//        cout << "Linked list empty, nothing to sort \n";
-//    }
-//    else {
-//        while (cur != NULL) {
-//            index = cur->next;
-//            while (index != NULL) {
-//                if (cur->getEmployee().getName() > index->getEmployee().getName()) {
-//                    swapNodes(cur, index);
-//                }
-//                index = index->next;
-//            }
-//            cur = cur->next;
-//        }
-//    }
-//}
-
-//void LinkedList::sortByNameAes() {
-//
-//    Node* cur = clienthead;
-//    Node* index = NULL;
-//    if (clienthead == NULL) {
-//
-//        cout << "Linked list empty, nothing to sort \n";
-//    }
-//    else {
-//        while (cur != NULL) {
-//            index = cur->next;
-//            while (index != NULL) {
-//                if (cur->getClient().getname() > index->getClient().getname()) {
-//                    swapNodes(cur, index);
-//                }
-//                index = index->next;
-//            }
-//            cur = cur->next;
-//        }
-//    }
-//}
-//
-//void LinkedList::sortByNameDec() {
-//
-//    Node* cur = emphead;
-//    Node* index = NULL;
-//    if (emphead == NULL) {
-//
-//        cout << "Linked list empty, nothing to sort \n";
-//    }
-//    else {
-//        while (cur != NULL) {
-//            index = cur->next;
-//            while (index != NULL) {
-//                if (cur->getEmployee().getName() < index->getEmployee().getName()) {
-//                    swapNodes(cur, index);
-//                }
-//                index = index->next;
-//            }
-//            cur = cur->next;
-//        }
-//    }
-//}
-//
-//void LinkedList::sortByNameDec() {
-//
-//    Node* cur = clienthead;
-//    Node* index = NULL;
-//    if (clienthead == NULL) {
-//
-//        cout << "Linked list empty, nothing to sort \n";
-//    }
-//    else {
-//        while (cur != NULL) {
-//            index = cur->next;
-//            while (index != NULL) {
-//                if (cur->getClient().getname() < index->getClient().getname()) {
-//                    swapNodes(cur, index);
-//                }
-//                index = index->next;
-//            }
-//            cur = cur->next;
-//        }
-//    }
-//}
 
 size_t LinkedList::listSize() {
 
@@ -575,17 +426,17 @@ size_t LinkedList::listSize() {
     return counter;
 }
 
-//size_t LinkedList::listSize() {
-//
-//    Node* cur = clienthead;
-//
-//    size_t counter = 0;
-//    while (cur != NULL) {
-//        cur = cur->next;
-//        counter++;
-//    }
-//    return counter;
-//}
+size_t LinkedList::listSize() {
+
+    Node* cur = clienthead;
+
+    size_t counter = 0;
+    while (cur != NULL) {
+        cur = cur->next;
+        counter++;
+    }
+    return counter;
+}
 
 size_t LinkedList::listSizeProj() {
     Node* temp = prjhead;
@@ -620,25 +471,3 @@ void LinkedList::reverseLinkedList() {
     }
 }
 
-//void LinkedList::reverseLinkedList() {
-//
-//    Node* cur = clienthead;
-//    Node* temp = NULL;
-//    Node* prev = NULL;
-//    if (clienthead == NULL) {
-//        cout << "Linked list empty, nothing to reverse.\n";
-//    }
-//    else if (clienthead->next == NULL) {
-//
-//        cout << "Only one element in List, nothing to reverse.\n";
-//    }
-//    else {
-//        while (cur != NULL) {
-//            temp = cur->next;
-//            cur->next = prev;
-//            prev = cur;
-//            cur = temp;
-//        }
-//        clienthead = prev;
-//    }
-//}

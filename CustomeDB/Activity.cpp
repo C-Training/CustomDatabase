@@ -42,8 +42,8 @@ void Activity::deleteByIdPrj(int id) {
 	database.deleteByIdPrj(id);
 }
 
-void Activity::updateByIdPrj() {
-	database.updateByIdPrj();
+void Activity::updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
+	database.updateByIdPrj(name,id,description,client_id,money_earned,deadline,complete_date);
 }
 
 void Activity::displayDatabase()

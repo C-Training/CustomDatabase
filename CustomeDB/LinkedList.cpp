@@ -427,6 +427,7 @@ void LinkedList::updateClient(string name, int id, string phone, string address,
         cout << "The Empoyee that you are trying to access is either classified or doesnt exist. Check your id.\n";
     }
 }
+}
 
 
 void LinkedList::swapNodes(Node* cur, Node* index) {

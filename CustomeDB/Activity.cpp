@@ -83,6 +83,6 @@ void Activity::deleteCliDataById() {
 	database.deleteById();
 }
 
-void Activity::displayCliList() {
+void Activity::showClientDatabase() {
 	display.showClient(database);
 }

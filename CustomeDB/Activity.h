@@ -24,6 +24,7 @@ class Activity
 												//It should rather be called inside the setData function;
 
 	Client cli;
+	Display display;
 public:
 
 
@@ -50,7 +51,7 @@ public:
 	void deleteEmployee(int id);
 
 
-	void displayCliList();
+	void displayCliDatabase();
 };
 
 	

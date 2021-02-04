@@ -575,6 +575,29 @@ size_t LinkedList::employeeListSize() {
 
 }
   
+void LinkedList::reverseCliLinkedList() {
+
+
+    Node* cur = clienthead;
+    Node* temp = NULL;
+    Node* prev = NULL;
+    if (clienthead == NULL) {
+        cout << "Linked list empty, nothing to reverse.\n";
+    }
+    else if (clienthead->next == NULL) {
+
+        cout << "Only one element in List, nothing to reverse.\n";
+    }
+    else {
+        while (cur != NULL) {
+            temp = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = temp;
+        }
+        clienthead = prev;
+    }
+}
 
         
   

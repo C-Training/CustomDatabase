@@ -51,7 +51,7 @@ public:
 	void deleteEmployee(int id);
 
 
-	void displayCliDatabase();
+	void showClientDatabase();
 };
 
 	

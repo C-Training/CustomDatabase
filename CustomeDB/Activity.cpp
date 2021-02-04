@@ -84,5 +84,5 @@ void Activity::deleteCliDataById() {
 }
 
 void Activity::displayCliList() {
-	database.displayCliList();
+	display.showClient(database);
 }

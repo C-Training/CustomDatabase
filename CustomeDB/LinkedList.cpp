@@ -410,17 +410,17 @@ void LinkedList::updateClient(string name, int id, string phone, string address,
     bool check = false;
     Node* cur = clienthead;
     while (cur != NULL) {
-        if (cur->getClient().getId() == id) {
+        if (cur->client.getId() == id) {
             check = true;
             break;
         }
         cur = cur->next;
     }
     if (check) {
-        cur->getClient().setName(name);
-        cur->getClient().setPhone(phone);
-        cur->getClient().setAddress(address);
-        cur->getClient().setProject_Id(project_id);
+        cur->client.setName(name);
+        cur->client.setPhone(phone);
+        cur->client.setAddress(address);
+        cur->client.setProject_Id(project_id);
         cout << "database updated.\n";
     }
     else {

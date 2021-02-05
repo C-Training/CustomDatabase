@@ -6,7 +6,7 @@
 using namespace std;
 
 class Node {
-private:
+public:
     Client client;
     
 public:

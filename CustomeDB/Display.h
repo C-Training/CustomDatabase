@@ -10,7 +10,7 @@ public:
 
 	void showProjectDatabase(LinkedList database);
 	void showEmployee(LinkedList);
-	
+	void showClientDatabase(LinkedList);
 
 };
 

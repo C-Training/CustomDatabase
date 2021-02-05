@@ -7,12 +7,9 @@
 using namespace std;
 
 class Node {
-private:
-    Client client;
-    
 public:
 
-
+    Client client;
     Project prj;
     Node();
     

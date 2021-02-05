@@ -8,6 +8,8 @@ using namespace std;
 
 int main()
 {
+    Activity obj;
+    obj.onLoad();
     //Test ();
     return 0;
 }

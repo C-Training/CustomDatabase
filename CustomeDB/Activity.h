@@ -40,8 +40,14 @@ public:
 	void showClientDatabase();
 	void displayProjectDatabase();
 	void displayEmployeeDatabase();
-
-
+	bool displayMainMenu();
+	bool authFunc(string username, string password);
+	void onLoad();
+	void crudOperation(int modelOption, int crudOption);
+	void createOperation(int modelOption);
+	void readOperation(int modelOption);
+	void updateOperation(int modelOption);
+	void deleteOperation(int modelOption);
 };
 
 	

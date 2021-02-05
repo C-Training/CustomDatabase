@@ -11,6 +11,9 @@ public:
 	void showProjectDatabase(LinkedList database);
 	void showEmployee(LinkedList);
 	void showClientDatabase(LinkedList);
+	void showMenu();
+	void showHome();
+	void showCRUD(string obj);
 
 };
 

@@ -12,6 +12,14 @@ void Activity::setData(string name, int id, double salary, string project, strin
 	enterToEmployeeDatabase();
 }
 
+void Activity::setData(string name, int id, string phone, string address, int project_id)
+{
+	cli.setName(name);
+	cli.setId(id);
+	cli.setPhone(phone);
+	cli.setAddress(address);
+	cli.setProject_Id(project_id);
+}
 
 void Activity::setData(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
 	prj.setname(name);
@@ -30,9 +38,16 @@ void Activity::enterToEmployeeDatabase()
 	database.addAtEnd(emp.getName(), emp.getId(), emp.getSalary(), emp.getProject(), emp.getJoiningDate(), emp.getPhone(), emp.getAddress());
 }
 
+void Activity::enterToCliDatabase() {
+	database.addAtEnd(cli.getName(), cli.getId(), cli.getPhone(), cli.getAddress(), cli.getProject_Id());
+}
 
 void Activity::deleteEndProjectDatabase() {
 	database.deleteAtEndPrj();
+}
+
+void Activity::deleteCliDataById() {
+	database.deleteByCliId();
 }
 
 void Activity::deleteHeadProjectDatabase() {
@@ -51,9 +66,16 @@ void Activity::updateByIdPrj(string name, int id, string description, int client
 	database.updateByIdPrj(name,id,description,client_id,money_earned,deadline,complete_date);
 }
 
+void Activity::updateClientData(string name, int id, string phone, string address, int project_id) {
+	database.updateClient(name, id, phone, address, project_id);
+}
 
 void Activity::displayProjectDatabase(){
 	display.showProjectDatabase(database);
+}
+
+void Activity::showClientDatabase() {
+	display.showClientDatabase(database);
 }
 
 void Activity::displayEmployeeDatabase()

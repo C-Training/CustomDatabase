@@ -4,7 +4,7 @@ using namespace std;
 class Project{
 private:     
 	string name;   
-	int id;
+	int id = 0;
 	string description;  
 	int client_id; 
 	string money_earned; 

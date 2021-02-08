@@ -5,7 +5,7 @@ using namespace std;
 class Client {
 
     string name;
-    int id;
+    int id = 0;
     string phone;
     string address;
     int project_id;

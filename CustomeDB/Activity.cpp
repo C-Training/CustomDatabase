@@ -1,9 +1,9 @@
 #include "Activity.h"
 
-void Activity::setData(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+void Activity::setData(string name, double salary, string project, string joiningDate, string phone, string address)
 {
 	emp.setName(name);
-	emp.setId(id);
+	emp.setId(emp.getId()+1);
 	emp.setSalary(salary);
 	emp.setProject(project);
 	emp.setJoiningDate(joiningDate);
@@ -12,19 +12,19 @@ void Activity::setData(string name, int id, double salary, string project, strin
 	enterToEmployeeDatabase();
 }
 
-void Activity::setData(string name, int id, string phone, string address, int project_id)
+void Activity::setData(string name, string phone, string address, int project_id)
 {
 	cli.setName(name);
-	cli.setId(id);
+	cli.setId(cli.getId()+1);
 	cli.setPhone(phone);
 	cli.setAddress(address);
 	cli.setProject_Id(project_id);
 	enterToCliDatabase();
 }
 
-void Activity::setData(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
+void Activity::setData(string name, string description, int client_id, string money_earned, string deadline, string complete_date) {
 	prj.setname(name);
-	prj.setid(id);
+	prj.setid(prj.getid()+1);
 	prj.setdescription(description);
 	prj.setclient_id(client_id);
 	prj.setmoney_earned(money_earned);
@@ -35,7 +35,6 @@ void Activity::setData(string name, int id, string description, int client_id, s
 
 
 void Activity::enterToEmployeeDatabase()
-
 {
 	database.addAtEnd(emp.getName(), emp.getId(), emp.getSalary(), emp.getProject(), emp.getJoiningDate(), emp.getPhone(), emp.getAddress());
 }
@@ -160,9 +159,6 @@ void Activity::createOperation(int modelOption)
 		string name;
 		cout << "Enter Name:" << endl;
 		cin >> name;
-		int id;
-		cout << "Enter ID:" << endl;
-		cin >> id;
 		double salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
@@ -178,16 +174,13 @@ void Activity::createOperation(int modelOption)
 		string address;
 		cout << "Enter Address:" << endl;
 		cin >> address;
-		setData(name, id, salary, project, joiningDate, phone, address);
+		setData(name, salary, project, joiningDate, phone, address);
 	}
 	else if (modelOption == 2) {
 		cout << "Enter Client Details" << endl;
 		string name;
 		cout << "Enter Name:" << endl;
 		cin >> name;
-		int id;
-		cout << "Enter ID:" << endl;
-		cin >> id;
 		string phone;
 		cout << "Enter Phone:" << endl;
 		cin >> phone;
@@ -197,16 +190,13 @@ void Activity::createOperation(int modelOption)
 		int project_id;
 		cout << "Enter Project_ID:" << endl;
 		cin >> project_id;
-		setData(name, id, phone, address, project_id);
+		setData(name, phone, address, project_id);
 	}
 	else if (modelOption == 3) {
 		cout << "Enter Project Details" << endl;
 		string name;
 		cout << "Enter Name:" << endl;
 		cin >> name;
-		int id;
-		cout << "Enter ID:" << endl;
-		cin >> id;
 		string description;
 		cout << "Enter description" << endl;
 		cin >> description; //getline()
@@ -222,9 +212,7 @@ void Activity::createOperation(int modelOption)
 		string complete_date;
 		cout << "Enter complete date:" << endl;
 		cin >> complete_date;
-		for (int i = 0; i < 1000; i++) {
-			setData(name, id, description, client_id, money_earned, deadline, complete_date);
-		}
+		setData(name, description, client_id, money_earned, deadline, complete_date);
 	}
 }
 

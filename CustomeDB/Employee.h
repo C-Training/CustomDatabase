@@ -6,7 +6,7 @@ using namespace std;
 class Employee
 {
 	string name;
-	int id;
+	int id = 0;
 	double salary;
 	string project;
 	string joiningDate;

@@ -19,9 +19,9 @@ class Activity
 public:
 
 
-	void setData(string name, int id, double salary, string project, string joiningDate, string phone, string address);
-	void setData(string name, int id, string phone, string address, int project_id);
-	void setData(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
+	void setData(string name, double salary, string project, string joiningDate, string phone, string address);
+	void setData(string name, string phone, string address, int project_id);
+	void setData(string name, string description, int client_id, string money_earned, string deadline, string complete_date);
 	
 	void enterToCliDatabase();
 	void enterToDatabasePrj();

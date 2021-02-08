@@ -46,6 +46,95 @@ LinkedList::~LinkedList() {
     outfile.close();
 }
 
+void LinkedList::employeeDatabase() {
+    int a = 0;
+    string myText;
+    Node* temp = emphead;
+    cout << endl;
+    cout << "1 to write in a new project file and 2 to display contents of old project file" << endl;
+    cin >> a;
+    if (a == 1) {
+        ofstream MyFile("Employee.txt");
+        while (temp != NULL) {
+            MyFile << temp->getEmployee().getName() << " ";
+            MyFile << temp->getEmployee().getId() << " ";
+            MyFile << temp->getEmployee().getSalary() << " ";
+            MyFile << temp->getEmployee().getProject() << " ";
+            MyFile << temp->getEmployee().getJoiningDate() << " ";
+            MyFile << temp->getEmployee().getPhone() << " ";
+            MyFile << temp->getEmployee().getAddress() << " \n";
+            temp = temp->next;
+        }
+        MyFile.close();
+    }
+    else if (a == 2) {
+        ifstream MyReadFile("Employee.txt");
+        while (getline(MyReadFile, myText)) {
+            cout << myText << endl;
+        }
+        MyReadFile.close();
+    }
+}
+
+void LinkedList::clientDatabase(){
+    int a = 0;
+    string myText;
+    Node* temp = clienthead;
+    cout << endl;
+    cout << "1 to write in a new client file and 2 to display contents of old client file" << endl;
+    cin >> a;
+    if (a == 1) {
+        ofstream MyFile("Client.txt");
+        while (temp != NULL) {
+            MyFile << temp->getClient().getName() << " ";
+            MyFile << temp->getClient().getId() << " ";
+            MyFile << temp->getClient().getPhone() << " ";
+            MyFile << temp->getClient().getAddress() << " ";
+            MyFile << temp->getClient().getProject_Id() << " \n"; 
+            temp = temp->next;
+        }
+        MyFile.close();
+    }
+    else if (a == 2) {
+        ifstream MyReadFile("Client.txt");
+        while (getline(MyReadFile, myText)) {
+            cout << myText << endl;
+        }
+        MyReadFile.close();
+    }
+}
+
+void LinkedList::projectDatabase() {
+    int a = 0;
+    string myText;
+    Node* temp = prjhead;
+    cout << endl;
+    cout << "1 to write in a new project file and 2 to display contents of old project file" << endl;
+    cin >> a;
+    if (a == 1) {
+        ofstream MyFile("Project.txt");
+        while (temp != NULL) {
+            MyFile << temp->getProject().getid() << " \n";
+            MyFile << temp->getProject().getname() << " \n";
+            MyFile << temp->getProject().getdescription() << " \n";
+            MyFile << temp->getProject().getclient_id() << " \n";
+            MyFile << temp->getProject().getmoney_earned() << " \n";
+            MyFile << temp->getProject().getdeadline() << " \n";
+            MyFile << temp->getProject().getcomplete_date() << " \n";
+            MyFile << "\n";
+            temp = temp->next;
+        }
+        MyFile.close();
+    }
+    else if (a == 2) {
+        ifstream MyReadFile("Project.txt");
+        while (getline(MyReadFile, myText)) {
+            cout << myText << endl;
+        }
+        MyReadFile.close();
+    }
+}
+
 Node* LinkedList::getProjectHead() {
     return prjhead;
 }

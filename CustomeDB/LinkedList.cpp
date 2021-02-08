@@ -51,7 +51,7 @@ void LinkedList::employeeDatabase() {
     string myText;
     Node* temp = emphead;
     cout << endl;
-    cout << "1 to write in a new project file and 2 to display contents of old project file" << endl;
+    cout << "1 to write in a new Employee file and 2 to display contents of old Employee file" << endl;
     cin >> a;
     if (a == 1) {
         ofstream MyFile("Employee.txt");
@@ -81,7 +81,7 @@ void LinkedList::clientDatabase(){
     string myText;
     Node* temp = clienthead;
     cout << endl;
-    cout << "1 to write in a new client file and 2 to display contents of old client file" << endl;
+    cout << "1 to write in a new Client file and 2 to display contents of old Client file" << endl;
     cin >> a;
     if (a == 1) {
         ofstream MyFile("Client.txt");
@@ -109,7 +109,7 @@ void LinkedList::projectDatabase() {
     string myText;
     Node* temp = prjhead;
     cout << endl;
-    cout << "1 to write in a new project file and 2 to display contents of old project file" << endl;
+    cout << "1 to write in a new Project file and 2 to display contents of old Project file" << endl;
     cin >> a;
     if (a == 1) {
         ofstream MyFile("Project.txt");

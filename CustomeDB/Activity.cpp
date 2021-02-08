@@ -156,12 +156,43 @@ void Activity::createOperation(int modelOption)
 {
 	if (modelOption == 1) {
 		cout << "Enter Employee Details" << endl;
-		string name;
-		cout << "Enter Name:" << endl;
-		cin >> name;
+		cout << "Enter Name:\n";
+		cin.ignore();
+		string name = "";
+		getline(cin, name);
+		while (1)
+		{
+			bool isEqual = false;
+			for (int i = 48; i <= 57; i++) {
+				if (name[0] == i) {
+					isEqual = true;
+					break;
+				}
+			}
+			if (isEqual || name == "") {
+				cout << "Name cannot start with a Number or be empty, Please Enter Name Again\n";
+				getline(cin, name);
+			}
+			else {
+				break;
+			}
+		}
 		double salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "ENTER A NUMBER!" << endl;
+				cout << "Enter Salary Again:\n";
+				cin >> salary;
+			}
+			if (!cin.fail())
+				break;
+		}
 		string project;
 		cout << "Enter Project:" << endl;
 		cin >> project;
@@ -178,9 +209,27 @@ void Activity::createOperation(int modelOption)
 	}
 	else if (modelOption == 2) {
 		cout << "Enter Client Details" << endl;
-		string name;
+		string name = "";
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		cin.ignore();
+		getline(cin, name);
+		while (1)
+		{
+			bool isEqual = false;
+			for (int i = 48; i <= 57; i++) {
+				if (name[0] == i) {
+					isEqual = true;
+					break;
+				}
+			}
+			if (isEqual || name == "") {
+				cout << "Name cannot start with a Number or be empty, Please Enter Name Again\n";
+				getline(cin, name);
+			}
+			else {
+				break;
+			}
+		}
 		string phone;
 		cout << "Enter Phone:" << endl;
 		cin >> phone;
@@ -190,19 +239,61 @@ void Activity::createOperation(int modelOption)
 		int project_id;
 		cout << "Enter Project_ID:" << endl;
 		cin >> project_id;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter Project_ID again." << endl;
+				cin >> project_id;
+			}
+			if (!cin.fail())
+				break;
+		}
 		setData(name, phone, address, project_id);
 	}
 	else if (modelOption == 3) {
 		cout << "Enter Project Details" << endl;
-		string name;
+		string name = "";
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		cin.ignore();
+		getline(cin, name);
+		while (1)
+		{
+			bool isEqual = false;
+			for (int i = 48; i <= 57; i++) {
+				if (name[0] == i) {
+					isEqual = true;
+					break;
+				}
+			}
+			if (isEqual || name == "") {
+				cout << "Name cannot start with a Number or be empty, Please Enter Name Again\n";
+				getline(cin, name);
+			}
+			else {
+				break;
+			}
+		}
 		string description;
 		cout << "Enter description" << endl;
 		cin >> description; //getline()
 		int client_id;
 		cout << "Enter Client_ID" << endl;
 		cin >> client_id;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter Client_ID Again." << endl;
+				cin >> client_id;
+			}
+			if (!cin.fail())
+				break;
+		}
 		string money_earned;
 		cout << "Enter money earned:" << endl;
 		cin >> money_earned;
@@ -340,5 +431,6 @@ void Activity::deleteEmployee(int id)
 {
 	database.deleteByEmployeeId(id);
 }
+
 
 

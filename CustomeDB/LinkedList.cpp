@@ -51,9 +51,7 @@ void LinkedList::employeeDatabase() {
     string myText;
     Node* temp = emphead;
     cout << endl;
-    cout << "1 to write in a new Employee file and 2 to display contents of old Employee file" << endl;
-    cin >> a;
-    if (a == 1) {
+    
         ofstream MyFile("Employee.txt");
         while (temp != NULL) {
             MyFile << temp->getEmployee().getName() << " ";
@@ -67,23 +65,11 @@ void LinkedList::employeeDatabase() {
         }
         MyFile.close();
     }
-    else if (a == 2) {
-        ifstream MyReadFile("Employee.txt");
-        while (getline(MyReadFile, myText)) {
-            cout << myText << endl;
-        }
-        MyReadFile.close();
-    }
-}
 
 void LinkedList::clientDatabase(){
     int a = 0;
     string myText;
     Node* temp = clienthead;
-    cout << endl;
-    cout << "1 to write in a new Client file and 2 to display contents of old Client file" << endl;
-    cin >> a;
-    if (a == 1) {
         ofstream MyFile("Client.txt");
         while (temp != NULL) {
             MyFile << temp->getClient().getName() << " ";
@@ -95,44 +81,24 @@ void LinkedList::clientDatabase(){
         }
         MyFile.close();
     }
-    else if (a == 2) {
-        ifstream MyReadFile("Client.txt");
-        while (getline(MyReadFile, myText)) {
-            cout << myText << endl;
-        }
-        MyReadFile.close();
-    }
-}
 
 void LinkedList::projectDatabase() {
     int a = 0;
     string myText;
     Node* temp = prjhead;
-    cout << endl;
-    cout << "1 to write in a new Project file and 2 to display contents of old Project file" << endl;
-    cin >> a;
-    if (a == 1) {
-        ofstream MyFile("Project.txt");
-        while (temp != NULL) {
-            MyFile << temp->getProject().getid() << " \n";
-            MyFile << temp->getProject().getname() << " \n";
-            MyFile << temp->getProject().getdescription() << " \n";
-            MyFile << temp->getProject().getclient_id() << " \n";
-            MyFile << temp->getProject().getmoney_earned() << " \n";
-            MyFile << temp->getProject().getdeadline() << " \n";
-            MyFile << temp->getProject().getcomplete_date() << " \n";
-            MyFile << "\n";
-            temp = temp->next;
-        }
-        MyFile.close();
+    ofstream MyFile("Project.txt");
+    while (temp != NULL) {
+        MyFile << temp->getProject().getid() << " \n";
+        MyFile << temp->getProject().getname() << " \n";
+        MyFile << temp->getProject().getdescription() << " \n";
+        MyFile << temp->getProject().getclient_id() << " \n";
+        MyFile << temp->getProject().getmoney_earned() << " \n";
+        MyFile << temp->getProject().getdeadline() << " \n";
+        MyFile << temp->getProject().getcomplete_date() << " \n";
+        MyFile << "\n";
+        temp = temp->next;
     }
-    else if (a == 2) {
-        ifstream MyReadFile("Project.txt");
-        while (getline(MyReadFile, myText)) {
-            cout << myText << endl;
-        }
-        MyReadFile.close();
-    }
+    MyFile.close();
 }
 
 Node* LinkedList::getProjectHead() {

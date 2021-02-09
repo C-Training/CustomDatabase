@@ -175,6 +175,7 @@ void Activity::createOperation(int modelOption)
 		cout << "Enter Address:" << endl;
 		cin >> address;
 		setData(name, salary, project, joiningDate, phone, address);
+		database.employeeDatabase();
 	}
 	else if (modelOption == 2) {
 		cout << "Enter Client Details" << endl;
@@ -191,6 +192,7 @@ void Activity::createOperation(int modelOption)
 		cout << "Enter Project_ID:" << endl;
 		cin >> project_id;
 		setData(name, phone, address, project_id);
+		database.clientDatabase();
 	}
 	else if (modelOption == 3) {
 		cout << "Enter Project Details" << endl;
@@ -213,6 +215,7 @@ void Activity::createOperation(int modelOption)
 		cout << "Enter complete date:" << endl;
 		cin >> complete_date;
 		setData(name, description, client_id, money_earned, deadline, complete_date);
+		database.projectDatabase();
 	}
 }
 

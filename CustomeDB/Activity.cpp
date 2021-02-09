@@ -189,7 +189,10 @@ void Activity::createOperation(int modelOption)
 		while (1) {
 			if (regex_match(salary, str_expr)) {
 				bool isEqual = false;
-				for (int i = 32; i <= 47; i++) {
+				for (int i = 32; i <= 64; i++) {
+					if (i >= 48 && i <= 57) {
+						continue;
+					}
 					for (int j = 0; j < salary.size(); j++) {
 						if (salary[0] == i) {
 							isEqual = true;

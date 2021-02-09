@@ -217,9 +217,8 @@ void Activity::createOperation(string modelOption)
 		cout << "Enter Project:" << endl;
 		cin >> project;
 		string joiningDate;
-		cout << "Enter Joining Date:" << endl;
 		while (1) {
-			cout << "Enter Deadline:" << endl;
+			cout << "Enter Joining Date:" << endl;
 			cin >> joiningDate;
 			if (joiningDate.length() == 10) {
 				string yy = "";
@@ -243,7 +242,7 @@ void Activity::createOperation(string modelOption)
 					if (intyy >= 2019) {
 						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 							if (intdd > 00 && intdd <= 31) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid./n";
@@ -251,7 +250,7 @@ void Activity::createOperation(string modelOption)
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
 							if (intdd > 00 && intdd <= 30) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid.\n";
@@ -260,14 +259,14 @@ void Activity::createOperation(string modelOption)
 						else if (mm == "02") {
 							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
 								if (intdd > 00 && intdd <= 29) {
-
+									break;
 								}
 								else {
 									cout << "Date is Invalid.\n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid.\n";
@@ -435,7 +434,7 @@ void Activity::createOperation(string modelOption)
 					if (intyy >= 2019) {
 						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 							if (intdd > 00 && intdd <= 31) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid./n";
@@ -443,7 +442,7 @@ void Activity::createOperation(string modelOption)
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
 							if (intdd > 00 && intdd <= 30) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid.\n";
@@ -452,14 +451,14 @@ void Activity::createOperation(string modelOption)
 						else if (mm == "02") {
 							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
 								if (intdd > 00 && intdd <= 29) {
-
+									break;
 								}
 								else {
 									cout << "Date is Invalid.\n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid.\n";
@@ -507,7 +506,7 @@ void Activity::createOperation(string modelOption)
 					if (intyy >= 2019) {
 						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 							if (intdd > 00 && intdd <= 31) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid./n";
@@ -515,7 +514,7 @@ void Activity::createOperation(string modelOption)
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
 							if (intdd > 00 && intdd <= 30) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid.\n";
@@ -524,14 +523,14 @@ void Activity::createOperation(string modelOption)
 						else if (mm == "02") {
 							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
 								if (intdd > 00 && intdd <= 29) {
-
+									break;
 								}
 								else {
 									cout << "Date is Invalid.\n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
-
+								break;
 							}
 							else {
 								cout << "Date is Invalid.\n";
@@ -590,9 +589,8 @@ void Activity::updateOperation(string modelOption)
 		cout << "Enter Project:" << endl;
 		cin >> project;
 		string joiningDate;
-		cout << "Enter Joining Date:" << endl;
 		while (1) {
-			cout << "Enter Deadline:" << endl;
+			cout << "Enter Joining Date:" << endl;
 			cin >> joiningDate;
 			if (joiningDate.length() == 10) {
 				string yy = "";
@@ -689,7 +687,8 @@ void Activity::updateOperation(string modelOption)
 		cin >> project_id;
 		updateClientData(name, id, phone, address, project_id);
 	}
-	else if (modelOption == "3") {
+	else if (modelOption == 3) {
+		system("CLS");
 		cout << "Update Project Details" << endl;
 		int id;
 		cout << "Enter Project_ID to update:" << endl;

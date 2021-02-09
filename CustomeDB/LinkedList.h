@@ -28,11 +28,11 @@ public:
     Node *getProjectHead();
     
 
-    void addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+    void addAtHead(string name, int id, string salary, string project, string joiningDate, string phone, string address);
     void addAtHead(string name, int id, string phone, string address, int project_id);
     void addAtHead(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
     
-    void addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+    void addAtEnd(string name, int id, string salary, string project, string joiningDate, string phone, string address);
     void addAtEnd(string name, int id, string phone, string address, int project_id);
     void addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 
@@ -50,9 +50,9 @@ public:
     void displayListPrj();
 
 
-    void updateSalary(int id, string name, double new_salary);
+    void updateSalary(int id, string name, string new_salary);
     void updateClient(string name, int id, string phone, string address, int project_id);
-    void updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address);
+    void updateEmployee(string name, int id, string salary, string project, string joiningDate, string phone, string address);
     void updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
 
     void swapEmployeeNodes(Node* cur, Node* index);

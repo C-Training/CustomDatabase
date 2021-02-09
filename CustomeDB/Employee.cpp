@@ -20,12 +20,12 @@ int Employee::getId()
 	return id;
 }
 
-void Employee::setSalary(double salary)
+void Employee::setSalary(string salary)
 {
 	this->salary = salary;
 }
 
-double Employee::getSalary()
+string Employee::getSalary()
 {
 	return salary;
 }
@@ -69,3 +69,4 @@ string Employee::getAddress()
 {
 	return address;
 }
+

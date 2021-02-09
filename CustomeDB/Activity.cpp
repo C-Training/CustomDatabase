@@ -154,6 +154,7 @@ void Activity::crudOperation(int modelOption, int crudOption)
 
 void Activity::createOperation(int modelOption)
 {
+	system("CLS");
 	if (modelOption == 1) {
 		cout << "Enter Employee Details" << endl;
 		cout << "Enter Name:\n";
@@ -322,6 +323,7 @@ void Activity::readOperation(int modelOption)
 
 void Activity::updateOperation(int modelOption)
 {
+	system("CLS");
 	if (modelOption == 1) {
 		int id;
 		cout << "Enter the ID to update:" << endl;
@@ -348,6 +350,7 @@ void Activity::updateOperation(int modelOption)
 		updateDatabase(name, id, salary, project, joiningDate, phone, address);
 	}
 	else if (modelOption == 2) {
+		system("CLS");
 		cout << "Update Client Details" << endl;
 		int id;
 		cout << "Enter ID to Update:" << endl;
@@ -367,6 +370,7 @@ void Activity::updateOperation(int modelOption)
 		updateClientData(name, id, phone, address, project_id);
 	}
 	else if (modelOption) {
+		system("CLS");
 		cout << "Update Project Details" << endl;
 		int id;
 		cout << "Enter Project_ID to update:" << endl;
@@ -395,6 +399,7 @@ void Activity::updateOperation(int modelOption)
 
 void Activity::deleteOperation(int modelOption)
 {
+	system("CLS");
 	if (modelOption == 1) {
 		cout << "Enter Employee ID to delete" << endl;
 		int id;

@@ -7,19 +7,18 @@ class Employee
 {
 	string name;
 	int id = 0;
-	double salary;
+	string salary;
 	string project;
 	string joiningDate;
 	string phone;
 	string address;
 public:
-
 	void setName(string name);
 	string getName();
 	void setId(int id);
 	int getId();
-	void setSalary(double salary);
-	double getSalary();
+	void setSalary(string salary);
+	string getSalary();
 	void setProject(string project);
 	string getProject();
 	void setJoiningDate(string joiningDate);
@@ -29,4 +28,6 @@ public:
 	void setAddress(string address);
 	string getAddress();
 };
+
+
 

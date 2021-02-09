@@ -1,6 +1,6 @@
 #include "Activity.h"
 
-void Activity::setData(string name, double salary, string project, string joiningDate, string phone, string address)
+void Activity::setData(string name, string salary, string project, string joiningDate, string phone, string address)
 {
 	emp.setName(name);
 	emp.setId(emp.getId()+1);
@@ -213,7 +213,6 @@ void Activity::createOperation(string modelOption)
 				cin >> salary;
 			}
 		}
-		double mySalary = stod(salary);
 		string project;
 		cout << "Enter Project:" << endl;
 		cin >> project;
@@ -226,7 +225,7 @@ void Activity::createOperation(string modelOption)
 		string address;
 		cout << "Enter Address:" << endl;
 		cin >> address;
-		setData(name, mySalary, project, joiningDate, phone, address);
+		setData(name, salary, project, joiningDate, phone, address);
 		database.employeeDatabase();
 	}
 	else if (modelOption == "2") {
@@ -354,7 +353,7 @@ void Activity::updateOperation(string modelOption)
 		string name;
 		cout << "Enter Name:" << endl;
 		cin >> name;
-		double salary;
+		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
 		string project;
@@ -446,7 +445,7 @@ bool Activity::authFunc(string username, string password)
 		return false;
 }
 
-void Activity::updateDatabase(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+void Activity::updateDatabase(string name, int id, string salary, string project, string joiningDate, string phone, string address)
 {
 	database.updateEmployee(name, id, salary, project, joiningDate, phone, address);
 }

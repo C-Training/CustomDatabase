@@ -8,7 +8,7 @@ Node::Node()
 
 
 
-Node::Node(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+Node::Node(string name, int id, string salary, string project, string joiningDate, string phone, string address)
 {
 	emp.setName(name);
 	emp.setId(id);

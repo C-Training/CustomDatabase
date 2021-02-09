@@ -25,11 +25,12 @@ void Display::showHome()
 	cout << "1: Employee" << endl;
 	cout << "2: CLient" << endl;
 	cout << "3: Project" << endl;
-	cout << "Enter -1 to Leave" << endl;
+	cout << "Enter 4 to Leave" << endl;
 }
 
 void Display::showCRUD(string obj)
 {
+	system("CLS");
 	cout << "SELECT AN OPTION" << endl;
 	cout << "1: Create " << obj << endl;
 	cout << "2: Read " << obj << endl;

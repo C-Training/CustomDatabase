@@ -687,7 +687,7 @@ void Activity::updateOperation(string modelOption)
 		cin >> project_id;
 		updateClientData(name, id, phone, address, project_id);
 	}
-	else if (modelOption == 3) {
+	else if (modelOption == "3") {
 		system("CLS");
 		cout << "Update Project Details" << endl;
 		int id;

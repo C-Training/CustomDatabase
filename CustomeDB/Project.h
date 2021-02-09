@@ -10,6 +10,9 @@ private:
 	string money_earned; 
 	string deadline; 
 	string complete_date;
+    
+
+    
 
 public:
 
@@ -20,6 +23,7 @@ public:
 	void setmoney_earned(string money_earned);
 	void setdeadline(string deadline);
 	void setcomplete_date(string complete_date);
+    
 
 	string getname();
 	int getid();

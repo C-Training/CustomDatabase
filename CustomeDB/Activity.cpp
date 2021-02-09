@@ -217,8 +217,77 @@ void Activity::createOperation(string modelOption)
 		cout << "Enter Project:" << endl;
 		cin >> project;
 		string joiningDate;
-		cout << "Enter Joining Date:" << endl;
-		cin >> joiningDate;
+		while (1) {
+			cout << "Enter Joining Date:" << endl;
+			cin >> joiningDate;
+			if (joiningDate.length() == 10) {
+				string yy = "";
+				string mm = "";
+				string dd = "";
+				string ds = "";
+				yy += joiningDate[6];
+				yy += joiningDate[7];
+				yy += joiningDate[8];
+				yy += joiningDate[9];
+				mm += joiningDate[0];
+				mm += joiningDate[1];
+				dd += joiningDate[3];
+				dd += joiningDate[4];
+				ds += joiningDate[2];
+				ds += joiningDate[5];
+				int intdd = stoi(dd);
+				int intyy = stoi(yy);
+
+				if (ds == "--") {
+					if (intyy >= 2019) {
+						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+							if (intdd > 00 && intdd <= 31) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid./n";
+							}
+						}
+						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+							if (intdd > 00 && intdd <= 30) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else if (mm == "02") {
+							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+								if (intdd > 00 && intdd <= 29) {
+									break;
+								}
+								else {
+									cout << "Date is Invalid.\n";
+								}
+							}
+							else if (intdd > 00 && intdd <= 28) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else {
+							cout << "Date is Invalid.\n";
+						}
+					}
+					else {
+						cout << "Date is Invalid.\n";
+					}
+				}
+				else {
+					cout << "Date is Invalid.\n";
+				}
+			}
+			else {
+				cout << "Date is Invalid.\n";
+			}
+		}
 		string phone;
 		cout << "Enter Phone Number:" << endl;
 		cin >> phone;
@@ -340,11 +409,151 @@ void Activity::createOperation(string modelOption)
 		cout << "Enter money earned:" << endl;
 		cin >> money_earned;
 		string deadline;
-		cout << "Enter Deadline:" << endl;
-		cin >> deadline;
+		while (1) {
+			cout << "Enter Deadline:" << endl;
+			cin >> deadline;
+			if (deadline.length() == 10) {
+				string yy = "";
+				string mm = "";
+				string dd = "";
+				string ds = "";
+				yy += deadline[6];
+				yy += deadline[7];
+				yy += deadline[8];
+				yy += deadline[9];
+				mm += deadline[0];
+				mm += deadline[1];
+				dd += deadline[3];
+				dd += deadline[4];
+				ds += deadline[2];
+				ds += deadline[5];
+				int intdd = stoi(dd);
+				int intyy = stoi(yy);
+
+				if (ds == "--") {
+					if (intyy >= 2019) {
+						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+							if (intdd > 00 && intdd <= 31) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid./n";
+							}
+						}
+						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+							if (intdd > 00 && intdd <= 30) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else if (mm == "02") {
+							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+								if (intdd > 00 && intdd <= 29) {
+									break;
+								}
+								else {
+									cout << "Date is Invalid.\n";
+								}
+							}
+							else if (intdd > 00 && intdd <= 28) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else {
+							cout << "Date is Invalid.\n";
+						}
+					}
+					else {
+						cout << "Date is Invalid.\n";
+					}
+				}
+				else {
+					cout << "Date is Invalid.\n";
+				}
+			}
+			else {
+				cout << "Date is Invalid.\n";
+			}
+		}
 		string complete_date;
-		cout << "Enter complete date:" << endl;
-		cin >> complete_date;
+		while (1) {
+			cout << "Enter complete date:" << endl;
+			cin >> complete_date;
+			if (complete_date.length() == 10) {
+				string yy = "";
+				string mm = "";
+				string dd = "";
+				string ds = "";
+				yy += complete_date[6];
+				yy += complete_date[7];
+				yy += complete_date[8];
+				yy += complete_date[9];
+				mm += complete_date[0];
+				mm += complete_date[1];
+				dd += complete_date[3];
+				dd += complete_date[4];
+				ds += complete_date[2];
+				ds += complete_date[5];
+				int intdd = stoi(dd);
+				int intyy = stoi(yy);
+
+				if (ds == "--") {
+					if (intyy >= 2019) {
+						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+							if (intdd > 00 && intdd <= 31) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid./n";
+							}
+						}
+						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+							if (intdd > 00 && intdd <= 30) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else if (mm == "02") {
+							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+								if (intdd > 00 && intdd <= 29) {
+									break;
+								}
+								else {
+									cout << "Date is Invalid.\n";
+								}
+							}
+							else if (intdd > 00 && intdd <= 28) {
+								break;
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else {
+							cout << "Date is Invalid.\n";
+						}
+					}
+					else {
+						cout << "Date is Invalid.\n";
+					}
+				}
+				else {
+					cout << "Date is Invalid.\n";
+				}
+			}
+			else {
+				cout << "Date is Invalid.\n";
+			}
+		}
+		
+
 		setData(name, description, client_id, money_earned, deadline, complete_date);
 		database.projectDatabase();
 	}
@@ -380,8 +589,77 @@ void Activity::updateOperation(string modelOption)
 		cout << "Enter Project:" << endl;
 		cin >> project;
 		string joiningDate;
-		cout << "Enter Joining Date:" << endl;
-		cin >> joiningDate;
+		while (1) {
+			cout << "Enter Joining Date:" << endl;
+			cin >> joiningDate;
+			if (joiningDate.length() == 10) {
+				string yy = "";
+				string mm = "";
+				string dd = "";
+				string ds = "";
+				yy += joiningDate[6];
+				yy += joiningDate[7];
+				yy += joiningDate[8];
+				yy += joiningDate[9];
+				mm += joiningDate[0];
+				mm += joiningDate[1];
+				dd += joiningDate[3];
+				dd += joiningDate[4];
+				ds += joiningDate[2];
+				ds += joiningDate[5];
+				int intdd = stoi(dd);
+				int intyy = stoi(yy);
+
+				if (ds == "--") {
+					if (intyy >= 2019) {
+						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+							if (intdd > 00 && intdd <= 31) {
+
+							}
+							else {
+								cout << "Date is Invalid./n";
+							}
+						}
+						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+							if (intdd > 00 && intdd <= 30) {
+
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else if (mm == "02") {
+							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+								if (intdd > 00 && intdd <= 29) {
+
+								}
+								else {
+									cout << "Date is Invalid.\n";
+								}
+							}
+							else if (intdd > 00 && intdd <= 28) {
+
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else {
+							cout << "Date is Invalid.\n";
+						}
+					}
+					else {
+						cout << "Date is Invalid.\n";
+					}
+				}
+				else {
+					cout << "Date is Invalid.\n";
+				}
+			}
+			else {
+				cout << "Date is Invalid.\n";
+			}
+		}
 		string phone;
 		cout << "Enter Phone Number:" << endl;
 		cin >> phone;
@@ -409,7 +687,8 @@ void Activity::updateOperation(string modelOption)
 		cin >> project_id;
 		updateClientData(name, id, phone, address, project_id);
 	}
-	else if (modelOption == "3") {
+	else if (modelOption == 3) {
+		system("CLS");
 		cout << "Update Project Details" << endl;
 		int id;
 		cout << "Enter Project_ID to update:" << endl;
@@ -428,10 +707,150 @@ void Activity::updateOperation(string modelOption)
 		cin >> money_earned;
 		string deadline;
 		cout << "Enter Deadline:" << endl;
-		cin >> deadline;
+		while (1) {
+			cout << "Enter Deadline:" << endl;
+			cin >> deadline;
+			if (deadline.length() == 10) {
+				string yy = "";
+				string mm = "";
+				string dd = "";
+				string ds = "";
+				yy += deadline[6];
+				yy += deadline[7];
+				yy += deadline[8];
+				yy += deadline[9];
+				mm += deadline[0];
+				mm += deadline[1];
+				dd += deadline[3];
+				dd += deadline[4];
+				ds += deadline[2];
+				ds += deadline[5];
+				int intdd = stoi(dd);
+				int intyy = stoi(yy);
+
+				if (ds == "--") {
+					if (intyy >= 2019) {
+						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+							if (intdd > 00 && intdd <= 31) {
+
+							}
+							else {
+								cout << "Date is Invalid./n";
+							}
+						}
+						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+							if (intdd > 00 && intdd <= 30) {
+
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else if (mm == "02") {
+							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+								if (intdd > 00 && intdd <= 29) {
+
+								}
+								else {
+									cout << "Date is Invalid.\n";
+								}
+							}
+							else if (intdd > 00 && intdd <= 28) {
+
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else {
+							cout << "Date is Invalid.\n";
+						}
+					}
+					else {
+						cout << "Date is Invalid.\n";
+					}
+				}
+				else {
+					cout << "Date is Invalid.\n";
+				}
+			}
+			else {
+				cout << "Date is Invalid.\n";
+			}
+		}
 		string complete_date;
 		cout << "Enter complete date:" << endl;
-		cin >> complete_date;
+		while (1) {
+			cout << "Enter complete date:" << endl;
+			cin >> complete_date;
+			if (complete_date.length() == 10) {
+				string yy = "";
+				string mm = "";
+				string dd = "";
+				string ds = "";
+				yy += complete_date[6];
+				yy += complete_date[7];
+				yy += complete_date[8];
+				yy += complete_date[9];
+				mm += complete_date[0];
+				mm += complete_date[1];
+				dd += complete_date[3];
+				dd += complete_date[4];
+				ds += complete_date[2];
+				ds += complete_date[5];
+				int intdd = stoi(dd);
+				int intyy = stoi(yy);
+
+				if (ds == "--") {
+					if (intyy >= 2019) {
+						if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+							if (intdd > 00 && intdd <= 31) {
+
+							}
+							else {
+								cout << "Date is Invalid./n";
+							}
+						}
+						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+							if (intdd > 00 && intdd <= 30) {
+
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else if (mm == "02") {
+							if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+								if (intdd > 00 && intdd <= 29) {
+
+								}
+								else {
+									cout << "Date is Invalid.\n";
+								}
+							}
+							else if (intdd > 00 && intdd <= 28) {
+
+							}
+							else {
+								cout << "Date is Invalid.\n";
+							}
+						}
+						else {
+							cout << "Date is Invalid.\n";
+						}
+					}
+					else {
+						cout << "Date is Invalid.\n";
+					}
+				}
+				else {
+					cout << "Date is Invalid.\n";
+				}
+			}
+			else {
+				cout << "Date is Invalid.\n";
+			}
+		}
 		updateByIdPrj(name, id, description, client_id, money_earned, deadline, complete_date);
 	}
 }

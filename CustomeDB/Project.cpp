@@ -33,6 +33,7 @@ void Project::setdeadline(string deadline)
 void Project::setcomplete_date(string complete_date)
 {
 	this->complete_date = complete_date;
+
 }
 
 string Project::getname()
@@ -66,6 +67,8 @@ string Project::getdeadline()
 }
 
 string Project::getcomplete_date()
-{
+{	
 	return complete_date;
 }
+
+

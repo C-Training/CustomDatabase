@@ -101,6 +101,7 @@ bool Activity::displayMainMenu()
 		else
 			cout << "username or password incorrect" << endl;
 	}
+	system("CLS");
 	return check;
 }
 
@@ -126,8 +127,12 @@ void Activity::onLoad(){
 		}
 		else if (option == -1)
 			break;
-		else
+		else {
+			system("CLS");
 			cout << "The option you entered is incorrect" << endl;
+			continue;
+		}
+		system("CLS");
 		crudOperation(option, crudOption);
 	}
 
@@ -148,13 +153,12 @@ void Activity::crudOperation(int modelOption, int crudOption)
 		deleteOperation(modelOption);
 	}
 	else {
-		cout << "Your CRUD operation is incorrect" << endl;
+		cout << "Your CRUD option is incorrect" << endl;
 	}
 }
 
 void Activity::createOperation(int modelOption)
 {
-	system("CLS");
 	if (modelOption == 1) {
 		cout << "Enter Employee Details" << endl;
 		cout << "Enter Name:\n";
@@ -178,22 +182,39 @@ void Activity::createOperation(int modelOption)
 				break;
 			}
 		}
-		double salary;
+		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
-		while (1)
-		{
-			if (cin.fail())
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "ENTER A NUMBER!" << endl;
-				cout << "Enter Salary Again:\n";
+		regex str_expr("[0-9]|[0-9]+\.[0-9]+");
+		while (1) {
+			if (regex_match(salary, str_expr)) {
+				bool isEqual = false;
+				for (int i = 32; i <= 64; i++) {
+					if (i >= 48 && i <= 57) {
+						continue;
+					}
+					for (int j = 0; j < salary.size(); j++) {
+						if (salary[0] == i) {
+							isEqual = true;
+							break;
+						}
+					}
+					if (isEqual) {
+						break;
+					}
+				}
+				if (isEqual) {
+					cout << "Salary cannot hav a symbol! or be empty, Please Enter Salary Again\n";
+					cin >> salary;
+				}
+				break;
+			}
+			else {
+				cout << "Invalid Salary, enter again" << endl;
 				cin >> salary;
 			}
-			if (!cin.fail())
-				break;
 		}
+		double mySalary = stod(salary);
 		string project;
 		cout << "Enter Project:" << endl;
 		cin >> project;
@@ -206,7 +227,7 @@ void Activity::createOperation(int modelOption)
 		string address;
 		cout << "Enter Address:" << endl;
 		cin >> address;
-		setData(name, salary, project, joiningDate, phone, address);
+		setData(name, mySalary, project, joiningDate, phone, address);
 		database.employeeDatabase();
 	}
 	else if (modelOption == 2) {
@@ -326,7 +347,6 @@ void Activity::readOperation(int modelOption)
 
 void Activity::updateOperation(int modelOption)
 {
-	system("CLS");
 	if (modelOption == 1) {
 		int id;
 		cout << "Enter the ID to update:" << endl;
@@ -353,7 +373,6 @@ void Activity::updateOperation(int modelOption)
 		updateDatabase(name, id, salary, project, joiningDate, phone, address);
 	}
 	else if (modelOption == 2) {
-		system("CLS");
 		cout << "Update Client Details" << endl;
 		int id;
 		cout << "Enter ID to Update:" << endl;
@@ -373,7 +392,6 @@ void Activity::updateOperation(int modelOption)
 		updateClientData(name, id, phone, address, project_id);
 	}
 	else if (modelOption) {
-		system("CLS");
 		cout << "Update Project Details" << endl;
 		int id;
 		cout << "Enter Project_ID to update:" << endl;
@@ -402,7 +420,6 @@ void Activity::updateOperation(int modelOption)
 
 void Activity::deleteOperation(int modelOption)
 {
-	system("CLS");
 	if (modelOption == 1) {
 		cout << "Enter Employee ID to delete" << endl;
 		int id;

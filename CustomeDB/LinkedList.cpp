@@ -54,13 +54,14 @@ void LinkedList::employeeDatabase() {
     
         ofstream MyFile("Employee.txt");
         while (temp != NULL) {
-            MyFile << temp->getEmployee().getName() << " ";
-            MyFile << temp->getEmployee().getId() << " ";
-            MyFile << temp->getEmployee().getSalary() << " ";
-            MyFile << temp->getEmployee().getProject() << " ";
-            MyFile << temp->getEmployee().getJoiningDate() << " ";
-            MyFile << temp->getEmployee().getPhone() << " ";
-            MyFile << temp->getEmployee().getAddress() << " \n";
+            MyFile << "\n";
+            MyFile << temp->getEmployee().getName() << " \n";
+            MyFile << temp->getEmployee().getId() << " \n";
+            MyFile << temp->getEmployee().getSalary() << " \n";
+            MyFile << temp->getEmployee().getProject() << " \n";
+            MyFile << temp->getEmployee().getJoiningDate() << " \n";
+            MyFile << temp->getEmployee().getPhone() << " \n";
+            MyFile << temp->getEmployee().getAddress() ;
             temp = temp->next;
         }
         MyFile.close();
@@ -72,11 +73,12 @@ void LinkedList::clientDatabase(){
     Node* temp = clienthead;
         ofstream MyFile("Client.txt");
         while (temp != NULL) {
-            MyFile << temp->getClient().getName() << " ";
-            MyFile << temp->getClient().getId() << " ";
-            MyFile << temp->getClient().getPhone() << " ";
-            MyFile << temp->getClient().getAddress() << " ";
-            MyFile << temp->getClient().getProject_Id() << " \n"; 
+            MyFile << "\n";
+            MyFile << temp->getClient().getName() << " \n";
+            MyFile << temp->getClient().getId() << " \n";
+            MyFile << temp->getClient().getPhone() << " \n";
+            MyFile << temp->getClient().getAddress() << " \n";
+            MyFile << temp->getClient().getProject_Id(); 
             temp = temp->next;
         }
         MyFile.close();
@@ -88,14 +90,14 @@ void LinkedList::projectDatabase() {
     Node* temp = prjhead;
     ofstream MyFile("Project.txt");
     while (temp != NULL) {
-        MyFile << temp->getProject().getid() << " \n";
+        MyFile << "\n";
         MyFile << temp->getProject().getname() << " \n";
+        MyFile << temp->getProject().getid() << " \n";
         MyFile << temp->getProject().getdescription() << " \n";
         MyFile << temp->getProject().getclient_id() << " \n";
         MyFile << temp->getProject().getmoney_earned() << " \n";
-        MyFile << temp->getProject().getdeadline() << " \n";
-        MyFile << temp->getProject().getcomplete_date() << " \n";
-        MyFile << "\n";
+        MyFile << temp->getProject().getdeadline()<<"\n";
+        MyFile << temp->getProject().getcomplete_date();
         temp = temp->next;
     }
     MyFile.close();

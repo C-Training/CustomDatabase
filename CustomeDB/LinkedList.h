@@ -19,7 +19,9 @@ public:
     LinkedList(string fileName);
     ~LinkedList();
 
-
+    void employeeDatabase();
+    void clientDatabase();
+    void projectDatabase();
 
     Node *getempHead();
     Node *getclientHead();

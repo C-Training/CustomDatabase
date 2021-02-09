@@ -46,6 +46,61 @@ LinkedList::~LinkedList() {
     outfile.close();
 }
 
+void LinkedList::employeeDatabase() {
+    int a = 0;
+    string myText;
+    Node* temp = emphead;
+    cout << endl;
+    
+        ofstream MyFile("Employee.txt");
+        while (temp != NULL) {
+            MyFile << temp->getEmployee().getName() << " ";
+            MyFile << temp->getEmployee().getId() << " ";
+            MyFile << temp->getEmployee().getSalary() << " ";
+            MyFile << temp->getEmployee().getProject() << " ";
+            MyFile << temp->getEmployee().getJoiningDate() << " ";
+            MyFile << temp->getEmployee().getPhone() << " ";
+            MyFile << temp->getEmployee().getAddress() << " \n";
+            temp = temp->next;
+        }
+        MyFile.close();
+    }
+
+void LinkedList::clientDatabase(){
+    int a = 0;
+    string myText;
+    Node* temp = clienthead;
+        ofstream MyFile("Client.txt");
+        while (temp != NULL) {
+            MyFile << temp->getClient().getName() << " ";
+            MyFile << temp->getClient().getId() << " ";
+            MyFile << temp->getClient().getPhone() << " ";
+            MyFile << temp->getClient().getAddress() << " ";
+            MyFile << temp->getClient().getProject_Id() << " \n"; 
+            temp = temp->next;
+        }
+        MyFile.close();
+    }
+
+void LinkedList::projectDatabase() {
+    int a = 0;
+    string myText;
+    Node* temp = prjhead;
+    ofstream MyFile("Project.txt");
+    while (temp != NULL) {
+        MyFile << temp->getProject().getid() << " \n";
+        MyFile << temp->getProject().getname() << " \n";
+        MyFile << temp->getProject().getdescription() << " \n";
+        MyFile << temp->getProject().getclient_id() << " \n";
+        MyFile << temp->getProject().getmoney_earned() << " \n";
+        MyFile << temp->getProject().getdeadline() << " \n";
+        MyFile << temp->getProject().getcomplete_date() << " \n";
+        MyFile << "\n";
+        temp = temp->next;
+    }
+    MyFile.close();
+}
+
 Node* LinkedList::getProjectHead() {
     return prjhead;
 }

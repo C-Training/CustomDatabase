@@ -110,25 +110,24 @@ void Activity::onLoad(){
 	while (check)
 	{
 		display.showHome();
-		int option;
-		int crudOption;
+		string option;
+		string crudOption;
 		cin >> option;
-		if (option == 1) {
+		if (option == "1") {
 			display.showCRUD("Employee");
 			cin >> crudOption;
 		}
-		else if (option == 2) {
+		else if (option == "2") {
 			display.showCRUD("CLient");
 			cin >> crudOption;
 		}
-		else if (option == 3) {
+		else if (option == "3") {
 			display.showCRUD("Project");
 			cin >> crudOption;
 		}
-		else if (option == -1)
+		else if (option == "4")
 			break;
 		else {
-			system("CLS");
 			cout << "The option you entered is incorrect" << endl;
 			continue;
 		}
@@ -138,18 +137,18 @@ void Activity::onLoad(){
 
 }
 
-void Activity::crudOperation(int modelOption, int crudOption)
+void Activity::crudOperation(string modelOption, string crudOption)
 {
-	if (crudOption == 1) {
+	if (crudOption == "1") {
 		createOperation(modelOption);
 	}
-	else if(crudOption == 2) {
+	else if(crudOption == "2") {
 		readOperation(modelOption);
 	}
-	else if (crudOption == 3) {
+	else if (crudOption == "3") {
 		updateOperation(modelOption);
 	}
-	else if (crudOption == 4) {
+	else if (crudOption == "4") {
 		deleteOperation(modelOption);
 	}
 	else {
@@ -157,9 +156,9 @@ void Activity::crudOperation(int modelOption, int crudOption)
 	}
 }
 
-void Activity::createOperation(int modelOption)
+void Activity::createOperation(string modelOption)
 {
-	if (modelOption == 1) {
+	if (modelOption == "1") {
 		cout << "Enter Employee Details" << endl;
 		cout << "Enter Name:\n";
 		cin.ignore();
@@ -230,7 +229,7 @@ void Activity::createOperation(int modelOption)
 		setData(name, mySalary, project, joiningDate, phone, address);
 		database.employeeDatabase();
 	}
-	else if (modelOption == 2) {
+	else if (modelOption == "2") {
 		cout << "Enter Client Details" << endl;
 		string name = "";
 		cout << "Enter Name:" << endl;
@@ -277,7 +276,7 @@ void Activity::createOperation(int modelOption)
 		setData(name, phone, address, project_id);
 		database.clientDatabase();
 	}
-	else if (modelOption == 3) {
+	else if (modelOption == "3") {
 		cout << "Enter Project Details" << endl;
 		string name = "";
 		cout << "Enter Name:" << endl;
@@ -332,22 +331,22 @@ void Activity::createOperation(int modelOption)
 	}
 }
 
-void Activity::readOperation(int modelOption)
+void Activity::readOperation(string modelOption)
 {
-	if (modelOption == 1) {
+	if (modelOption == "1") {
 		displayEmployeeDatabase();
 	}
-	else if (modelOption == 2) {
+	else if (modelOption == "2") {
 		showClientDatabase();
 	}
-	else if (modelOption == 3) {
+	else if (modelOption == "3") {
 		displayProjectDatabase();
 	}
 }
 
-void Activity::updateOperation(int modelOption)
+void Activity::updateOperation(string modelOption)
 {
-	if (modelOption == 1) {
+	if (modelOption == "1") {
 		int id;
 		cout << "Enter the ID to update:" << endl;
 		cin >> id;
@@ -372,7 +371,7 @@ void Activity::updateOperation(int modelOption)
 		cin >> address;
 		updateDatabase(name, id, salary, project, joiningDate, phone, address);
 	}
-	else if (modelOption == 2) {
+	else if (modelOption == "2") {
 		cout << "Update Client Details" << endl;
 		int id;
 		cout << "Enter ID to Update:" << endl;
@@ -391,7 +390,7 @@ void Activity::updateOperation(int modelOption)
 		cin >> project_id;
 		updateClientData(name, id, phone, address, project_id);
 	}
-	else if (modelOption) {
+	else if (modelOption == "3") {
 		cout << "Update Project Details" << endl;
 		int id;
 		cout << "Enter Project_ID to update:" << endl;
@@ -418,18 +417,18 @@ void Activity::updateOperation(int modelOption)
 	}
 }
 
-void Activity::deleteOperation(int modelOption)
+void Activity::deleteOperation(string modelOption)
 {
-	if (modelOption == 1) {
+	if (modelOption == "1") {
 		cout << "Enter Employee ID to delete" << endl;
 		int id;
 		cin >> id;
 		deleteEmployee(id);
 	}
-	else if (modelOption == 2) {
+	else if (modelOption == "2") {
 		deleteCliDataById();
 	}
-	else if (modelOption == 3) {
+	else if (modelOption == "3") {
 		cout << "Enter Project ID to delete" << endl;
 		int id;
 		cin >> id;

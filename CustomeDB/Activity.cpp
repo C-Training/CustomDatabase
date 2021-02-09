@@ -101,6 +101,7 @@ bool Activity::displayMainMenu()
 		else
 			cout << "username or password incorrect" << endl;
 	}
+	system("CLS");
 	return check;
 }
 
@@ -126,8 +127,12 @@ void Activity::onLoad(){
 		}
 		else if (option == -1)
 			break;
-		else
+		else {
+			system("CLS");
 			cout << "The option you entered is incorrect" << endl;
+			continue;
+		}
+		system("CLS");
 		crudOperation(option, crudOption);
 	}
 
@@ -148,13 +153,12 @@ void Activity::crudOperation(int modelOption, int crudOption)
 		deleteOperation(modelOption);
 	}
 	else {
-		cout << "Your CRUD operation is incorrect" << endl;
+		cout << "Your CRUD option is incorrect" << endl;
 	}
 }
 
 void Activity::createOperation(int modelOption)
 {
-	system("CLS");
 	if (modelOption == 1) {
 		cout << "Enter Employee Details" << endl;
 		cout << "Enter Name:\n";
@@ -183,6 +187,18 @@ void Activity::createOperation(int modelOption)
 		cin >> salary;
 		while (1)
 		{
+			string charCheck = to_string(salary);
+			bool isEqual = false;
+			for (int i = 32; i <= 64; i++) {
+				if (charCheck[0] == i) {
+					isEqual = true;
+					break;
+				}
+			}
+			if (isEqual || charCheck == "") {
+				cout << "Salary cannot start with a symbol! or be empty, Please Enter Salary Again\n";
+				cin >> salary;
+			}
 			if (cin.fail())
 			{
 				cin.clear();
@@ -326,7 +342,6 @@ void Activity::readOperation(int modelOption)
 
 void Activity::updateOperation(int modelOption)
 {
-	system("CLS");
 	if (modelOption == 1) {
 		int id;
 		cout << "Enter the ID to update:" << endl;
@@ -353,7 +368,6 @@ void Activity::updateOperation(int modelOption)
 		updateDatabase(name, id, salary, project, joiningDate, phone, address);
 	}
 	else if (modelOption == 2) {
-		system("CLS");
 		cout << "Update Client Details" << endl;
 		int id;
 		cout << "Enter ID to Update:" << endl;
@@ -373,7 +387,6 @@ void Activity::updateOperation(int modelOption)
 		updateClientData(name, id, phone, address, project_id);
 	}
 	else if (modelOption) {
-		system("CLS");
 		cout << "Update Project Details" << endl;
 		int id;
 		cout << "Enter Project_ID to update:" << endl;
@@ -402,7 +415,6 @@ void Activity::updateOperation(int modelOption)
 
 void Activity::deleteOperation(int modelOption)
 {
-	system("CLS");
 	if (modelOption == 1) {
 		cout << "Enter Employee ID to delete" << endl;
 		int id;

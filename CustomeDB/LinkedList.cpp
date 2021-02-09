@@ -413,49 +413,60 @@ void LinkedList::updateByIdPrj(string name, int id, string description, int clie
 
 
 void LinkedList::displayCliList() {
-
     Node* cur = clienthead;
-
-    while (cur != NULL) {
-        cout << cur->getClient().getName() << " ";
-        cout << cur->getClient().getId() << " ";
-        cout << cur->getClient().getPhone() << " ";
-        cout << cur->getClient().getAddress() << " ";
-        cout << cur->getClient().getProject_Id() << " \n";
-        cur = cur->next;
+    if (cur == NULL) {
+        cout << "The Client database is empty.\n";
     }
-    cout << endl;
+    else {
+		while (cur != NULL) {
+			cout << cur->getClient().getName() << " ";
+			cout << cur->getClient().getId() << " ";
+			cout << cur->getClient().getPhone() << " ";
+			cout << cur->getClient().getAddress() << " ";
+			cout << cur->getClient().getProject_Id() << " \n";
+			cur = cur->next;
+		}
+		cout << endl;
+    }
 }
 
 void LinkedList::displayEmployeeList() {
-
 	Node* cur = emphead;
-
-	while (cur != NULL) {
-		cout << cur->getEmployee().getName() << " ";
-		cout << cur->getEmployee().getId() << " ";
-		cout << cur->getEmployee().getSalary() << " ";
-		cout << cur->getEmployee().getProject() << " ";
-		cout << cur->getEmployee().getJoiningDate() << " ";
-		cout << cur->getEmployee().getPhone() << " ";
-		cout << cur->getEmployee().getAddress() << " \n";
-		cur = cur->next;
-	}
-	cout << endl;
+    if (cur == NULL) {
+        cout << "The Employee database is empty.\n";
+    }
+    else {
+		while (cur != NULL) {
+			cout << cur->getEmployee().getName() << " ";
+			cout << cur->getEmployee().getId() << " ";
+			cout << cur->getEmployee().getSalary() << " ";
+			cout << cur->getEmployee().getProject() << " ";
+			cout << cur->getEmployee().getJoiningDate() << " ";
+			cout << cur->getEmployee().getPhone() << " ";
+			cout << cur->getEmployee().getAddress() << " \n";
+			cur = cur->next;
+		}
+		cout << endl;
+    }
 }
 
 void LinkedList::displayListPrj() {
     Node* temp = prjhead;
-    while (temp != NULL) {
-        cout << temp->getProject().getid() << " \n";
-        cout << temp->getProject().getname() << " \n";
-        cout << temp->getProject().getdescription() << " \n";
-        cout << temp->getProject().getclient_id() << " \n";
-        cout << temp->getProject().getmoney_earned() << " \n";
-        cout << temp->getProject().getdeadline() << " \n";
-        cout << temp->getProject().getcomplete_date() << " \n";
-        cout << "\n";
-        temp = temp->next;
+    if (temp == NULL) {
+        cout << "The Project database is empty.\n";
+    }
+    else {
+		while (temp != NULL) {
+			cout << temp->getProject().getid() << " \n";
+			cout << temp->getProject().getname() << " \n";
+			cout << temp->getProject().getdescription() << " \n";
+			cout << temp->getProject().getclient_id() << " \n";
+			cout << temp->getProject().getmoney_earned() << " \n";
+			cout << temp->getProject().getdeadline() << " \n";
+			cout << temp->getProject().getcomplete_date() << " \n";
+			cout << "\n";
+			temp = temp->next;
+		}
     }
 }
 

@@ -20,6 +20,7 @@ void Display::showMenu()
 
 void Display::showHome()
 {
+	system("CLS");
 	cout << "Home" << endl;
 	cout << "SELECT AN OPTION" << endl;
 	cout << "1: Employee" << endl;
@@ -30,6 +31,7 @@ void Display::showHome()
 
 void Display::showCRUD(string obj)
 {
+	system("CLS");
 	cout << "SELECT AN OPTION" << endl;
 	cout << "1: Create " << obj << endl;
 	cout << "2: Read " << obj << endl;

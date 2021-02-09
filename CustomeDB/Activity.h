@@ -4,6 +4,8 @@
 #include<conio.h>
 #include <string>
 #include<limits>
+#include<cctype>
+#include<regex>
 using namespace std;
 
 

@@ -182,36 +182,36 @@ void Activity::createOperation(int modelOption)
 				break;
 			}
 		}
-		double salary;
+		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
-		while (1)
-		{
-			if (cin.fail())
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "ENTER A NUMBER!" << endl;
-				cout << "Enter Salary Again:\n";
-				cin >> salary;
-			}
-			string charCheck = to_string(salary);
-			bool isEqual = false;
-			for (int i = 32; i <= 64; i++) {
-				for (int j = 0; j < charCheck.size(); j++) {
-					if (charCheck[0] == i) {
-						isEqual = true;
+		regex str_expr("[0-9]|[0-9]+\.[0-9]+");
+		while (1) {
+			if (regex_match(salary, str_expr)) {
+				bool isEqual = false;
+				for (int i = 32; i <= 47; i++) {
+					for (int j = 0; j < salary.size(); j++) {
+						if (salary[0] == i) {
+							isEqual = true;
+							break;
+						}
+					}
+					if (isEqual) {
 						break;
 					}
 				}
+				if (isEqual) {
+					cout << "Salary cannot hav a symbol! or be empty, Please Enter Salary Again\n";
+					cin >> salary;
+				}
+				break;
 			}
-			if (isEqual || charCheck == "") {
-				cout << "Salary cannot start with a symbol! or be empty, Please Enter Salary Again\n";
+			else {
+				cout << "Invalid Salary, enter again" << endl;
 				cin >> salary;
 			}
-			if (!cin.fail())
-				break;
 		}
+		double mySalary = stod(salary);
 		string project;
 		cout << "Enter Project:" << endl;
 		cin >> project;
@@ -224,7 +224,7 @@ void Activity::createOperation(int modelOption)
 		string address;
 		cout << "Enter Address:" << endl;
 		cin >> address;
-		setData(name, salary, project, joiningDate, phone, address);
+		setData(name, mySalary, project, joiningDate, phone, address);
 		database.employeeDatabase();
 	}
 	else if (modelOption == 2) {

@@ -184,7 +184,7 @@ void Activity::createOperation(string modelOption)
 		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
-		regex str_expr("[0-9]|[0-9]+\.[0-9]+");
+		regex str_expr("[0-9]+|[0-9]+\.[0-9]+");
 		while (1) {
 			if (regex_match(salary, str_expr)) {
 				bool isEqual = false;
@@ -222,6 +222,16 @@ void Activity::createOperation(string modelOption)
 		string phone;
 		cout << "Enter Phone Number:" << endl;
 		cin >> phone;
+		regex str_exprr("[0][3][0-9]+");
+		while (1) {
+			if (regex_match(phone, str_exprr) && phone.size() == 11) {
+				break;
+			}
+			else {
+				cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+				cin >> phone;
+			}
+		}
 		string address;
 		cout << "Enter Address:" << endl;
 		cin >> address;
@@ -254,6 +264,16 @@ void Activity::createOperation(string modelOption)
 		string phone;
 		cout << "Enter Phone:" << endl;
 		cin >> phone;
+		regex str_exprr("[0][3][0-9]+");
+		while (1) {
+			if (regex_match(phone, str_exprr) && phone.size() == 11) {
+				break;
+			}
+			else {
+				cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+				cin >> phone;
+			}
+		}
 		string address;
 		cout << "Enter Address:" << endl;
 		cin >> address;
@@ -454,6 +474,7 @@ void Activity::deleteEmployee(int id)
 {
 	database.deleteByEmployeeId(id);
 }
+
 
 
 

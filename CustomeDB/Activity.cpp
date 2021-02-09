@@ -190,9 +190,11 @@ void Activity::createOperation(int modelOption)
 			string charCheck = to_string(salary);
 			bool isEqual = false;
 			for (int i = 32; i <= 64; i++) {
-				if (charCheck[0] == i) {
-					isEqual = true;
-					break;
+				for (int j = 0; j < charCheck.size(); j++) {
+					if (charCheck[0] == i) {
+						isEqual = true;
+						break;
+					}
 				}
 			}
 			if (isEqual || charCheck == "") {

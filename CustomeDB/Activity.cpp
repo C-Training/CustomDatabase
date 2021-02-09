@@ -345,6 +345,74 @@ void Activity::createOperation(string modelOption)
 		string complete_date;
 		cout << "Enter complete date:" << endl;
 		cin >> complete_date;
+		if (complete_date.length() == 10) {
+			string yy = "";
+			string mm = "";
+			string dd = "";
+			string ds = "";
+			yy += complete_date[6];
+			yy += complete_date[7];
+			yy += complete_date[8];
+			yy += complete_date[9];
+			mm += complete_date[0];
+			mm += complete_date[1];
+			dd += complete_date[3];
+			dd += complete_date[4];
+			ds += complete_date[2];
+			ds += complete_date[5];
+			int intdd = stoi(dd);
+			int intyy = stoi(yy);
+
+			if (ds == "--") {
+				if (intyy >= 2019) {
+					if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+						if (intdd > 00 && intdd <= 31) {
+							
+						}
+						else {
+							cout << "Date is Invalid";
+						}
+					}
+					else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+						if (intdd > 00 && intdd <= 30) {
+							
+						}
+						else {
+							cout << "Date is Invalid";
+						}
+					}
+					else if (mm == "02") {
+						if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+							if (intdd > 00 && intdd <= 29) {
+								
+							}
+							else {
+								cout << "Date is Invalid";
+							}
+						}
+						else if (intdd > 00 && intdd <= 28) {
+							
+						}
+						else {
+							cout << "Date is Invalid";
+						}
+					}
+					else {
+						cout << "Date is Invalid";
+					}
+				}
+				else {
+					cout << "Date is Invalid";
+				}
+			}
+			else {
+				cout << "Date is Invalid";
+			}
+		}
+		else {
+			cout << "Date is Invalid";
+		}
+
 		setData(name, description, client_id, money_earned, deadline, complete_date);
 		database.projectDatabase();
 	}

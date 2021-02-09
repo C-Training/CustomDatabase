@@ -187,6 +187,14 @@ void Activity::createOperation(int modelOption)
 		cin >> salary;
 		while (1)
 		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "ENTER A NUMBER!" << endl;
+				cout << "Enter Salary Again:\n";
+				cin >> salary;
+			}
 			string charCheck = to_string(salary);
 			bool isEqual = false;
 			for (int i = 32; i <= 64; i++) {
@@ -199,14 +207,6 @@ void Activity::createOperation(int modelOption)
 			}
 			if (isEqual || charCheck == "") {
 				cout << "Salary cannot start with a symbol! or be empty, Please Enter Salary Again\n";
-				cin >> salary;
-			}
-			if (cin.fail())
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "ENTER A NUMBER!" << endl;
-				cout << "Enter Salary Again:\n";
 				cin >> salary;
 			}
 			if (!cin.fail())

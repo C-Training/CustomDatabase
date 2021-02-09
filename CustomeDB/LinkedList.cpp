@@ -16,7 +16,7 @@ LinkedList::LinkedList(string fileName) {
     else {
         string name;
         int id;
-        double salary;
+        string salary;
         string project;
         string joiningDate;
         string phone;
@@ -115,7 +115,7 @@ Node* LinkedList::getclientHead()
     return clienthead;
 }
 
-void LinkedList::addAtHead(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+void LinkedList::addAtHead(string name, int id, string salary, string project, string joiningDate, string phone, string address)
 {
 	Node* new_node = new Node(name, id, salary, project, joiningDate, phone, address);
 	new_node->next = NULL;
@@ -152,7 +152,7 @@ void LinkedList::addAtHead(string name, int id, string description, int client_i
 
 }
 
-void LinkedList::addAtEnd(string name, int id, double salary, string project, string joiningDate, string phone, string address) {
+void LinkedList::addAtEnd(string name, int id, string salary, string project, string joiningDate, string phone, string address) {
 
     Node* new_node = new Node(name, id, salary, project, joiningDate, phone, address);
     new_node->next = NULL;
@@ -459,7 +459,7 @@ void LinkedList::displayListPrj() {
     }
 }
 
-void LinkedList::updateSalary(int id, string name, double new_salary) {                //The old function was updatePrice
+void LinkedList::updateSalary(int id, string name, string new_salary) {                //The old function was updatePrice
                                                                                        //Changed it into updateSalary
     Node* cur = emphead;                                                               //Also the parameters
     bool found = false;                                                                //if id and name are same the salary can be changed.
@@ -483,7 +483,7 @@ void LinkedList::updateSalary(int id, string name, double new_salary) {         
 }
 
 
-void LinkedList::updateEmployee(string name, int id, double salary, string project, string joiningDate, string phone, string address)
+void LinkedList::updateEmployee(string name, int id, string salary, string project, string joiningDate, string phone, string address)
 {
     bool check = false;
     Node* cur = this->emphead;

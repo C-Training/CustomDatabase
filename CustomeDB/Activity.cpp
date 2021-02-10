@@ -572,7 +572,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string deadline;
 		while (1) {
-			cout << "Enter Deadline mm-dd-yy :" << endl;
+			cout << "Enter Deadline date with format mm-dd-yy :" << endl;
 			cin >> deadline;
 			if (deadline == "0") {
 				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
@@ -647,7 +647,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string complete_date;
 		while (1) {
-			cout << "Enter complete date with format mm-dd-yy :" << endl;
+			cout << "Enter project completion date with format mm-dd-yy :" << endl;
 			cin >> complete_date;
 			if (complete_date == "0") {
 				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
@@ -881,7 +881,7 @@ void Activity::updateOperation(string modelOption)
 		cin >> money_earned;
 		string deadline;
 		while (1) {
-			cout << "Enter Deadline mm-dd-yy :" << endl;
+			cout << "Enter Deadline with format mm-dd-yy :" << endl;
 			cin >> deadline;
 			if (deadline.length() == 10) {
 				string yy = "";
@@ -953,7 +953,7 @@ void Activity::updateOperation(string modelOption)
 		}
 		string complete_date;
 		while (1) {
-			cout << "Enter complete date with format mm-dd-yy :" << endl;
+			cout << "Enter project completion date with format mm-dd-yy :" << endl;
 			cin >> complete_date;
 			if (complete_date.length() == 10) {
 				string yy = "";

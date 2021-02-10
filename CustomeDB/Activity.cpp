@@ -323,7 +323,8 @@ void Activity::createOperation(string modelOption)
 		}
 		string project;
 		cout << "Enter Project:" << endl;
-		cin >> project;
+		cin.ignore();
+		getline(cin, project);
 		while (1) {
 			if (project == "0") {
 				string crudOption; display.showCRUD("Employee"); cin >> crudOption; crudOperation("1", crudOption); break; system("CLS");
@@ -423,7 +424,8 @@ void Activity::createOperation(string modelOption)
 		}
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		cin.ignore();
+		getline(cin, address);
 		while (1) {
 			if (address == "0") {
 				string crudOption; display.showCRUD("Employee"); cin >> crudOption; crudOperation("1", crudOption); break; system("CLS");
@@ -431,9 +433,8 @@ void Activity::createOperation(string modelOption)
 			break;
 		}
 
-			setData(name, salary, project, joiningDate, phone, address);
-			database.employeeDatabase();
-		
+		setData(name, salary, project, joiningDate, phone, address);
+		database.employeeDatabase();
 	}
 	else if (modelOption == "2") {
 		cout << "Enter Client Details" << endl;
@@ -479,7 +480,8 @@ void Activity::createOperation(string modelOption)
 		}
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		cin.ignore();
+		getline(cin, address);
 		while (1) {
 			if (address == "0") {
 				string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break;
@@ -536,7 +538,8 @@ void Activity::createOperation(string modelOption)
 		}
 		string description;
 		cout << "Enter description" << endl;
-		cin >> description; //getline()
+		cin.ignore();
+		getline(cin, description);
 		while (1) {
 			if (description == "0") {
 				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
@@ -721,7 +724,6 @@ void Activity::createOperation(string modelOption)
 			}
 		}
 		
-
 		setData(name, description, client_id, money_earned, deadline, complete_date);
 		database.projectDatabase();
 	}
@@ -755,13 +757,15 @@ void Activity::updateOperation(string modelOption)
 		cout << "Update Employee Details" << endl;
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		cin.ignore();
+		getline(cin, name);
 		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
 		string project;
 		cout << "Enter Project:" << endl;
-		cin >> project;
+		cin.ignore();
+		getline(cin, project);
 		string joiningDate;
 			while (1) {
 				cout << "Enter Joining Date with format mm-dd-yy :" << endl;
@@ -839,7 +843,8 @@ void Activity::updateOperation(string modelOption)
 		cin >> phone;
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		cin.ignore();
+		getline(cin, address);
 		updateDatabase(name, id, salary, project, joiningDate, phone, address);
 	}
 	else if (modelOption == "2") {
@@ -849,13 +854,15 @@ void Activity::updateOperation(string modelOption)
 		cin >> id;
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		cin.ignore();
+		getline(cin, name);
 		string phone;
 		cout << "Enter Phone:" << endl;
 		cin >> phone;
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		cin.ignore();
+		getline(cin, address);
 		int project_id;
 		cout << "Enter Project_ID:" << endl;
 		cin >> project_id;
@@ -869,10 +876,12 @@ void Activity::updateOperation(string modelOption)
 		cin >> id;
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		cin.ignore();
+		getline(cin, name);
 		string description;
 		cout << "Enter description" << endl;
-		cin >> description;
+		cin.ignore();
+		getline(cin, description);
 		int client_id;
 		cout << "Enter Client_ID" << endl;
 		cin >> client_id;

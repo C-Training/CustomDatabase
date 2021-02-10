@@ -277,7 +277,7 @@ void Activity::createOperation(string modelOption)
 						}
 					}
 					else {
-						cout << "Date is Invalid.\n";
+						cout << "Date is Invalid. Please enter the joining date after 2019. \n";
 					}
 				}
 				else {
@@ -469,7 +469,7 @@ void Activity::createOperation(string modelOption)
 						}
 					}
 					else {
-						cout << "Date is Invalid.\n";
+						cout << "Date is Invalid. Please enter the deadline after 2019. \n";
 					}
 				}
 				else {
@@ -541,7 +541,7 @@ void Activity::createOperation(string modelOption)
 						}
 					}
 					else {
-						cout << "Date is Invalid.\n";
+						cout << "Date is Invalid. Please enter the complete date after 2019. \n";
 					}
 				}
 				else {
@@ -649,7 +649,7 @@ void Activity::updateOperation(string modelOption)
 						}
 					}
 					else {
-						cout << "Date is Invalid.\n";
+						cout << "Date is Invalid. Please enter the joining date after 2019. \n";
 					}
 				}
 				else {
@@ -767,7 +767,7 @@ void Activity::updateOperation(string modelOption)
 						}
 					}
 					else {
-						cout << "Date is Invalid.\n";
+						cout << "Date is Invalid. Please enter the deadline date after 2019. \n";
 					}
 				}
 				else {
@@ -839,7 +839,7 @@ void Activity::updateOperation(string modelOption)
 						}
 					}
 					else {
-						cout << "Date is Invalid.\n";
+						cout << "Date is Invalid. Please enter the complete date after 2019. \n";
 					}
 				}
 				else {

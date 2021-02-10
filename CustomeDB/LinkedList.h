@@ -29,12 +29,12 @@ public:
     
 
     void addAtHead(string name, int id, string salary, string project, string joiningDate, string phone, string address);
-    void addAtHead(string name, int id, string phone, string address, int project_id);
-    void addAtHead(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
+    void addAtHead(string name, int id, string phone, string address, string project_id);
+    void addAtHead(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id);
     
     void addAtEnd(string name, int id, string salary, string project, string joiningDate, string phone, string address);
-    void addAtEnd(string name, int id, string phone, string address, int project_id);
-    void addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
+    void addAtEnd(string name, int id, string phone, string address, string project_id);
+    void addAtEnd(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id);
 
     void deleteAtCliHead();
     void deleteAtHeadPrj();
@@ -51,9 +51,9 @@ public:
 
 
     void updateSalary(int id, string name, string new_salary);
-    void updateClient(string name, int id, string phone, string address, int project_id);
+    void updateClient(string name, int id, string phone, string address, string project_id);
     void updateEmployee(string name, int id, string salary, string project, string joiningDate, string phone, string address);
-    void updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
+    void updateByIdPrj(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id);
 
     void swapEmployeeNodes(Node* cur, Node* index);
     void swapCliNodes(Node* cur, Node* index);
@@ -72,4 +72,6 @@ public:
     void reverseCliLinkedList();
 
 };
+
+
 

@@ -8,7 +8,7 @@ class Client {
     int id = 0;
     string phone;
     string address;
-    int project_id;
+    string project_id;
 
 public:
 
@@ -16,12 +16,12 @@ public:
     void setId(int id);
     void setPhone(string phone);
     void setAddress(string address);
-    void setProject_Id(int id);
+    void setProject_Id(string id);
 
     string getName();
     int getId();
     string getPhone();
     string getAddress();
-    int getProject_Id();
+    string getProject_Id();
 
 };

@@ -47,13 +47,13 @@ LinkedList::~LinkedList() {
 }
 
 void LinkedList::employeeDatabase() {
-    int a = 0;
     string myText;
     Node* temp = emphead;
     cout << endl;
-    
-        ofstream MyFile("Employee.txt");
-        while (temp != NULL) {
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+        ofstream MyFile("Employee.txt",ios::app);
             MyFile << "\n";
             MyFile << temp->getEmployee().getName() << " \n";
             MyFile << temp->getEmployee().getId() << " \n";
@@ -63,16 +63,16 @@ void LinkedList::employeeDatabase() {
             MyFile << temp->getEmployee().getPhone() << " \n";
             MyFile << temp->getEmployee().getAddress() ;
             temp = temp->next;
-        }
         MyFile.close();
     }
 
 void LinkedList::clientDatabase(){
-    int a = 0;
     string myText;
     Node* temp = clienthead;
-        ofstream MyFile("Client.txt");
-        while (temp != NULL) {
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+        ofstream MyFile("Client.txt", ios::app);
             MyFile << "\n";
             MyFile << temp->getClient().getName() << " \n";
             MyFile << temp->getClient().getId() << " \n";
@@ -80,17 +80,17 @@ void LinkedList::clientDatabase(){
             MyFile << temp->getClient().getAddress() << " \n";
             MyFile << temp->getClient().getProject_Id(); 
             temp = temp->next;
-        }
         MyFile.close();
     }
 
 void LinkedList::projectDatabase() {
-    int a = 0;
     string myText;
     Node* temp = prjhead;
-    ofstream MyFile("Project.txt");
-    while (temp != NULL) {
-        MyFile << "\n";
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    ofstream MyFile("Project.txt",ios::app);
+    MyFile << "\n";
         MyFile << temp->getProject().getname() << " \n";
         MyFile << temp->getProject().getid() << " \n";
         MyFile << temp->getProject().getdescription() << " \n";
@@ -99,7 +99,6 @@ void LinkedList::projectDatabase() {
         MyFile << temp->getProject().getdeadline()<<"\n";
         MyFile << temp->getProject().getcomplete_date();
         temp = temp->next;
-    }
     MyFile.close();
 }
 
@@ -420,16 +419,18 @@ void LinkedList::displayCliList() {
         cout << "The Client database is empty.\n";
     }
     else {
-		while (cur != NULL) {
-			cout << cur->getClient().getName() << " ";
-			cout << cur->getClient().getId() << " ";
-			cout << cur->getClient().getPhone() << " ";
-			cout << cur->getClient().getAddress() << " ";
-			cout << cur->getClient().getProject_Id() << " \n";
-			cur = cur->next;
-		}
-		cout << endl;
+        while (cur != NULL) {
+            cout << cur->getClient().getName() << " \n";
+            cout << cur->getClient().getId() << " \n";
+            cout << cur->getClient().getPhone() << " \n";
+            cout << cur->getClient().getAddress() << " \n";
+            cout << cur->getClient().getProject_Id() << " \n";
+            cout << "\n";
+            cur = cur->next;
+        }
+        cout << endl;
     }
+
 }
 
 void LinkedList::displayEmployeeList() {
@@ -438,19 +439,23 @@ void LinkedList::displayEmployeeList() {
         cout << "The Employee database is empty.\n";
     }
     else {
-		while (cur != NULL) {
-			cout << cur->getEmployee().getName() << " ";
-			cout << cur->getEmployee().getId() << " ";
-			cout << cur->getEmployee().getSalary() << " ";
-			cout << cur->getEmployee().getProject() << " ";
-			cout << cur->getEmployee().getJoiningDate() << " ";
-			cout << cur->getEmployee().getPhone() << " ";
-			cout << cur->getEmployee().getAddress() << " \n";
-			cur = cur->next;
-		}
-		cout << endl;
+        while (cur != NULL) {
+            cout << cur->getEmployee().getName() << " \n";
+            cout << cur->getEmployee().getId() << " \n";
+            cout << cur->getEmployee().getSalary() << " \n";
+            cout << cur->getEmployee().getProject() << " \n";
+            cout << cur->getEmployee().getJoiningDate() << " \n";
+            cout << cur->getEmployee().getPhone() << " \n";
+            cout << cur->getEmployee().getAddress() << " \n";
+            cout << "\n";
+            cur = cur->next;
+        }
+        cout << endl;
     }
+		
 }
+
+	
 
 void LinkedList::displayListPrj() {
     Node* temp = prjhead;

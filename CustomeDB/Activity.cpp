@@ -250,6 +250,9 @@ void Activity::crudOperation(string modelOption, string crudOption)
 		display.showHome();
 		system("CLS");
 	}
+	else if (crudOption == "6") {
+		exit(1);
+	}
 	else {
 		cout << "Your CRUD option is incorrect" << endl;
 	}

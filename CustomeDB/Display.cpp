@@ -36,7 +36,8 @@ void Display::showCRUD(string obj)
 	cout << "2: Read " << obj << endl;
 	cout << "3: Update " << obj << endl;
 	cout << "4: Delete " << obj << endl;
-	cout << "Press any other number for Main Menu "<< endl;
+	cout << "5: Main Menu "<< endl;
+	cout << "6: Exit Program " << endl;
 }
 
 void Display::showEmployee(LinkedList database)

@@ -503,6 +503,18 @@ void Activity::createOperation(string modelOption)
 		string money_earned;
 		cout << "Enter money earned:" << endl;
 		cin >> money_earned;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter money earned Again." << endl;
+				cin >> money_earned;
+			}
+			if (!cin.fail())
+				break;
+		}
 		string deadline;
 		while (1) {
 			cout << "Enter Deadline mm-dd-yy :" << endl;
@@ -577,7 +589,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string complete_date;
 		while (1) {
-			cout << "Enter complete date with format mm-dd-yy :" << endl;
+			cout << "Enter project completion date with format mm-dd-yy :" << endl;
 			cin >> complete_date;
 			if (complete_date.length() == 10) {
 				string yy = "";
@@ -679,13 +691,73 @@ void Activity::updateOperation(string modelOption)
 		int id;
 		cout << "Enter the ID to update:" << endl;
 		cin >> id;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter ID again." << endl;
+				cin >>id;
+			}
+			if (!cin.fail())
+				break;
+		}
 		cout << "Update Employee Details" << endl;
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		cin.ignore();
+		string name = "";
+		getline(cin, name);
+		while (1)
+		{
+			bool isEqual = false;
+			for (int i = 48; i <= 57; i++) {
+				if (name[0] == i) {
+					isEqual = true;
+					break;
+				}
+			}
+			if (isEqual || name == "") {
+				cout << "Name cannot start with a Number or be empty, Please Enter Name Again\n";
+				getline(cin, name);
+			}
+			else {
+				break;
+			}
+		}
 		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
+		regex str_expr("[0-9]+|[0-9]+\.[0-9]+");
+		while (1) {
+			if (regex_match(salary, str_expr)) {
+				bool isEqual = false;
+				for (int i = 32; i <= 64; i++) {
+					if (i >= 48 && i <= 57) {
+						continue;
+					}
+					for (int j = 0; j < salary.size(); j++) {
+						if (salary[0] == i) {
+							isEqual = true;
+							break;
+						}
+					}
+					if (isEqual) {
+						break;
+					}
+				}
+				if (isEqual) {
+					cout << "Salary cannot hav a symbol! or be empty, Please Enter Salary Again\n";
+					cin >> salary;
+				}
+				break;
+			}
+			else {
+				cout << "Invalid Salary, enter again" << endl;
+				cin >> salary;
+			}
+		}
 		string project;
 		cout << "Enter Project:" << endl;
 		cin >> project;
@@ -774,18 +846,71 @@ void Activity::updateOperation(string modelOption)
 		int id;
 		cout << "Enter ID to Update:" << endl;
 		cin >> id;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter ID Again." << endl;
+				cin >> id;
+			}
+			if (!cin.fail())
+				break;
+		}
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		cin.ignore();
+		string name = "";
+		getline(cin, name);
+		while (1)
+		{
+			bool isEqual = false;
+			for (int i = 48; i <= 57; i++) {
+				if (name[0] == i) {
+					isEqual = true;
+					break;
+				}
+			}
+			if (isEqual || name == "") {
+				cout << "Name cannot start with a Number or be empty, Please Enter Name Again\n";
+				getline(cin, name);
+			}
+			else {
+				break;
+			}
+		}
 		string phone;
 		cout << "Enter Phone:" << endl;
 		cin >> phone;
+		regex str_exprr("[0][3][0-9]+");
+		while (1) {
+			if (regex_match(phone, str_exprr) && phone.size() == 11) {
+				break;
+			}
+			else {
+				cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+				cin >> phone;
+			}
+		}
 		string address;
 		cout << "Enter Address:" << endl;
 		cin >> address;
 		int project_id;
 		cout << "Enter Project_ID:" << endl;
 		cin >> project_id;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter Project_ID Again." << endl;
+				cin >> project_id;
+			}
+			if (!cin.fail())
+				break;
+		}
 		updateClientData(name, id, phone, address, project_id);
 	}
 	else if (modelOption == "3") {
@@ -794,18 +919,73 @@ void Activity::updateOperation(string modelOption)
 		int id;
 		cout << "Enter Project_ID to update:" << endl;
 		cin >> id;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, enter ID Again." << endl;
+				cin >> id;
+			}
+			if (!cin.fail())
+				break;
+		}
 		string name;
 		cout << "Enter Name:" << endl;
 		cin >> name;
+		cin.ignore();
+		getline(cin, name);
+		while (1)
+		{
+			bool isEqual = false;
+			for (int i = 48; i <= 57; i++) {
+				if (name[0] == i) {
+					isEqual = true;
+					break;
+				}
+			}
+			if (isEqual || name == "") {
+				cout << "Name cannot start with a Number or be empty, Please Enter Name Again\n";
+				getline(cin, name);
+			}
+			else {
+				break;
+			}
+		}
 		string description;
 		cout << "Enter description" << endl;
 		cin >> description;
 		int client_id;
 		cout << "Enter Client_ID" << endl;
 		cin >> client_id;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter Client_ID Again." << endl;
+				cin >> client_id;
+			}
+			if (!cin.fail())
+				break;
+		}
 		string money_earned;
 		cout << "Enter money earned:" << endl;
 		cin >> money_earned;
+		while (1)
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input, Enter money earned Again." << endl;
+				cin >> money_earned;
+			}
+			if (!cin.fail())
+				break;
+		}
 		string deadline;
 		while (1) {
 			cout << "Enter Deadline mm-dd-yy :" << endl;
@@ -880,7 +1060,7 @@ void Activity::updateOperation(string modelOption)
 		}
 		string complete_date;
 		while (1) {
-			cout << "Enter complete date with format mm-dd-yy :" << endl;
+			cout << "Enter Project completion date with format mm-dd-yy :" << endl;
 			cin >> complete_date;
 			if (complete_date.length() == 10) {
 				string yy = "";

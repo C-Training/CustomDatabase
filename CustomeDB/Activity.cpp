@@ -109,7 +109,7 @@ LinkedList Activity::loadEmpDatabase() {
 	string myText;
 	string name, a;
 	int id;
-	double salary;
+	string salary;
 	string project;
 	string joiningDate;
 	string phone;
@@ -123,7 +123,7 @@ LinkedList Activity::loadEmpDatabase() {
 		getline(MyReadFile, myText);
 		id = stoi(myText);
 		getline(MyReadFile, myText);
-		salary = stod(myText);
+		salary = myText;
 		getline(MyReadFile, myText);
 		project = myText;
 		getline(MyReadFile, myText);

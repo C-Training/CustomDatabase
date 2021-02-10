@@ -20,7 +20,7 @@ void Client::setAddress(string address) {
     this->address = address;
 }
 
-void Client::setProject_Id(int project_id) {
+void Client::setProject_Id(string project_id) {
 
     this->project_id = project_id;
 }
@@ -45,7 +45,7 @@ string Client::getAddress() {
     return address;
 }
 
-int Client::getProject_Id() {
+string Client::getProject_Id() {
 
     return project_id;
 }

@@ -12,7 +12,7 @@ void Activity::setData(string name, string salary, string project, string joinin
 	enterToEmployeeDatabase();
 }
 
-void Activity::setData(string name, string phone, string address, int project_id)
+void Activity::setData(string name, string phone, string address, string project_id)
 {
 	cli.setName(name);
 	cli.setId(cli.getId()+1);
@@ -22,7 +22,7 @@ void Activity::setData(string name, string phone, string address, int project_id
 	enterToCliDatabase();
 }
 
-void Activity::setData(string name, string description, int client_id, string money_earned, string deadline, string complete_date) {
+void Activity::setDataProject(string name, string description, string money_earned, string deadline, string complete_date, string client_id) {
 	prj.setname(name);
 	prj.setid(prj.getid()+1);
 	prj.setdescription(description);
@@ -63,11 +63,11 @@ void Activity::deleteByIdPrj(int id) {
 	database.deleteByIdPrj(id);
 }
 
-void Activity::updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
-	database.updateByIdPrj(name,id,description,client_id,money_earned,deadline,complete_date);
+void Activity::updateByIdPrj(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id) {
+	database.updateByIdPrj(id, name,description, money_earned,deadline,complete_date, client_id);
 }
 
-void Activity::updateClientData(string name, int id, string phone, string address, int project_id) {
+void Activity::updateClientData(string name, int id, string phone, string address, string project_id) {
 	database.updateClient(name, id, phone, address, project_id);
 }
 
@@ -142,7 +142,8 @@ LinkedList Activity::loadEmpDatabase() {
 LinkedList Activity::loadCliDatabase() {
 	string myText;
 	string name;
-	int id,project_id;
+	int id;
+	string project_id;
 	string phone;
 	string address;
 	ifstream MyReadFile("Client.txt");
@@ -160,7 +161,7 @@ LinkedList Activity::loadCliDatabase() {
 		getline(MyReadFile, myText);
 		project_id = stoi(myText);
 
-		temp.addAtEnd(name, id,phone, address,project_id);
+		temp.addAtEnd(name, id,phone, address, project_id);
 	}
 
 	MyReadFile.close();
@@ -171,7 +172,8 @@ LinkedList Activity::loadPrjDatabase() {
 	string myText;
 	string name;
 	string description; 
-	int client_id,id; 
+	string client_id;
+	int id;
 	string money_earned; 
 	string deadline;
 	string complete_date;
@@ -193,7 +195,7 @@ LinkedList Activity::loadPrjDatabase() {
 		deadline = myText;
 		getline(MyReadFile, myText);
 		complete_date = myText;
-		temp.addAtEnd(name, id, description, client_id, money_earned, deadline, complete_date);
+		temp.addAtEnd(id, name, description, money_earned, deadline, complete_date, client_id);
 	}
 
 	MyReadFile.close();
@@ -488,23 +490,36 @@ void Activity::createOperation(string modelOption)
 			};
 			break;
 		}
-		int project_id;
+		string project_id;
 		cout << "Enter Project_ID:" << endl;
-		cin >> project_id;
-		while (1)
-		{
-			if (project_id == 0) {
-				string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break;
-			};
-			if (cin.fail())
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "You have entered wrong input, Enter Project_ID again." << endl;
-				cin >> project_id;
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin.ignore();
+			getline(cin, project_id);
+			bool isEqual = false;
+			for (int i = 32; i <= 126; i++) {
+				if (i >= 48 && i <= 57)
+					continue;
+				for (int j = 0; j < project_id.size(); j++) {
+					if (i == project_id[j]) {
+						isEqual = true;
+						break;
+					}
+				}
+				if (isEqual)
+					break;
 			}
-			if (!cin.fail())
+			if (isEqual) {
+				cout << "You can only enter digits NIGGAW!\n";
+				continue;
+			}
+			else if (regex_match(project_id, str_expr) && project_id.size() <= 6) {
+				cout << "valid input, GOOD JOB! gachiBASS\n";
 				break;
+			}
+			else {
+				cout << "Invalid Input! Enter Project ID again(ID cannot be greater than 6 digits).\n";
+			}
 		}
 		setData(name, phone, address, project_id);
 		database.clientDatabase();
@@ -546,23 +561,36 @@ void Activity::createOperation(string modelOption)
 			};
 			break;
 		}
-		int client_id;
-		cout << "Enter Client_ID" << endl;
-		cin >> client_id;
-		while (1)
-		{
-			if (client_id == 0) {
-				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
-			};
-			if (cin.fail())
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "You have entered wrong input, Enter Client_ID Again." << endl;
-				cin >> client_id;
+		string client_id;
+		cout << "Enter Client_ID:" << endl;
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin.ignore();
+			getline(cin, client_id);
+			bool isEqual = false;
+			for (int i = 32; i <= 126; i++) {
+				if (i >= 48 && i <= 57)
+					continue;
+				for (int j = 0; j < client_id.size(); j++) {
+					if (i == client_id[j]) {
+						isEqual = true;
+						break;
+					}
+				}
+				if (isEqual)
+					break;
 			}
-			if (!cin.fail())
+			if (isEqual) {
+				cout << "You can only enter digits NIGGAW!\n";
+				continue;
+			}
+			else if (regex_match(client_id, str_expr) && client_id.size() <= 6) {
+				cout << "valid input, GOOD JOB! gachiBASS\n";
 				break;
+			}
+			else {
+				cout << "Invalid Input! Enter Client ID again(ID cannot be greater than 6 digits).\n";
+			}
 		}
 		string money_earned;
 		cout << "Enter money earned:" << endl;
@@ -724,7 +752,7 @@ void Activity::createOperation(string modelOption)
 			}
 		}
 		
-		setData(name, description, client_id, money_earned, deadline, complete_date);
+		setData(name, description, money_earned, deadline, complete_date, client_id);
 		database.projectDatabase();
 	}
 }
@@ -863,9 +891,37 @@ void Activity::updateOperation(string modelOption)
 		cout << "Enter Address:" << endl;
 		cin.ignore();
 		getline(cin, address);
-		int project_id;
+		string project_id;
 		cout << "Enter Project_ID:" << endl;
-		cin >> project_id;
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin.ignore();
+			getline(cin, project_id);
+			bool isEqual = false;
+			for (int i = 32; i <= 126; i++) {
+				if (i >= 48 && i <= 57)
+					continue;
+				for (int j = 0; j < project_id.size(); j++) {
+					if (i == project_id[j]) {
+						isEqual = true;
+						break;
+					}
+				}
+				if (isEqual)
+					break;
+			}
+			if (isEqual) {
+				cout << "You can only enter digits NIGGAW!\n";
+				continue;
+			}
+			else if (regex_match(project_id, str_expr) && project_id.size() <= 6) {
+				cout << "valid input, GOOD JOB! gachiBASS\n";
+				break;
+			}
+			else {
+				cout << "Invalid Input! Enter Project ID again(ID cannot be greater than 6 digits).\n";
+			}
+		}
 		updateClientData(name, id, phone, address, project_id);
 	}
 	else if (modelOption == "3") {
@@ -882,9 +938,37 @@ void Activity::updateOperation(string modelOption)
 		cout << "Enter description" << endl;
 		cin.ignore();
 		getline(cin, description);
-		int client_id;
-		cout << "Enter Client_ID" << endl;
-		cin >> client_id;
+		string client_id;
+		cout << "Enter Client_ID:" << endl;
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin.ignore();
+			getline(cin, client_id);
+			bool isEqual = false;
+			for (int i = 32; i <= 126; i++) {
+				if (i >= 48 && i <= 57)
+					continue;
+				for (int j = 0; j < client_id.size(); j++) {
+					if (i == client_id[j]) {
+						isEqual = true;
+						break;
+					}
+				}
+				if (isEqual)
+					break;
+			}
+			if (isEqual) {
+				cout << "You can only enter digits NIGGAW!\n";
+				continue;
+			}
+			else if (regex_match(client_id, str_expr) && client_id.size() <= 6) {
+				cout << "valid input, GOOD JOB! gachiBASS\n";
+				break;
+			}
+			else {
+				cout << "Invalid Input! Enter Client ID again(ID cannot be greater than 6 digits).\n";
+			}
+		}
 		string money_earned;
 		cout << "Enter money earned:" << endl;
 		cin >> money_earned;
@@ -1032,7 +1116,7 @@ void Activity::updateOperation(string modelOption)
 				cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
 			}
 		}
-		updateByIdPrj(name, id, description, client_id, money_earned, deadline, complete_date);
+		updateByIdPrj(id, name, description, money_earned, deadline, complete_date, client_id);
 	}
 }
 
@@ -1074,6 +1158,7 @@ void Activity::deleteEmployee(int id)
 {
 	database.deleteByEmployeeId(id);
 }
+
 
 
 

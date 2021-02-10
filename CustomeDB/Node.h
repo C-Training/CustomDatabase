@@ -14,8 +14,8 @@ public:
     Node();
     
     Node(string name, int id, string salary, string project, string joiningDate, string phone, string address);
-    Node(string name, int id, string phone, string address, int project_id);
-    Node(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
+    Node(string name, int id, string phone, string address, string project_id);
+    Node(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id);
 
     Node* next;
 	Employee emp;
@@ -24,4 +24,6 @@ public:
     Client getClient();
     Project getProject();
 };
+
+
 

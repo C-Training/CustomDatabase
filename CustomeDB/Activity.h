@@ -24,8 +24,8 @@ public:
 
 
 	void setData(string name, string salary, string project, string joiningDate, string phone, string address);
-	void setData(string name, string phone, string address, int project_id);
-	void setData(string name, string description, int client_id, string money_earned, string deadline, string complete_date);
+	void setData(string name, string phone, string address, string project_id);
+	void setDataProject(string name, string description, string money_earned, string deadline, string complete_date, string client_id);
 	
 	void enterToCliDatabase();
 	void enterToDatabasePrj();
@@ -36,8 +36,8 @@ public:
 	void deleteEndProjectDatabase();
 	void deleteByIdPrj(int id);
 	
-	void updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date);
-	void updateClientData(string name, int id, string phone, string address, int project_id);
+	void updateByIdPrj(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id);
+	void updateClientData(string name, int id, string phone, string address, string project_id);
 	void updateDatabase(string name, int id, string salary, string project, string joiningDate, string phone, string address);
 
 
@@ -56,6 +56,8 @@ public:
 	void updateOperation(string modelOption);
 	void deleteOperation(string modelOption);
 };
+
+
 
 	
 

@@ -19,7 +19,7 @@ Node::Node(string name, int id, string salary, string project, string joiningDat
 	emp.setAddress(address);
 }
 
-Node::Node(string name, int id, string phone, string address, int project_id) {
+Node::Node(string name, int id, string phone, string address, string project_id) {
 	client.setName(name);
 	client.setId(id);
 	client.setPhone(phone);
@@ -27,7 +27,7 @@ Node::Node(string name, int id, string phone, string address, int project_id) {
 	client.setProject_Id(project_id);
 }
 
-Node::Node(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
+Node::Node(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id) {
 	prj.setname(name);
 	prj.setid(id);
 	prj.setdescription(description);
@@ -50,4 +50,6 @@ Client Node::getClient()
 {
 	return client;
 }
+
+
 

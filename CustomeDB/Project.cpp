@@ -15,7 +15,7 @@ void Project::setdescription(string description)
 	this->description = description;
 }
 
-void Project::setclient_id(int client_id)
+void Project::setclient_id(string client_id)
 {
 	this->client_id = client_id;
 }
@@ -51,7 +51,7 @@ string Project::getdescription()
 	return description;
 }
 
-int Project::getclient_id()
+string Project::getclient_id()
 {
 	return client_id;
 }
@@ -70,5 +70,6 @@ string Project::getcomplete_date()
 {	
 	return complete_date;
 }
+
 
 

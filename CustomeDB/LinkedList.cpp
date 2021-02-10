@@ -131,7 +131,7 @@ void LinkedList::addAtHead(string name, int id, string salary, string project, s
 	}
 }
 
-void LinkedList::addAtHead(string name, int id, string phone, string address, int project_id) {
+void LinkedList::addAtHead(string name, int id, string phone, string address, string project_id) {
     Node* new_node = new Node(name, id, phone, address, project_id);
     new_node->next = NULL;
 
@@ -146,8 +146,8 @@ void LinkedList::addAtHead(string name, int id, string phone, string address, in
     }
 }
 
-void LinkedList::addAtHead(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
-    Node* temp = new Node(name, id, description, client_id, money_earned, deadline, complete_date);
+void LinkedList::addAtHead(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id) {
+    Node* temp = new Node(id, name, description, money_earned, deadline, complete_date, client_id);
     temp->next = prjhead;
     prjhead = temp;
 
@@ -172,7 +172,7 @@ void LinkedList::addAtEnd(string name, int id, string salary, string project, st
 
 }
 
-void LinkedList::addAtEnd(string name, int id, string phone, string address, int project_id) {
+void LinkedList::addAtEnd(string name, int id, string phone, string address, string project_id) {
 
     Node* new_node = new Node(name, id, phone, address, project_id);
     new_node->next = NULL;
@@ -192,8 +192,8 @@ void LinkedList::addAtEnd(string name, int id, string phone, string address, int
 }
 
 
-void LinkedList :: addAtEnd(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
-    Node* temp = new Node(name, id, description, client_id, money_earned, deadline, complete_date);
+void LinkedList :: addAtEnd(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id) {
+    Node* temp = new Node(id, name, description, money_earned, deadline, complete_date, client_id);
     temp->next = NULL;
     if (prjhead == NULL) {
         prjhead = temp;
@@ -384,7 +384,7 @@ void LinkedList::deleteByIdPrj(int id) {
     }
 }
 
-void LinkedList::updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date)
+void LinkedList::updateByIdPrj(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id)
 {
     bool check = false;
     Node* cur = prjhead;
@@ -526,7 +526,7 @@ void LinkedList::updateEmployee(string name, int id, string salary, string proje
     }
 }
 
-void LinkedList::updateClient(string name, int id, string phone, string address, int project_id)
+void LinkedList::updateClient(string name, int id, string phone, string address, string project_id)
 {
     bool check = false;
     Node* cur = clienthead;
@@ -766,5 +766,7 @@ void LinkedList::reverseCliLinkedList() {
         clienthead = prev;
     }
 }
+
+
 
 

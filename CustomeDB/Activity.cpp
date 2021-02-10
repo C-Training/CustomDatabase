@@ -246,6 +246,10 @@ void Activity::crudOperation(string modelOption, string crudOption)
 	else if (crudOption == "4") {
 		deleteOperation(modelOption);
 	}
+	else if (crudOption == "5") {
+		display.showHome();
+		system("CLS");
+	}
 	else {
 		cout << "Your CRUD option is incorrect" << endl;
 	}

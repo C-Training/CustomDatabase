@@ -105,6 +105,101 @@ bool Activity::displayMainMenu()
 	return check;
 }
 
+LinkedList Activity::loadEmpDatabase() {
+	string myText;
+	string name, a;
+	int id;
+	string salary;
+	string project;
+	string joiningDate;
+	string phone;
+	string address;
+	ifstream MyReadFile("Employee.txt");
+	LinkedList temp;
+	getline(MyReadFile, myText);
+	while (!MyReadFile.eof()) {
+		getline(MyReadFile, myText);
+		name = myText;
+		getline(MyReadFile, myText);
+		id = stoi(myText);
+		getline(MyReadFile, myText);
+		salary = myText;
+		getline(MyReadFile, myText);
+		project = myText;
+		getline(MyReadFile, myText);
+		joiningDate = myText;
+		getline(MyReadFile, myText);
+		phone = myText;
+		getline(MyReadFile, myText);
+		address = myText;
+		temp.addAtEnd(name, id, salary, project, joiningDate, phone, address);
+	}
+	
+	MyReadFile.close();
+	return temp;
+}
+
+LinkedList Activity::loadCliDatabase() {
+	string myText;
+	string name;
+	int id,project_id;
+	string phone;
+	string address;
+	ifstream MyReadFile("Client.txt");
+	LinkedList temp;
+	getline(MyReadFile, myText);
+	while (!MyReadFile.eof()) {
+		getline(MyReadFile, myText);
+		name = myText;
+		getline(MyReadFile, myText);
+		id = stoi(myText);
+		getline(MyReadFile, myText);
+		phone = myText;
+		getline(MyReadFile, myText);
+		address = myText;
+		getline(MyReadFile, myText);
+		project_id = stoi(myText);
+
+		temp.addAtEnd(name, id,phone, address,project_id);
+	}
+
+	MyReadFile.close();
+	return temp;
+}
+
+LinkedList Activity::loadPrjDatabase() {
+	string myText;
+	string name;
+	string description; 
+	int client_id,id; 
+	string money_earned; 
+	string deadline;
+	string complete_date;
+	ifstream MyReadFile("Project.txt");
+	LinkedList temp;
+	getline(MyReadFile, myText);
+	while (!MyReadFile.eof()) {
+		getline(MyReadFile, myText);
+		name = myText;
+		getline(MyReadFile, myText);
+		id = stoi(myText);
+		getline(MyReadFile, myText);
+		description = myText;
+		getline(MyReadFile, myText);
+		client_id = stoi(myText);
+		getline(MyReadFile, myText);
+		money_earned = myText;
+		getline(MyReadFile, myText);
+		deadline = myText;
+		getline(MyReadFile, myText);
+		complete_date = myText;
+		temp.addAtEnd(name, id, description, client_id, money_earned, deadline, complete_date);
+	}
+
+	MyReadFile.close();
+	return temp;
+}
+
 void Activity::onLoad(){
 	bool check = displayMainMenu();
 	while (check)
@@ -562,13 +657,19 @@ void Activity::createOperation(string modelOption)
 void Activity::readOperation(string modelOption)
 {
 	if (modelOption == "1") {
+		database = loadEmpDatabase();
 		displayEmployeeDatabase();
+		system("pause");
 	}
 	else if (modelOption == "2") {
+		database = loadCliDatabase();
 		showClientDatabase();
+		system("pause");
 	}
 	else if (modelOption == "3") {
+		database = loadPrjDatabase();
 		displayProjectDatabase();
+		system("pause");
 	}
 }
 

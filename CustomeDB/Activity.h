@@ -46,6 +46,9 @@ public:
 	void displayEmployeeDatabase();
 	bool displayMainMenu();
 	bool authFunc(string username, string password);
+	LinkedList loadEmpDatabase();
+	LinkedList loadCliDatabase();
+	LinkedList loadPrjDatabase();
 	void onLoad();
 	void crudOperation(string modelOption, string crudOption);
 	void createOperation(string modelOption);

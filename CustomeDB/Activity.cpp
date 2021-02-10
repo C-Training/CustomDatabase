@@ -704,7 +704,6 @@ void Activity::updateOperation(string modelOption)
 				break;
 		}
 		cout << "Update Employee Details" << endl;
-		string name;
 		cout << "Enter Name:" << endl;
 		cin.ignore();
 		string name = "";
@@ -858,7 +857,6 @@ void Activity::updateOperation(string modelOption)
 			if (!cin.fail())
 				break;
 		}
-		string name;
 		cout << "Enter Name:" << endl;
 		cin.ignore();
 		string name = "";

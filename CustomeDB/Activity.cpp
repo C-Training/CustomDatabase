@@ -3,7 +3,7 @@
 void Activity::setData(string name, string salary, string project, string joiningDate, string phone, string address)
 {
 	emp.setName(name);
-	emp.setId(emp.getId()+1);
+	emp.setId(emp.getId() + 1);
 	emp.setSalary(salary);
 	emp.setProject(project);
 	emp.setJoiningDate(joiningDate);
@@ -15,7 +15,7 @@ void Activity::setData(string name, string salary, string project, string joinin
 void Activity::setData(string name, string phone, string address, int project_id)
 {
 	cli.setName(name);
-	cli.setId(cli.getId()+1);
+	cli.setId(cli.getId() + 1);
 	cli.setPhone(phone);
 	cli.setAddress(address);
 	cli.setProject_Id(project_id);
@@ -24,7 +24,7 @@ void Activity::setData(string name, string phone, string address, int project_id
 
 void Activity::setData(string name, string description, int client_id, string money_earned, string deadline, string complete_date) {
 	prj.setname(name);
-	prj.setid(prj.getid()+1);
+	prj.setid(prj.getid() + 1);
 	prj.setdescription(description);
 	prj.setclient_id(client_id);
 	prj.setmoney_earned(money_earned);
@@ -64,14 +64,14 @@ void Activity::deleteByIdPrj(int id) {
 }
 
 void Activity::updateByIdPrj(string name, int id, string description, int client_id, string money_earned, string deadline, string complete_date) {
-	database.updateByIdPrj(name,id,description,client_id,money_earned,deadline,complete_date);
+	database.updateByIdPrj(name, id, description, client_id, money_earned, deadline, complete_date);
 }
 
 void Activity::updateClientData(string name, int id, string phone, string address, int project_id) {
 	database.updateClient(name, id, phone, address, project_id);
 }
 
-void Activity::displayProjectDatabase(){
+void Activity::displayProjectDatabase() {
 	display.showProjectDatabase(database);
 }
 
@@ -105,7 +105,7 @@ bool Activity::displayMainMenu()
 	return check;
 }
 
-void Activity::onLoad(){
+void Activity::onLoad() {
 	bool check = displayMainMenu();
 	while (check)
 	{
@@ -142,7 +142,7 @@ void Activity::crudOperation(string modelOption, string crudOption)
 	if (crudOption == "1") {
 		createOperation(modelOption);
 	}
-	else if(crudOption == "2") {
+	else if (crudOption == "2") {
 		readOperation(modelOption);
 	}
 	else if (crudOption == "3") {
@@ -218,7 +218,7 @@ void Activity::createOperation(string modelOption)
 		cin >> project;
 		string joiningDate;
 		while (1) {
-			cout << "Enter Joining Date:" << endl;
+			cout << "Enter Joining Date with format of mm-dd-yy : " << endl;
 			cin >> joiningDate;
 			if (joiningDate.length() == 10) {
 				string yy = "";
@@ -410,7 +410,7 @@ void Activity::createOperation(string modelOption)
 		cin >> money_earned;
 		string deadline;
 		while (1) {
-			cout << "Enter Deadline:" << endl;
+			cout << "Enter Deadline date with format of mm-dd-yy : " << endl;
 			cin >> deadline;
 			if (deadline.length() == 10) {
 				string yy = "";
@@ -482,7 +482,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string complete_date;
 		while (1) {
-			cout << "Enter complete date:" << endl;
+			cout << "Enter complete date with format of mm-dd-yy : " << endl;
 			cin >> complete_date;
 			if (complete_date.length() == 10) {
 				string yy = "";
@@ -552,7 +552,7 @@ void Activity::createOperation(string modelOption)
 				cout << "Date is Invalid.\n";
 			}
 		}
-		
+
 
 		setData(name, description, client_id, money_earned, deadline, complete_date);
 		database.projectDatabase();
@@ -590,7 +590,7 @@ void Activity::updateOperation(string modelOption)
 		cin >> project;
 		string joiningDate;
 		while (1) {
-			cout << "Enter Joining Date:" << endl;
+			cout << "Enter Joining Date with format of mm-dd-yy : " << endl;
 			cin >> joiningDate;
 			if (joiningDate.length() == 10) {
 				string yy = "";
@@ -708,7 +708,7 @@ void Activity::updateOperation(string modelOption)
 		string deadline;
 		cout << "Enter Deadline:" << endl;
 		while (1) {
-			cout << "Enter Deadline:" << endl;
+			cout << "Enter Deadline with format of mm-dd-yy : " << endl;
 			cin >> deadline;
 			if (deadline.length() == 10) {
 				string yy = "";
@@ -779,9 +779,8 @@ void Activity::updateOperation(string modelOption)
 			}
 		}
 		string complete_date;
-		cout << "Enter complete date:" << endl;
+		cout << "Enter complete date with format of mm-dd-yy : " << endl;
 		while (1) {
-			cout << "Enter complete date:" << endl;
 			cin >> complete_date;
 			if (complete_date.length() == 10) {
 				string yy = "";

@@ -310,7 +310,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string project;
 		cout << "Enter Project:" << endl;
-		cin >> project;
+		getline(cin, project);
 		string joiningDate;
 		while (1) {
 			cout << "Enter Joining Date with format mm-dd-yy :" << endl;
@@ -398,7 +398,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		getline(cin, address);
 		setData(name, salary, project, joiningDate, phone, address);
 		database.employeeDatabase();
 	}
@@ -440,7 +440,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		getline(cin, address);
 		int project_id;
 		cout << "Enter Project_ID:" << endl;
 		cin >> project_id;
@@ -484,7 +484,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string description;
 		cout << "Enter description" << endl;
-		cin >> description; //getline()
+		getline(cin, description);
 		int client_id;
 		cout << "Enter Client_ID" << endl;
 		cin >> client_id;
@@ -502,7 +502,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string money_earned;
 		cout << "Enter money earned:" << endl;
-		cin >> money_earned;
+		getline(cin, money_earned);
 		string deadline;
 		while (1) {
 			cout << "Enter Deadline mm-dd-yy :" << endl;
@@ -682,13 +682,13 @@ void Activity::updateOperation(string modelOption)
 		cout << "Update Employee Details" << endl;
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		getline(cin, name);
 		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
 		string project;
 		cout << "Enter Project:" << endl;
-		cin >> project;
+		getline(cin, project);
 		string joiningDate;
 			while (1) {
 				cout << "Enter Joining Date with format mm-dd-yy :" << endl;
@@ -766,7 +766,7 @@ void Activity::updateOperation(string modelOption)
 		cin >> phone;
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		getline(cin, address);
 		updateDatabase(name, id, salary, project, joiningDate, phone, address);
 	}
 	else if (modelOption == "2") {
@@ -776,13 +776,13 @@ void Activity::updateOperation(string modelOption)
 		cin >> id;
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		getline(cin, name);
 		string phone;
 		cout << "Enter Phone:" << endl;
 		cin >> phone;
 		string address;
 		cout << "Enter Address:" << endl;
-		cin >> address;
+		getline(cin, address);
 		int project_id;
 		cout << "Enter Project_ID:" << endl;
 		cin >> project_id;
@@ -796,16 +796,16 @@ void Activity::updateOperation(string modelOption)
 		cin >> id;
 		string name;
 		cout << "Enter Name:" << endl;
-		cin >> name;
+		getline(cin, name);
 		string description;
 		cout << "Enter description" << endl;
-		cin >> description;
+		getline(cin, description);
 		int client_id;
 		cout << "Enter Client_ID" << endl;
 		cin >> client_id;
 		string money_earned;
 		cout << "Enter money earned:" << endl;
-		cin >> money_earned;
+		getline(cin, money_earned);
 		string deadline;
 		while (1) {
 			cout << "Enter Deadline mm-dd-yy :" << endl;

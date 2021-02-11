@@ -23,7 +23,7 @@ class Activity
 
 public:
 
-
+	Activity();
 	void setData(string name, string salary, string project, string joiningDate, string phone, string address);
 	void setData(string name, string phone, string address, string project_id);
 	void setDataProject(string name, string description, string money_earned, string deadline, string complete_date, string client_id);
@@ -49,9 +49,9 @@ public:
 	void displayEmployeeDatabase();
 	bool displayMainMenu();
 	bool authFunc(string username, string password);
-	LinkedList loadEmpDatabase();
-	LinkedList loadCliDatabase();
-	LinkedList loadPrjDatabase();
+	Node* loadEmpDatabase();
+	Node* loadCliDatabase();
+	Node* loadPrjDatabase();
 	void onLoad();
 	void crudOperation(string modelOption, string crudOption);
 	void createOperation(string modelOption);

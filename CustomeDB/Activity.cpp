@@ -1054,6 +1054,19 @@ void Activity::updateOperation(string modelOption)
 			string phone;
 			cout << "Enter Phone:" << endl;
 			cin >> phone;
+			regex str_exprr("[0][3][0-9]+");
+			while (1) {
+				if (phone == "0") {
+					string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break;
+				};
+				if (regex_match(phone, str_exprr) && phone.size() == 11) {
+					break;
+				}
+				else {
+					cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+					cin >> phone;
+				}
+			}
 			string address;
 			cout << "Enter Address:" << endl;
 			cin.ignore();

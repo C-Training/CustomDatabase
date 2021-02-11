@@ -644,7 +644,7 @@ void Activity::createOperation(string modelOption)
 				break;
 			}
 			else {
-				cout << "Kindly enter digits only \n";
+				cout << "Kindly enter correct value \n";
 			}
 		}
 		string deadline;
@@ -1144,7 +1144,7 @@ void Activity::updateOperation(string modelOption)
 					break;
 				}
 				else {
-					cout << "Kindly enter digits only \n";
+					cout << "Kindly enter correct value \n";
 				}
 			}
 			string deadline;

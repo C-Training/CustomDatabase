@@ -632,13 +632,20 @@ void Activity::createOperation(string modelOption)
 			}
 		}
 		string money_earned;
+		regex str_exprrr("[0-9]+|[0-9]+\.[0-9]+");
+		
 		cout << "Enter money earned:" << endl;
-		cin >> money_earned;
+		
 		while (1) {
-			if (money_earned == "0") {
-				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
-			};
-			break;
+
+			cin >> money_earned;
+
+			if (regex_match(money_earned, str_exprrr)) {
+				break;
+			}
+			else {
+				cout << "Kindly enter digits only \n";
+			}
 		}
 		string deadline;
 		regex str_date("[0-9][0-9]-[0-9][0-9]-[2-9][0-9][0-9][0-9]");
@@ -1125,8 +1132,21 @@ void Activity::updateOperation(string modelOption)
 				}
 			}
 			string money_earned;
+			regex str_exprrr("[0-9]+|[0-9]+\.[0-9]+");
+
 			cout << "Enter money earned:" << endl;
-			cin >> money_earned;
+
+			while (1) {
+
+				cin >> money_earned;
+
+				if (regex_match(money_earned, str_exprrr)) {
+					break;
+				}
+				else {
+					cout << "Kindly enter digits only \n";
+				}
+			}
 			string deadline;
 			regex str_date("[0-9][0-9]-[0-9][0-9]-[2-9][0-9][0-9][0-9]");
 			while (1) {

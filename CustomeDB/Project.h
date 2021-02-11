@@ -16,6 +16,7 @@ private:
 
 public:
 
+	static int counter;
 	void setname(string name);
 	void setid(int id);
 	void setdescription(string description);
@@ -34,5 +35,6 @@ public:
 	string getcomplete_date();
 
 };
+
 
 

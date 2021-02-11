@@ -6,6 +6,7 @@ using namespace std;
 class Employee
 {
 	string name;
+	
 	int id = 0;
 	string salary;
 	string project;
@@ -13,6 +14,7 @@ class Employee
 	string phone;
 	string address;
 public:
+	static int counter;
 	void setName(string name);
 	string getName();
 	void setId(int id);
@@ -28,6 +30,7 @@ public:
 	void setAddress(string address);
 	string getAddress();
 };
+
 
 
 

@@ -5,9 +5,11 @@ void Project::setname(string name)
 	this->name = name;
 }
 
+int Project::counter = 1;
+
 void Project::setid(int id)
 {
-	this->id = id;
+	this->id = counter++;
 }
 
 void Project::setdescription(string description)

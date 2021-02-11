@@ -131,7 +131,7 @@ Node* Activity::loadEmpDatabase() {
 	ifstream MyReadFile("Employee.txt");
 	LinkedList temp;
 	if (is_empty(MyReadFile)) {
-		cout << "Employee database Empty.\n";
+		
 	}
 	else {
 		getline(MyReadFile, myText);
@@ -169,7 +169,7 @@ Node* Activity::loadCliDatabase() {
 	ifstream MyReadFile("Client.txt");
 	LinkedList temp;
 	if (is_empty(MyReadFile)) {
-		cout << "Client database Empty.\n";
+		
 	}
 	else {
 		getline(MyReadFile, myText);
@@ -205,7 +205,7 @@ Node* Activity::loadPrjDatabase() {
 	ifstream MyReadFile("Project.txt");
 	LinkedList temp;
 	if (is_empty(MyReadFile)) {
-		cout << "Project Database is empty.\n";
+		
 	}
 	else {
 		getline(MyReadFile, myText);

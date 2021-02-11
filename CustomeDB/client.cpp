@@ -5,9 +5,11 @@ void Client::setName(string name) {
     this->name = name;
 }
 
+int Client::counter = 1;
+
 void Client::setId(int id) {
 
-    this->id = id;
+    this->id = counter++;
 }
 
 void Client::setPhone(string phone) {
@@ -49,3 +51,4 @@ string Client::getProject_Id() {
 
     return project_id;
 }
+

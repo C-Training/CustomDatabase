@@ -817,6 +817,38 @@ void Activity::updateOperation(string modelOption)
 		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
+		regex str_expr("[0-9]+|[0-9]+\.[0-9]+");
+		while (1) {
+			if (salary == "0") {
+				string crudOption; display.showCRUD("Employee"); cin >> crudOption; crudOperation("1", crudOption); break; system("CLS");
+			};
+			if (regex_match(salary, str_expr)) {
+				bool isEqual = false;
+				for (int i = 32; i <= 64; i++) {
+					if (i >= 48 && i <= 57) {
+						continue;
+					}
+					for (int j = 0; j < salary.size(); j++) {
+						if (salary[0] == i) {
+							isEqual = true;
+							break;
+						}
+					}
+					if (isEqual) {
+						break;
+					}
+				}
+				if (isEqual) {
+					cout << "Salary cannot hav a symbol! or be empty, Please Enter Salary Again\n";
+					cin >> salary;
+				}
+				break;
+			}
+			else {
+				cout << "Invalid Salary, enter again" << endl;
+				cin >> salary;
+			}
+		}
 		string project;
 		cout << "Enter Project:" << endl;
 		cin.ignore();

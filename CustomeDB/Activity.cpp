@@ -1,5 +1,12 @@
 #include "Activity.h"
 
+Activity::Activity()
+{
+	database.emphead = loadEmpDatabase();
+	database.clienthead = loadCliDatabase();
+	database.prjhead = loadPrjDatabase();
+}
+
 void Activity::setData(string name, string salary, string project, string joiningDate, string phone, string address)
 {
 	emp.setName(name);
@@ -112,7 +119,7 @@ bool Activity::displayMainMenu()
 
 
 
-LinkedList Activity::loadEmpDatabase() {
+Node* Activity::loadEmpDatabase() {
 	string myText;
 	string name, a;
 	int id;
@@ -149,10 +156,10 @@ LinkedList Activity::loadEmpDatabase() {
 	}
 	
 	MyReadFile.close();
-	return temp;
+	return temp.emphead;
 }
 
-LinkedList Activity::loadCliDatabase() {
+Node* Activity::loadCliDatabase() {
 	string myText;
 	string name;
 	int id;
@@ -183,10 +190,10 @@ LinkedList Activity::loadCliDatabase() {
 	}
 	
 	MyReadFile.close();
-	return temp;
+	return temp.clienthead;
 }
 
-LinkedList Activity::loadPrjDatabase() {
+Node* Activity::loadPrjDatabase() {
 	string myText;
 	string name;
 	string description; 
@@ -222,7 +229,7 @@ LinkedList Activity::loadPrjDatabase() {
 	}
 
 	MyReadFile.close();
-	return temp;
+	return temp.prjhead;
 }
 
 void Activity::onLoad(){
@@ -781,23 +788,29 @@ void Activity::createOperation(string modelOption)
 void Activity::readOperation(string modelOption)
 {
 	if (modelOption == "1") {
-		database = loadEmpDatabase();
 		if (database.employeeListSize() != 0) {
 			displayEmployeeDatabase();
+		}
+		else {
+			cout << "Employee database is empty.\n";
 		}
 		system("pause");
 	}
 	else if (modelOption == "2") {
-		database = loadCliDatabase();
 		if (database.ClilistSize() != 0) {
 			showClientDatabase();
+		}
+		else {
+			cout << "Client database is empty.\n";
 		}
 		system("pause");
 	}
 	else if (modelOption == "3") {
-		database = loadPrjDatabase();
 		if (database.listSizeProj() != 0) {
 			displayProjectDatabase();
+		}
+		else {
+			cout << "Project database is empty.\n";
 		}
 		system("pause");
 	}

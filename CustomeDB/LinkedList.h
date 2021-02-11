@@ -7,13 +7,16 @@ using namespace std;
 
 class LinkedList {
 
-    Node* emphead = NULL;
-    Node* clienthead = NULL;
-    Node* prjhead = NULL;
-    Node* prjtail = NULL;
+    
+    
 
     string fileName;
 public:
+
+    Node* emphead = NULL;
+	Node* clienthead = NULL;
+	Node* prjhead = NULL;
+	Node* prjtail = NULL;
 
     LinkedList();
     LinkedList(string fileName);

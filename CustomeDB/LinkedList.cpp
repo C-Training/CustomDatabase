@@ -55,22 +55,21 @@ void LinkedList::employeeDatabase() {
         MyFile.close();
     }
     else {
-		while (temp->next != NULL) {
+		ofstream MyFile("Employee.txt", ofstream::out | ofstream::trunc);
+		while (temp != NULL) {
+			MyFile << "\n";
+			MyFile << temp->getEmployee().getName() << " \n";
+			MyFile << temp->getEmployee().getId() << " \n";
+			MyFile << temp->getEmployee().getSalary() << " \n";
+			MyFile << temp->getEmployee().getProject() << " \n";
+			MyFile << temp->getEmployee().getJoiningDate() << " \n";
+			MyFile << temp->getEmployee().getPhone() << " \n";
+			MyFile << temp->getEmployee().getAddress();
 			temp = temp->next;
 		}
-		ofstream MyFile("Employee.txt", ios::out | ios::trunc);
-		MyFile << "\n";
-		MyFile << temp->getEmployee().getName() << " \n";
-		MyFile << temp->getEmployee().getId() << " \n";
-		MyFile << temp->getEmployee().getSalary() << " \n";
-		MyFile << temp->getEmployee().getProject() << " \n";
-		MyFile << temp->getEmployee().getJoiningDate() << " \n";
-		MyFile << temp->getEmployee().getPhone() << " \n";
-		MyFile << temp->getEmployee().getAddress();
-		temp = temp->next;
 		MyFile.close();
     }
-    }
+}
 
 void LinkedList::clientDatabase(){
     Node* temp = clienthead;
@@ -80,21 +79,19 @@ void LinkedList::clientDatabase(){
 		MyFile.close();
 	}
     else {
-		while (temp->next != NULL) {
+        ofstream MyFile("CLient.txt", ofstream::out | ofstream::trunc);
+		while (temp != NULL) {
+			MyFile << "\n";
+			MyFile << temp->getClient().getName() << "\n";
+			MyFile << temp->getClient().getId() << "\n";
+			MyFile << temp->getClient().getPhone() << "\n";
+			MyFile << temp->getClient().getAddress() << "\n";
+			MyFile << temp->getClient().getProject_Id();
 			temp = temp->next;
 		}
-		ofstream MyFile("Client.txt", ios::app);
-		MyFile << "\n";
-		MyFile << temp->getClient().getName() << "\n";
-		MyFile << temp->getClient().getId() << "\n";
-		MyFile << temp->getClient().getPhone() << "\n";
-		MyFile << temp->getClient().getAddress() << "\n";
-		MyFile << temp->getClient().getProject_Id();
-		temp = temp->next;
 		MyFile.close();
     }
-    
-    }
+}
 
 void LinkedList::projectDatabase() {
     Node* temp = prjhead;
@@ -104,22 +101,20 @@ void LinkedList::projectDatabase() {
 		MyFile.close();
 	}
     else {
+        ofstream MyFile("Project.txt", ios::app);
 		while (temp->next != NULL) {
+			MyFile << "\n";
+			MyFile << temp->getProject().getname() << " \n";
+			MyFile << temp->getProject().getid() << " \n";
+			MyFile << temp->getProject().getdescription() << " \n";
+			MyFile << temp->getProject().getclient_id() << " \n";
+			MyFile << temp->getProject().getmoney_earned() << " \n";
+			MyFile << temp->getProject().getdeadline() << "\n";
+			MyFile << temp->getProject().getcomplete_date();
 			temp = temp->next;
 		}
-		ofstream MyFile("Project.txt", ios::app);
-		MyFile << "\n";
-		MyFile << temp->getProject().getname() << " \n";
-		MyFile << temp->getProject().getid() << " \n";
-		MyFile << temp->getProject().getdescription() << " \n";
-		MyFile << temp->getProject().getclient_id() << " \n";
-		MyFile << temp->getProject().getmoney_earned() << " \n";
-		MyFile << temp->getProject().getdeadline() << "\n";
-		MyFile << temp->getProject().getcomplete_date();
-		temp = temp->next;
 		MyFile.close();
     }
-    
 }
 
 Node* LinkedList::getProjectHead() {

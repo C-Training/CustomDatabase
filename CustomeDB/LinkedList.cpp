@@ -47,23 +47,21 @@ LinkedList::~LinkedList() {
 }
 
 void LinkedList::employeeDatabase() {
-    string myText;
     Node* temp = emphead;
-    cout << endl;
     while (temp->next != NULL) {
         temp = temp->next;
     }
-        ofstream MyFile("Employee.txt",ios::app);
-            MyFile << "\n";
-            MyFile << temp->getEmployee().getName() << " \n";
-            MyFile << temp->getEmployee().getId() << " \n";
-            MyFile << temp->getEmployee().getSalary() << " \n";
-            MyFile << temp->getEmployee().getProject() << " \n";
-            MyFile << temp->getEmployee().getJoiningDate() << " \n";
-            MyFile << temp->getEmployee().getPhone() << " \n";
-            MyFile << temp->getEmployee().getAddress() ;
-            temp = temp->next;
-        MyFile.close();
+    ofstream MyFile("Employee.txt",ios::app);
+	MyFile << "\n";
+	MyFile << temp->getEmployee().getName() << " \n";
+	MyFile << temp->getEmployee().getId() << " \n";
+	MyFile << temp->getEmployee().getSalary() << " \n";
+	MyFile << temp->getEmployee().getProject() << " \n";
+	MyFile << temp->getEmployee().getJoiningDate() << " \n";
+	MyFile << temp->getEmployee().getPhone() << " \n";
+	MyFile << temp->getEmployee().getAddress();
+	temp = temp->next;
+    MyFile.close();
     }
 
 void LinkedList::clientDatabase(){
@@ -74,10 +72,10 @@ void LinkedList::clientDatabase(){
     }
         ofstream MyFile("Client.txt", ios::app);
             MyFile << "\n";
-            MyFile << temp->getClient().getName() << " \n";
-            MyFile << temp->getClient().getId() << " \n";
-            MyFile << temp->getClient().getPhone() << " \n";
-            MyFile << temp->getClient().getAddress() << " \n";
+            MyFile << temp->getClient().getName() << "\n";
+            MyFile << temp->getClient().getId() << "\n";
+            MyFile << temp->getClient().getPhone() << "\n";
+            MyFile << temp->getClient().getAddress() << "\n";
             MyFile << temp->getClient().getProject_Id(); 
             temp = temp->next;
         MyFile.close();

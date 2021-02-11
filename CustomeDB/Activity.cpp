@@ -616,11 +616,9 @@ void Activity::createOperation(string modelOption)
 					break;
 			}
 			if (isEqual) {
-				cout << "You can only enter digits NIGGAW!\n";
 				continue;
 			}
 			else if (regex_match(client_id, str_expr) && client_id.size() <= 6) {
-				cout << "valid input, GOOD JOB! gachiBASS\n";
 				break;
 			}
 			else {

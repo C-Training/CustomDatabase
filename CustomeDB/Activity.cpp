@@ -176,7 +176,7 @@ LinkedList Activity::loadCliDatabase() {
 			getline(MyReadFile, myText);
 			address = myText;
 			getline(MyReadFile, myText);
-			project_id = stoi(myText);
+			project_id = myText;
 
 			temp.addAtEnd(name, id, phone, address, project_id);
 		}
@@ -210,7 +210,7 @@ LinkedList Activity::loadPrjDatabase() {
 			getline(MyReadFile, myText);
 			description = myText;
 			getline(MyReadFile, myText);
-			client_id = stoi(myText);
+			client_id = myText;
 			getline(MyReadFile, myText);
 			money_earned = myText;
 			getline(MyReadFile, myText);

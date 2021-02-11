@@ -48,56 +48,73 @@ LinkedList::~LinkedList() {
 
 void LinkedList::employeeDatabase() {
     Node* temp = emphead;
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-    ofstream MyFile("Employee.txt",ios::app);
-	MyFile << "\n";
-	MyFile << temp->getEmployee().getName() << " \n";
-	MyFile << temp->getEmployee().getId() << " \n";
-	MyFile << temp->getEmployee().getSalary() << " \n";
-	MyFile << temp->getEmployee().getProject() << " \n";
-	MyFile << temp->getEmployee().getJoiningDate() << " \n";
-	MyFile << temp->getEmployee().getPhone() << " \n";
-	MyFile << temp->getEmployee().getAddress();
-	temp = temp->next;
-    MyFile.close();
-    }
-
-void LinkedList::clientDatabase(){
-    string myText;
-    Node* temp = clienthead;
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-        ofstream MyFile("Client.txt", ios::app);
-            MyFile << "\n";
-            MyFile << temp->getClient().getName() << "\n";
-            MyFile << temp->getClient().getId() << "\n";
-            MyFile << temp->getClient().getPhone() << "\n";
-            MyFile << temp->getClient().getAddress() << "\n";
-            MyFile << temp->getClient().getProject_Id(); 
-            temp = temp->next;
+    
+    if (temp == NULL) {
+        ofstream MyFile;
+        MyFile.open("Employee.txt", ofstream::out | ofstream::trunc);
         MyFile.close();
     }
+    else {
+		ofstream MyFile("Employee.txt", ofstream::out | ofstream::trunc);
+		while (temp != NULL) {
+			MyFile << "\n";
+			MyFile << temp->getEmployee().getName() << " \n";
+			MyFile << temp->getEmployee().getId() << " \n";
+			MyFile << temp->getEmployee().getSalary() << " \n";
+			MyFile << temp->getEmployee().getProject() << " \n";
+			MyFile << temp->getEmployee().getJoiningDate() << " \n";
+			MyFile << temp->getEmployee().getPhone() << " \n";
+			MyFile << temp->getEmployee().getAddress();
+			temp = temp->next;
+		}
+		MyFile.close();
+    }
+}
+
+void LinkedList::clientDatabase(){
+    Node* temp = clienthead;
+	if (temp == NULL) {
+		ofstream MyFile;
+		MyFile.open("Client.txt", ofstream::out | ofstream::trunc);
+		MyFile.close();
+	}
+    else {
+        ofstream MyFile("CLient.txt", ofstream::out | ofstream::trunc);
+		while (temp != NULL) {
+			MyFile << "\n";
+			MyFile << temp->getClient().getName() << "\n";
+			MyFile << temp->getClient().getId() << "\n";
+			MyFile << temp->getClient().getPhone() << "\n";
+			MyFile << temp->getClient().getAddress() << "\n";
+			MyFile << temp->getClient().getProject_Id();
+			temp = temp->next;
+		}
+		MyFile.close();
+    }
+}
 
 void LinkedList::projectDatabase() {
-    string myText;
     Node* temp = prjhead;
-    while (temp->next != NULL) {
-        temp = temp->next;
+	if (temp == NULL) {
+		ofstream MyFile;
+		MyFile.open("Project.txt", ofstream::out | ofstream::trunc);
+		MyFile.close();
+	}
+    else {
+        ofstream MyFile("Project.txt", ios::app);
+		while (temp->next != NULL) {
+			MyFile << "\n";
+			MyFile << temp->getProject().getname() << " \n";
+			MyFile << temp->getProject().getid() << " \n";
+			MyFile << temp->getProject().getdescription() << " \n";
+			MyFile << temp->getProject().getclient_id() << " \n";
+			MyFile << temp->getProject().getmoney_earned() << " \n";
+			MyFile << temp->getProject().getdeadline() << "\n";
+			MyFile << temp->getProject().getcomplete_date();
+			temp = temp->next;
+		}
+		MyFile.close();
     }
-    ofstream MyFile("Project.txt",ios::app);
-    MyFile << "\n";
-        MyFile << temp->getProject().getname() << " \n";
-        MyFile << temp->getProject().getid() << " \n";
-        MyFile << temp->getProject().getdescription() << " \n";
-        MyFile << temp->getProject().getclient_id() << " \n";
-        MyFile << temp->getProject().getmoney_earned() << " \n";
-        MyFile << temp->getProject().getdeadline()<<"\n";
-        MyFile << temp->getProject().getcomplete_date();
-        temp = temp->next;
-    MyFile.close();
 }
 
 Node* LinkedList::getProjectHead() {
@@ -764,6 +781,7 @@ void LinkedList::reverseCliLinkedList() {
         clienthead = prev;
     }
 }
+
 
 
 

@@ -7,6 +7,13 @@ Activity::Activity()
 	database.prjhead = loadPrjDatabase();
 }
 
+Activity::~Activity()
+{
+	database.employeeDatabase();
+	database.clientDatabase();
+	database.projectDatabase();
+}
+
 void Activity::setData(string name, string salary, string project, string joiningDate, string phone, string address)
 {
 	emp.setName(name);
@@ -473,7 +480,6 @@ void Activity::createOperation(string modelOption)
 		}
 
 		setData(name, salary, project, joiningDate, phone, address);
-		database.employeeDatabase();
 	}
 	else if (modelOption == "2") {
 		cout << "Enter Client Details" << endl;
@@ -558,7 +564,7 @@ void Activity::createOperation(string modelOption)
 			}
 		}
 		setData(name, phone, address, project_id);
-		database.clientDatabase();
+		
 	}
 	else if (modelOption == "3") {
 		cout << "Enter Project Details" << endl;
@@ -797,7 +803,6 @@ void Activity::createOperation(string modelOption)
 		}
 		
 		setData(name, description, money_earned, deadline, complete_date, client_id);
-		database.projectDatabase();
 	}
 }
 
@@ -1323,6 +1328,7 @@ void Activity::deleteEmployee(int id)
 {
 	database.deleteByEmployeeId(id);
 }
+
 
 
 

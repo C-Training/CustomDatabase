@@ -10,7 +10,7 @@ string Employee::getName()
 	return name;
 }
 
-int Employee::counter = 1;
+int Employee::counter = 0;
 
 void Employee::setId(int id)
 {

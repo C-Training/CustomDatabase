@@ -10,9 +10,11 @@ string Employee::getName()
 	return name;
 }
 
+int Employee::counter = 1;
+
 void Employee::setId(int id)
 {
-	this->id = id;
+	this->id = counter++;
 }
 
 int Employee::getId()

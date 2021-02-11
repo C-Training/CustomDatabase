@@ -12,6 +12,7 @@ class Client {
 
 public:
 
+    static int counter;
     void setName(string name);
     void setId(int id);
     void setPhone(string phone);
@@ -25,3 +26,4 @@ public:
     string getProject_Id();
 
 };
+

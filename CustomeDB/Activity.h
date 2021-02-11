@@ -24,6 +24,7 @@ class Activity
 public:
 
 	Activity();
+	~Activity();
 	void setData(string name, string salary, string project, string joiningDate, string phone, string address);
 	void setData(string name, string phone, string address, string project_id);
 	void setDataProject(string name, string description, string money_earned, string deadline, string complete_date, string client_id);
@@ -59,6 +60,7 @@ public:
 	void updateOperation(string modelOption);
 	void deleteOperation(string modelOption);
 };
+
 
 
 

@@ -887,7 +887,7 @@ void Activity::updateOperation(string modelOption)
 		int id;
 		cout << "Enter the ID to update:" << endl;
 		cin >> id;
-		if (checkEmpId(id) == false) { cout << "The Employee of that ID is either classfied or not present"  << endl; }
+		if (checkEmpId(id) == false) { cout << "The Employee of that ID is either classfied or not present" << endl; }
 		else if (checkEmpId(id) == true) {
 			cout << "Update Employee Details" << endl;
 			string name;
@@ -1028,7 +1028,7 @@ void Activity::updateOperation(string modelOption)
 		if (checkCliId(id) == false) {
 			cout << "Id not present" << endl;
 		}
-		else if(checkCliId(id)==true){
+		else if (checkCliId(id) == true) {
 			string name;
 			cout << "Enter Name:" << endl;
 			cin.ignore();
@@ -1108,11 +1108,11 @@ void Activity::updateOperation(string modelOption)
 						break;
 				}
 				if (isEqual) {
-				
+
 					continue;
 				}
 				else if (regex_match(client_id, str_expr) && client_id.size() <= 6) {
-		
+
 					break;
 				}
 				else {
@@ -1131,156 +1131,157 @@ void Activity::updateOperation(string modelOption)
 
 				if (regex_match(deadline, str_date)) {
 
-				if (deadline.length() == 10) {
-					string yy = "";
-					string mm = "";
-					string dd = "";
-					string ds = "";
-					yy += deadline[6];
-					yy += deadline[7];
-					yy += deadline[8];
-					yy += deadline[9];
-					mm += deadline[0];
-					mm += deadline[1];
-					dd += deadline[3];
-					dd += deadline[4];
-					ds += deadline[2];
-					ds += deadline[5];
-					int intdd = stoi(dd);
-					int intyy = stoi(yy);
+					if (deadline.length() == 10) {
+						string yy = "";
+						string mm = "";
+						string dd = "";
+						string ds = "";
+						yy += deadline[6];
+						yy += deadline[7];
+						yy += deadline[8];
+						yy += deadline[9];
+						mm += deadline[0];
+						mm += deadline[1];
+						dd += deadline[3];
+						dd += deadline[4];
+						ds += deadline[2];
+						ds += deadline[5];
+						int intdd = stoi(dd);
+						int intyy = stoi(yy);
 
-					if (ds == "--") {
-						if (intyy >= 2019) {
-							if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
-								if (intdd > 00 && intdd <= 31) {
-									break;
+						if (ds == "--") {
+							if (intyy >= 2019) {
+								if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+									if (intdd > 00 && intdd <= 31) {
+										break;
+									}
+									else {
+										cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
+									}
 								}
-								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
-								}
-							}
-							else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
-								if (intdd > 00 && intdd <= 30) {
-									break;
-								}
-								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-								}
-							}
-							else if (mm == "02") {
-								if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
-									if (intdd > 00 && intdd <= 29) {
+								else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+									if (intdd > 00 && intdd <= 30) {
 										break;
 									}
 									else {
 										cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 									}
 								}
-								else if (intdd > 00 && intdd <= 28) {
-									break;
-								}
-								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-								}
-							}
-							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-							}
-						}
-						else {
-							cout << "Date is Invalid. Please enter date after 2019. \n";
-						}
-					}
-					else {
-						cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-					}
-				}
-			}
-
-			else {
-				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-			}
-		}
-		string complete_date;
-		regex strr_date("[0-9][0-9]-[0-9][0-9]-[2-9][0-9][0-9][0-9]");
-		while (1) {
-			cout << "Enter project completion date with format mm-dd-yyyy :" << endl;
-			cin >> complete_date;
-
-			if (regex_match(deadline, strr_date)) {
-
-
-				if (complete_date.length() == 10) {
-					string yy = "";
-					string mm = "";
-					string dd = "";
-					string ds = "";
-					yy += complete_date[6];
-					yy += complete_date[7];
-					yy += complete_date[8];
-					yy += complete_date[9];
-					mm += complete_date[0];
-					mm += complete_date[1];
-					dd += complete_date[3];
-					dd += complete_date[4];
-					ds += complete_date[2];
-					ds += complete_date[5];
-					int intdd = stoi(dd);
-					int intyy = stoi(yy);
-
-					if (ds == "--") {
-						if (intyy >= 2019) {
-							if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
-								if (intdd > 00 && intdd <= 31) {
-									break;
-								}
-								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
-								}
-							}
-							else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
-								if (intdd > 00 && intdd <= 30) {
-									break;
-								}
-								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-								}
-							}
-							else if (mm == "02") {
-								if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
-									if (intdd > 00 && intdd <= 29) {
+								else if (mm == "02") {
+									if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+										if (intdd > 00 && intdd <= 29) {
+											break;
+										}
+										else {
+											cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+										}
+									}
+									else if (intdd > 00 && intdd <= 28) {
 										break;
 									}
 									else {
 										cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 									}
 								}
-								else if (intdd > 00 && intdd <= 28) {
-									break;
+								else {
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+								}
+							}
+							else {
+								cout << "Date is Invalid. Please enter date after 2019. \n";
+							}
+						}
+						else {
+							cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+						}
+					}
+				}
+
+				else {
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+				}
+			}
+			string complete_date;
+			regex strr_date("[0-9][0-9]-[0-9][0-9]-[2-9][0-9][0-9][0-9]");
+			while (1) {
+				cout << "Enter project completion date with format mm-dd-yyyy :" << endl;
+				cin >> complete_date;
+
+				if (regex_match(deadline, strr_date)) {
+
+
+					if (complete_date.length() == 10) {
+						string yy = "";
+						string mm = "";
+						string dd = "";
+						string ds = "";
+						yy += complete_date[6];
+						yy += complete_date[7];
+						yy += complete_date[8];
+						yy += complete_date[9];
+						mm += complete_date[0];
+						mm += complete_date[1];
+						dd += complete_date[3];
+						dd += complete_date[4];
+						ds += complete_date[2];
+						ds += complete_date[5];
+						int intdd = stoi(dd);
+						int intyy = stoi(yy);
+
+						if (ds == "--") {
+							if (intyy >= 2019) {
+								if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
+									if (intdd > 00 && intdd <= 31) {
+										break;
+									}
+									else {
+										cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
+									}
+								}
+								else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
+									if (intdd > 00 && intdd <= 30) {
+										break;
+									}
+									else {
+										cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+									}
+								}
+								else if (mm == "02") {
+									if ((intyy % 400 == 0 || (intyy % 100 != 0 && intyy % 4 == 0))) {
+										if (intdd > 00 && intdd <= 29) {
+											break;
+										}
+										else {
+											cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+										}
+									}
+									else if (intdd > 00 && intdd <= 28) {
+										break;
+									}
+									else {
+										cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+									}
 								}
 								else {
 									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
+								cout << "Date is Invalid. Please enter complete date after 2019\n";
 							}
 						}
 						else {
-							cout << "Date is Invalid. Please enter complete date after 2019\n";
+							cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 						}
 					}
-					else {
-						cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-					}
+				}
+
+				else {
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 				}
 			}
-
-			else {
-				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
-			}
+			updateByIdPrj(id, name, description, money_earned, deadline, complete_date, client_id);
 		}
-		updateByIdPrj(id, name, description, money_earned, deadline, complete_date, client_id);
 	}
 }
 

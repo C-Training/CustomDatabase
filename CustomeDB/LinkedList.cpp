@@ -405,7 +405,7 @@ void LinkedList::updateByIdPrj(int id, string name, string description, string m
         cout << "database updated.\n";
     }
     if (!check) {
-        cout << "We're sorry but this id doesn't exist. \n";
+        exit(1);
     }
 }
 
@@ -520,7 +520,7 @@ void LinkedList::updateEmployee(string name, int id, string salary, string proje
 		cout << "database updated.\n";
     }
     else {
-        cout << "The Empoyee that you are trying to access is either classified or doesnt exist. Check your id.\n";
+        exit(1);
     }
 }
 
@@ -543,7 +543,7 @@ void LinkedList::updateClient(string name, int id, string phone, string address,
         cout << "database updated.\n";
     }
     else {
-        cout << "Does not exist\n";
+        exit(1);
     }
 }
 

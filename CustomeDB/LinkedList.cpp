@@ -72,10 +72,10 @@ void LinkedList::clientDatabase(){
     }
         ofstream MyFile("Client.txt", ios::app);
             MyFile << "\n";
-            MyFile << temp->getClient().getName() << " \n";
-            MyFile << temp->getClient().getId() << " \n";
-            MyFile << temp->getClient().getPhone() << " \n";
-            MyFile << temp->getClient().getAddress() << " \n";
+            MyFile << temp->getClient().getName() << "\n";
+            MyFile << temp->getClient().getId() << "\n";
+            MyFile << temp->getClient().getPhone() << "\n";
+            MyFile << temp->getClient().getAddress() << "\n";
             MyFile << temp->getClient().getProject_Id(); 
             temp = temp->next;
         MyFile.close();

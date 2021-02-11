@@ -175,7 +175,7 @@ LinkedList Activity::loadCliDatabase() {
 			phone = myText;
 			getline(MyReadFile, myText);
 			address = myText;
-			getline(MyReadFile, myText);
+			getline(MyReadFile, myText); //MyReadFile >> myText;
 			project_id = myText;
 
 			temp.addAtEnd(name, id, phone, address, project_id);
@@ -517,7 +517,6 @@ void Activity::createOperation(string modelOption)
 		cout << "Enter Project_ID:" << endl;
 		regex str_expr("[0-9]+");
 		while (1) {
-			cin.ignore();
 			getline(cin, project_id);
 			bool isEqual = false;
 			for (int i = 32; i <= 126; i++) {
@@ -588,7 +587,6 @@ void Activity::createOperation(string modelOption)
 		cout << "Enter Client_ID:" << endl;
 		regex str_expr("[0-9]+");
 		while (1) {
-			cin.ignore();
 			getline(cin, client_id);
 			bool isEqual = false;
 			for (int i = 32; i <= 126; i++) {
@@ -924,7 +922,6 @@ void Activity::updateOperation(string modelOption)
 		cout << "Enter Project_ID:" << endl;
 		regex str_expr("[0-9]+");
 		while (1) {
-			cin.ignore();
 			getline(cin, project_id);
 			bool isEqual = false;
 			for (int i = 32; i <= 126; i++) {
@@ -971,7 +968,6 @@ void Activity::updateOperation(string modelOption)
 		cout << "Enter Client_ID:" << endl;
 		regex str_expr("[0-9]+");
 		while (1) {
-			cin.ignore();
 			getline(cin, client_id);
 			bool isEqual = false;
 			for (int i = 32; i <= 126; i++) {

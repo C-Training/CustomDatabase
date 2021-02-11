@@ -63,6 +63,11 @@ void Activity::deleteByIdPrj(int id) {
 	database.deleteByIdPrj(id);
 }
 
+bool Activity::is_empty(ifstream& pFile)
+{
+	return pFile.peek() == std::ifstream::traits_type::eof();
+}
+
 void Activity::updateByIdPrj(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id) {
 	database.updateByIdPrj(id, name,description, money_earned,deadline,complete_date, client_id);
 }
@@ -105,6 +110,8 @@ bool Activity::displayMainMenu()
 	return check;
 }
 
+
+
 LinkedList Activity::loadEmpDatabase() {
 	string myText;
 	string name, a;
@@ -116,23 +123,29 @@ LinkedList Activity::loadEmpDatabase() {
 	string address;
 	ifstream MyReadFile("Employee.txt");
 	LinkedList temp;
-	getline(MyReadFile, myText);
-	while (!MyReadFile.eof()) {
+	if (is_empty(MyReadFile)) {
+		cout << "Employee database Empty.\n";
+	}
+	else {
 		getline(MyReadFile, myText);
-		name = myText;
-		getline(MyReadFile, myText);
-		id = stoi(myText);
-		getline(MyReadFile, myText);
-		salary = myText;
-		getline(MyReadFile, myText);
-		project = myText;
-		getline(MyReadFile, myText);
-		joiningDate = myText;
-		getline(MyReadFile, myText);
-		phone = myText;
-		getline(MyReadFile, myText);
-		address = myText;
-		temp.addAtEnd(name, id, salary, project, joiningDate, phone, address);
+
+		while (!MyReadFile.eof()) {
+			getline(MyReadFile, myText);
+			name = myText;
+			getline(MyReadFile, myText);
+			id = stoi(myText);
+			getline(MyReadFile, myText);
+			salary = myText;
+			getline(MyReadFile, myText);
+			project = myText;
+			getline(MyReadFile, myText);
+			joiningDate = myText;
+			getline(MyReadFile, myText);
+			phone = myText;
+			getline(MyReadFile, myText);
+			address = myText;
+			temp.addAtEnd(name, id, salary, project, joiningDate, phone, address);
+		}
 	}
 	
 	MyReadFile.close();
@@ -148,22 +161,27 @@ LinkedList Activity::loadCliDatabase() {
 	string address;
 	ifstream MyReadFile("Client.txt");
 	LinkedList temp;
-	getline(MyReadFile, myText);
-	while (!MyReadFile.eof()) {
-		getline(MyReadFile, myText);
-		name = myText;
-		getline(MyReadFile, myText);
-		id = stoi(myText);
-		getline(MyReadFile, myText);
-		phone = myText;
-		getline(MyReadFile, myText);
-		address = myText;
-		getline(MyReadFile, myText);
-		project_id = stoi(myText);
-
-		temp.addAtEnd(name, id,phone, address, project_id);
+	if (is_empty(MyReadFile)) {
+		cout << "Client database Empty.\n";
 	}
+	else {
+		getline(MyReadFile, myText);
+		while (!MyReadFile.eof()) {
+			getline(MyReadFile, myText);
+			name = myText;
+			getline(MyReadFile, myText);
+			id = stoi(myText);
+			getline(MyReadFile, myText);
+			phone = myText;
+			getline(MyReadFile, myText);
+			address = myText;
+			getline(MyReadFile, myText);
+			project_id = stoi(myText);
 
+			temp.addAtEnd(name, id, phone, address, project_id);
+		}
+	}
+	
 	MyReadFile.close();
 	return temp;
 }
@@ -179,23 +197,28 @@ LinkedList Activity::loadPrjDatabase() {
 	string complete_date;
 	ifstream MyReadFile("Project.txt");
 	LinkedList temp;
-	getline(MyReadFile, myText);
-	while (!MyReadFile.eof()) {
+	if (is_empty(MyReadFile)) {
+		cout << "Project Database is empty.\n";
+	}
+	else {
 		getline(MyReadFile, myText);
-		name = myText;
-		getline(MyReadFile, myText);
-		id = stoi(myText);
-		getline(MyReadFile, myText);
-		description = myText;
-		getline(MyReadFile, myText);
-		client_id = stoi(myText);
-		getline(MyReadFile, myText);
-		money_earned = myText;
-		getline(MyReadFile, myText);
-		deadline = myText;
-		getline(MyReadFile, myText);
-		complete_date = myText;
-		temp.addAtEnd(id, name, description, money_earned, deadline, complete_date, client_id);
+		while (!MyReadFile.eof()) {
+			getline(MyReadFile, myText);
+			name = myText;
+			getline(MyReadFile, myText);
+			id = stoi(myText);
+			getline(MyReadFile, myText);
+			description = myText;
+			getline(MyReadFile, myText);
+			client_id = stoi(myText);
+			getline(MyReadFile, myText);
+			money_earned = myText;
+			getline(MyReadFile, myText);
+			deadline = myText;
+			getline(MyReadFile, myText);
+			complete_date = myText;
+			temp.addAtEnd(id, name, description, money_earned, deadline, complete_date, client_id);
+		}
 	}
 
 	MyReadFile.close();
@@ -761,17 +784,23 @@ void Activity::readOperation(string modelOption)
 {
 	if (modelOption == "1") {
 		database = loadEmpDatabase();
-		displayEmployeeDatabase();
+		if (database.employeeListSize() != 0) {
+			displayEmployeeDatabase();
+		}
 		system("pause");
 	}
 	else if (modelOption == "2") {
 		database = loadCliDatabase();
-		showClientDatabase();
+		if (database.ClilistSize() != 0) {
+			showClientDatabase();
+		}
 		system("pause");
 	}
 	else if (modelOption == "3") {
 		database = loadPrjDatabase();
-		displayProjectDatabase();
+		if (database.listSizeProj() != 0) {
+			displayProjectDatabase();
+		}
 		system("pause");
 	}
 }
@@ -1158,6 +1187,7 @@ void Activity::deleteEmployee(int id)
 {
 	database.deleteByEmployeeId(id);
 }
+
 
 
 

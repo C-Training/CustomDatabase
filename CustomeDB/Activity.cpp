@@ -335,7 +335,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string joiningDate;
 		while (1) {
-			cout << "Enter Joining Date with format mm-dd-yy :" << endl;
+			cout << "Enter Joining Date with format mm-dd-yyyy :" << endl;
 			cin >> joiningDate;
 			if (joiningDate == "0") {
 				string crudOption; display.showCRUD("Employee"); cin >> crudOption; crudOperation("1", crudOption); break; system("CLS");
@@ -365,7 +365,7 @@ void Activity::createOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy /n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
 							}
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
@@ -373,7 +373,7 @@ void Activity::createOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else if (mm == "02") {
@@ -382,18 +382,18 @@ void Activity::createOperation(string modelOption)
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else {
-							cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+							cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 						}
 					}
 					else {
@@ -401,11 +401,11 @@ void Activity::createOperation(string modelOption)
 					}
 				}
 				else {
-					cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 				}
 			}
 			else {
-				cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
 		string phone;
@@ -603,7 +603,7 @@ void Activity::createOperation(string modelOption)
 		}
 		string deadline;
 		while (1) {
-			cout << "Enter Deadline date with format mm-dd-yy :" << endl;
+			cout << "Enter Deadline date with format mm-dd-yyyy :" << endl;
 			cin >> deadline;
 			if (deadline == "0") {
 				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
@@ -633,7 +633,7 @@ void Activity::createOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy /n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
 							}
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
@@ -641,7 +641,7 @@ void Activity::createOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else if (mm == "02") {
@@ -650,18 +650,18 @@ void Activity::createOperation(string modelOption)
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else {
-							cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+							cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 						}
 					}
 					else {
@@ -669,16 +669,16 @@ void Activity::createOperation(string modelOption)
 					}
 				}
 				else {
-					cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 				}
 			}
 			else {
-				cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
 		string complete_date;
 		while (1) {
-			cout << "Enter project completion date with format mm-dd-yy :" << endl;
+			cout << "Enter project completion date with format mm-dd-yyyy :" << endl;
 			cin >> complete_date;
 			if (complete_date == "0") {
 				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
@@ -708,7 +708,7 @@ void Activity::createOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy /n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
 							}
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
@@ -716,7 +716,7 @@ void Activity::createOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else if (mm == "02") {
@@ -725,18 +725,18 @@ void Activity::createOperation(string modelOption)
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else {
-							cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+							cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 						}
 					}
 					else {
@@ -744,11 +744,11 @@ void Activity::createOperation(string modelOption)
 					}
 				}
 				else {
-					cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 				}
 			}
 			else {
-				cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
 		
@@ -796,7 +796,7 @@ void Activity::updateOperation(string modelOption)
 		getline(cin, project);
 		string joiningDate;
 			while (1) {
-				cout << "Enter Joining Date with format mm-dd-yy :" << endl;
+				cout << "Enter Joining Date with format mm-dd-yyyy :" << endl;
 				cin >> joiningDate;
 				if (joiningDate.length() == 10) {
 					string yy = "";
@@ -823,7 +823,7 @@ void Activity::updateOperation(string modelOption)
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy /n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
 								}
 							}
 							else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
@@ -831,7 +831,7 @@ void Activity::updateOperation(string modelOption)
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else if (mm == "02") {
@@ -840,18 +840,18 @@ void Activity::updateOperation(string modelOption)
 										break;
 									}
 									else {
-										cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+										cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 									}
 								}
 								else if (intdd > 00 && intdd <= 28) {
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else {
@@ -859,11 +859,11 @@ void Activity::updateOperation(string modelOption)
 						}
 					}
 					else {
-						cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+						cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 					}
 				}
 				else {
-					cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 				}
 			}
 		string phone;
@@ -974,7 +974,7 @@ void Activity::updateOperation(string modelOption)
 		cin >> money_earned;
 		string deadline;
 		while (1) {
-			cout << "Enter Deadline with format mm-dd-yy :" << endl;
+			cout << "Enter Deadline with format mm-dd-yyyy :" << endl;
 			cin >> deadline;
 			if (deadline.length() == 10) {
 				string yy = "";
@@ -1001,7 +1001,7 @@ void Activity::updateOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy /n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
 							}
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
@@ -1009,7 +1009,7 @@ void Activity::updateOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else if (mm == "02") {
@@ -1018,18 +1018,18 @@ void Activity::updateOperation(string modelOption)
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else {
-							cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+							cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 						}
 					}
 					else {
@@ -1037,16 +1037,16 @@ void Activity::updateOperation(string modelOption)
 					}
 				}
 				else {
-					cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 				}
 			}
 			else {
-				cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
 		string complete_date;
 		while (1) {
-			cout << "Enter project completion date with format mm-dd-yy :" << endl;
+			cout << "Enter project completion date with format mm-dd-yyyy :" << endl;
 			cin >> complete_date;
 			if (complete_date.length() == 10) {
 				string yy = "";
@@ -1073,7 +1073,7 @@ void Activity::updateOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy /n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy /n";
 							}
 						}
 						else if (mm == "04" || mm == "06" || mm == "09" || mm == "11") {
@@ -1081,7 +1081,7 @@ void Activity::updateOperation(string modelOption)
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else if (mm == "02") {
@@ -1090,18 +1090,18 @@ void Activity::updateOperation(string modelOption)
 									break;
 								}
 								else {
-									cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+									cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 								}
 							}
 							else if (intdd > 00 && intdd <= 28) {
 								break;
 							}
 							else {
-								cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+								cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 							}
 						}
 						else {
-							cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+							cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 						}
 					}
 					else {
@@ -1109,11 +1109,11 @@ void Activity::updateOperation(string modelOption)
 					}
 				}
 				else {
-					cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+					cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 				}
 			}
 			else {
-				cout << "Date is Invalid. Please follow the format of mm-dd-yy \n";
+				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
 		updateByIdPrj(id, name, description, money_earned, deadline, complete_date, client_id);

@@ -39,6 +39,9 @@ public:
 	
 	bool is_empty(ifstream& pFile);
 
+	bool checkEmpId(int id);
+	bool checkCliId(int id);
+	bool checkPrjId(int id);
 	void updateByIdPrj(int id, string name, string description, string money_earned, string deadline, string complete_date, string client_id);
 	void updateClientData(string name, int id, string phone, string address, string project_id);
 	void updateDatabase(string name, int id, string salary, string project, string joiningDate, string phone, string address);

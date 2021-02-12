@@ -61,8 +61,8 @@ void Activity::deleteEndProjectDatabase() {
 	database.deleteAtEndPrj();
 }
 
-void Activity::deleteCliDataById() {
-	database.deleteByCliId();
+void Activity::deleteCliDataById(int id) {
+	database.deleteByCliId(id);
 }
 
 void Activity::deleteHeadProjectDatabase() {
@@ -1385,7 +1385,6 @@ void Activity::deleteOperation(string modelOption)
 		cout << "Enter Employee ID to delete" << endl;
 		int id;
 		string id_check;
-		cout << "Enter the ID to update:" << endl;
 
 		regex str_expr("[0-9]+");
 		while (1) {
@@ -1402,14 +1401,28 @@ void Activity::deleteOperation(string modelOption)
 		database.employeeDatabase();
 	}
 	else if (modelOption == "2") {
-		deleteCliDataById();
+		cout << "Enter Client ID to delete" << endl;
+		int id;
+		string id_check;
+
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin >> id_check;
+			if (regex_match(id_check, str_expr)) {
+				id = stoi(id_check);
+				break;
+			}
+			else {
+				cout << "Invalid Input, Enter again.\n";
+			}
+		}
+		deleteCliDataById(id);
 		database.clientDatabase();
 	}
 	else if (modelOption == "3") {
 		cout << "Enter Project ID to delete" << endl;
 		int id;
 		string id_check;
-		cout << "Enter the ID to update:" << endl;
 
 		regex str_expr("[0-9]+");
 		while (1) {
@@ -1446,6 +1459,7 @@ void Activity::deleteEmployee(int id)
 {
 	database.deleteByEmployeeId(id);
 }
+
 
 
 

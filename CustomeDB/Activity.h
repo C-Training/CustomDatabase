@@ -33,7 +33,7 @@ public:
 	void enterToDatabasePrj();
 	
 	void deleteEmployee(int id);
-	void deleteCliDataById();
+	void deleteCliDataById(int id);
 	void deleteHeadProjectDatabase();	
 	void deleteEndProjectDatabase();
 	void deleteByIdPrj(int id);
@@ -63,6 +63,7 @@ public:
 	void updateOperation(string modelOption);
 	void deleteOperation(string modelOption);
 };
+
 
 
 

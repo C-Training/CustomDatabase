@@ -466,7 +466,7 @@ void Activity::createOperation(string modelOption)
 				break;
 			}
 			else {
-				cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+				cout << "Invalid Input! Enter phone number again. Number's length should be between 11 and 15 \n";
 				cin >> phone;
 			}
 		}
@@ -522,7 +522,7 @@ void Activity::createOperation(string modelOption)
 				break;
 			}
 			else {
-				cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+				cout << "Invalid Input! Enter phone number again. Invalid Input! Enter phone number again. Number's length should be between 11 and 15. \n";
 				cin >> phone;
 			}
 		}
@@ -1050,7 +1050,7 @@ void Activity::updateOperation(string modelOption)
 					break;
 				}
 				else {
-					cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+					cout << "Invalid Input! Enter phone number again. Number's length should be between 11 and 15.\n";
 					cin >> phone;
 				}
 			}
@@ -1100,7 +1100,7 @@ void Activity::updateOperation(string modelOption)
 					break;
 				}
 				else {
-					cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+					cout << "Invalid Input! Enter phone number again. Number's length should be between 11 and 15.\n";
 					cin >> phone;
 				}
 			}

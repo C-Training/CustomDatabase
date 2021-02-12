@@ -897,8 +897,20 @@ void Activity::updateOperation(string modelOption)
 {
 	if (modelOption == "1") {
 		int id;
+		string id_check;
 		cout << "Enter the ID to update:" << endl;
-		cin >> id;
+
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin >> id_check;
+			if (regex_match(id_check, str_expr)) {
+				id = stoi(id_check);
+				break;
+			}
+			else {
+				cout << "Invalid Input, Enter again.\n";
+			}
+		}
 		if (checkEmpId(id) == false) { cout << "The Employee of that ID is either classfied or not present" << endl; }
 		else if (checkEmpId(id) == true) {
 			cout << "Update Employee Details" << endl;
@@ -1048,8 +1060,20 @@ void Activity::updateOperation(string modelOption)
 	else if (modelOption == "2") {
 		cout << "Update Client Details" << endl;
 		int id;
-		cout << "Enter ID to Update:" << endl;
-		cin >> id;
+		string id_check;
+		cout << "Enter the ID to update:" << endl;
+
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin >> id_check;
+			if (regex_match(id_check, str_expr)) {
+				id = stoi(id_check);
+				break;
+			}
+			else {
+				cout << "Invalid Input, Enter again.\n";
+			}
+		}
 		if (checkCliId(id) == false) {
 			cout << "Id not present" << endl;
 		}
@@ -1115,8 +1139,20 @@ void Activity::updateOperation(string modelOption)
 		system("CLS");
 		cout << "Update Project Details" << endl;
 		int id;
-		cout << "Enter Project_ID to update:" << endl;
-		cin >> id;
+		string id_check;
+		cout << "Enter the ID to update:" << endl;
+
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin >> id_check;
+			if (regex_match(id_check, str_expr)) {
+				id = stoi(id_check);
+				break;
+			}
+			else {
+				cout << "Invalid Input, Enter again.\n";
+			}
+		}
 		if (checkPrjId(id) == false) { cout << "We are sorry that your id is not present" << endl; }
 		else if (checkPrjId(id) == true) {
 			string name;
@@ -1374,6 +1410,7 @@ void Activity::deleteEmployee(int id)
 {
 	database.deleteByEmployeeId(id);
 }
+
 
 
 

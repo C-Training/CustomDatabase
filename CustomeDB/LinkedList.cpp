@@ -235,6 +235,7 @@ void LinkedList::deleteAtEmployeeHead() {
         emphead = emphead->next;
 
         delete temp;
+        cout << "Data deleted Successfully.\n";
     }
 }
 
@@ -248,6 +249,7 @@ void LinkedList::deleteAtCliHead() {
         clienthead = clienthead->next;
 
         delete temp;
+        cout << "Data deleted Successfully.\n";
     }
 }
 
@@ -262,6 +264,7 @@ void LinkedList::deleteAtHeadPrj() {
         prjhead = prjhead->next;
 
         delete temp;
+        cout << "Data deleted Successfully.\n";
     }
 }
 
@@ -280,6 +283,7 @@ void LinkedList::deleteAtEndPrj() {
         }
         prjtail->next = NULL;
         delete temp;
+        cout << "Data deleted Successfully.\n";
         }
 }
 
@@ -315,6 +319,7 @@ void LinkedList::deleteByEmployeeId(int id) {
             }
             temp->next = cur->next;
             delete cur;
+            cout << "Data deleted Successfully.\n";
         }
         else {
             cout << "Id doesnt exist in linked list \n";
@@ -333,7 +338,6 @@ void LinkedList::deleteByCliId() {
     }
     else if (clienthead->getClient().getId() == id) {
         deleteAtCliHead();
-        cout << "Head is no more" << endl;
     }
     else {
         Node* cur = clienthead;
@@ -355,7 +359,7 @@ void LinkedList::deleteByCliId() {
             }
             temp->next = cur->next;
             delete cur;
-            cout << "Deleted!!" << endl;
+            cout << "Data deleted Successfully.\n";
         }
         else {
             cout << "Id doesnt exist in linked list \n";
@@ -392,6 +396,7 @@ void LinkedList::deleteByIdPrj(int id) {
             }
             temp->next = cur->next;
             delete cur;
+            cout << "Data deleted Successfully.\n";
         }
         else {
             cout << "Id doesnt exist in linked list \n";

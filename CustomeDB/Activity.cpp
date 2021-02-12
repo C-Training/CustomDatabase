@@ -252,14 +252,47 @@ void Activity::onLoad(){
 		if (option == "1") {
 			display.showCRUD("Employee");
 			cin >> crudOption;
+			regex str_expr("[1-6]");
+			while (1) {
+				if (regex_match(crudOption, str_expr)) {
+					cout << "Valid input\n";
+					break;
+				}
+				else {
+					cout << "Invalid Input, Enter again.\n";
+					cin >> crudOption;
+				}
+			}
 		}
 		else if (option == "2") {
 			display.showCRUD("CLient");
 			cin >> crudOption;
+			regex str_expr("[1-6]");
+			while (1) {
+				if (regex_match(crudOption, str_expr)) {
+					cout << "Valid input\n";
+					break;
+				}
+				else {
+					cout << "Invalid Input, Enter again.\n";
+					cin >> crudOption;
+				}
+			}
 		}
 		else if (option == "3") {
 			display.showCRUD("Project");
 			cin >> crudOption;
+			regex str_expr("[1-6]");
+			while (1) {
+				if (regex_match(crudOption, str_expr)) {
+					cout << "Valid input\n";
+					break;
+				}
+				else {
+					cout << "Invalid Input, Enter again.\n";
+					cin >> crudOption;
+				}
+			}
 		}
 		else if (option == "4")
 			break;
@@ -275,10 +308,11 @@ void Activity::onLoad(){
 
 void Activity::crudOperation(string modelOption, string crudOption)
 {
+	
 	if (crudOption == "1") {
 		createOperation(modelOption);
 	}
-	else if(crudOption == "2") {
+	else if (crudOption == "2") {
 		readOperation(modelOption);
 	}
 	else if (crudOption == "3") {
@@ -296,6 +330,16 @@ void Activity::crudOperation(string modelOption, string crudOption)
 	}
 	else {
 		cout << "Your CRUD option is incorrect" << endl;
+		if (modelOption == "1") {
+			display.showCRUD("Employee");
+		}
+		else if (modelOption == "2") {
+			display.showCRUD("Client");
+		}
+		else {
+			display.showCRUD("Project");
+		}
+		cin >> crudOption;
 	}
 }
 

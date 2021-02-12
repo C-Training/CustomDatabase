@@ -482,6 +482,7 @@ void Activity::createOperation(string modelOption)
 		}
 
 		setData(name, salary, project, joiningDate, phone, address);
+		database.employeeDatabase();
 	}
 	else if (modelOption == "2") {
 		cout << "Enter Client Details" << endl;
@@ -566,7 +567,7 @@ void Activity::createOperation(string modelOption)
 			}
 		}
 		setData(name, phone, address, project_id);
-		
+		database.clientDatabase();
 	}
 	else if (modelOption == "3") {
 		cout << "Enter Project Details" << endl;
@@ -812,6 +813,7 @@ void Activity::createOperation(string modelOption)
 		}
 		
 		setDataProject(name, description, money_earned, deadline, complete_date, client_id);
+		database.projectDatabase();
 	}
 }
 
@@ -1057,6 +1059,7 @@ void Activity::updateOperation(string modelOption)
 			cin.ignore();
 			getline(cin, address);
 			updateDatabase(name, id, salary, project, joiningDate, phone, address);
+			database.employeeDatabase();
 		}
 	}
 	else if (modelOption == "2") {
@@ -1135,6 +1138,7 @@ void Activity::updateOperation(string modelOption)
 				}
 			}
 			updateClientData(name, id, phone, address, project_id);
+			database.clientDatabase();
 		}
 	}
 	else if (modelOption == "3") {
@@ -1370,6 +1374,7 @@ void Activity::updateOperation(string modelOption)
 				}
 			}
 			updateByIdPrj(id, name, description, money_earned, deadline, complete_date, client_id);
+			database.projectDatabase();
 		}
 	}
 }
@@ -1394,9 +1399,11 @@ void Activity::deleteOperation(string modelOption)
 			}
 		}
 		deleteEmployee(id);
+		database.employeeDatabase();
 	}
 	else if (modelOption == "2") {
 		deleteCliDataById();
+		database.clientDatabase();
 	}
 	else if (modelOption == "3") {
 		cout << "Enter Project ID to delete" << endl;
@@ -1416,6 +1423,7 @@ void Activity::deleteOperation(string modelOption)
 			}
 		}
 		deleteByIdPrj(id);
+		database.projectDatabase();
 	}
 }
 

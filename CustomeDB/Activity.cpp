@@ -1377,7 +1377,20 @@ void Activity::deleteOperation(string modelOption)
 	if (modelOption == "1") {
 		cout << "Enter Employee ID to delete" << endl;
 		int id;
-		cin >> id;
+		string id_check;
+		cout << "Enter the ID to update:" << endl;
+
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin >> id_check;
+			if (regex_match(id_check, str_expr)) {
+				id = stoi(id_check);
+				break;
+			}
+			else {
+				cout << "Invalid Input, Enter again.\n";
+			}
+		}
 		deleteEmployee(id);
 	}
 	else if (modelOption == "2") {
@@ -1386,7 +1399,20 @@ void Activity::deleteOperation(string modelOption)
 	else if (modelOption == "3") {
 		cout << "Enter Project ID to delete" << endl;
 		int id;
-		cin >> id;
+		string id_check;
+		cout << "Enter the ID to update:" << endl;
+
+		regex str_expr("[0-9]+");
+		while (1) {
+			cin >> id_check;
+			if (regex_match(id_check, str_expr)) {
+				id = stoi(id_check);
+				break;
+			}
+			else {
+				cout << "Invalid Input, Enter again.\n";
+			}
+		}
 		deleteByIdPrj(id);
 	}
 }

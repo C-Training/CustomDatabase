@@ -369,7 +369,7 @@ void LinkedList::deleteByIdPrj(int id) {
     if (prjhead == NULL) {
         cout << "linked list is empty \n";
     }
-      if (prjhead->prj.getid() == id) {
+    else if (prjhead->getProject().getid() == id) {
         deleteAtHeadPrj();
     }
     else {

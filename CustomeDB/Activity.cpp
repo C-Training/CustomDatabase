@@ -457,12 +457,12 @@ void Activity::createOperation(string modelOption)
 		string phone;
 		cout << "Enter Phone Number:" << endl;
 		cin >> phone;
-		regex str_exprr("[0][3][0-9]+");
+		regex str_exprr("[0][3][0-9]+|[+][0-9]+|[0-9]+");
 		while (1) {
 			if (phone == "0") {
 				string crudOption; display.showCRUD("Employee"); cin >> crudOption; crudOperation("1", crudOption); break; system("CLS");
 			};
-			if (regex_match(phone, str_exprr) && phone.size() == 11) {
+			if (regex_match(phone, str_exprr) && phone.size() >= 11 && phone.size() <= 15) {
 				break;
 			}
 			else {
@@ -513,12 +513,12 @@ void Activity::createOperation(string modelOption)
 		string phone;
 		cout << "Enter Phone:" << endl;
 		cin >> phone;
-		regex str_exprr("[0][3][0-9]+");
+		regex str_exprr("[0][3][0-9]+|[+][0-9]+|[0-9]+");
 		while (1) {
 			if (phone == "0") {
 				string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break;
 			};
-			if (regex_match(phone, str_exprr) && phone.size() == 11) {
+			if (regex_match(phone, str_exprr) && phone.size() >= 11 && phone.size() <= 15) {
 				break;
 			}
 			else {
@@ -1041,12 +1041,12 @@ void Activity::updateOperation(string modelOption)
 			string phone;
 			cout << "Enter Phone Number:" << endl;
 			cin >> phone;
-			regex str_exprr("[0][3][0-9]+");
+			regex str_exprr("[0][3][0-9]+|[+][0-9]+|[0-9]+ ");
 			while (1) {
 				if (phone == "0") {
 					string crudOption; display.showCRUD("Employee"); cin >> crudOption; crudOperation("1", crudOption); break; system("CLS");
 				};
-				if (regex_match(phone, str_exprr) && phone.size() == 11) {
+				if (regex_match(phone, str_exprr) && phone.size() >= 11 && phone.size() <= 15) {
 					break;
 				}
 				else {
@@ -1090,12 +1090,13 @@ void Activity::updateOperation(string modelOption)
 			string phone;
 			cout << "Enter Phone:" << endl;
 			cin >> phone;
-			regex str_exprr("[0][3][0-9]+");
+			regex str_exprr("[0][3][0-9]+|[+][0-9]+|[0-9]+");
+
 			while (1) {
 				if (phone == "0") {
 					string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break;
 				};
-				if (regex_match(phone, str_exprr) && phone.size() == 11) {
+				if (regex_match(phone, str_exprr) && phone.size()  >= 11 && phone.size() <= 15) {
 					break;
 				}
 				else {

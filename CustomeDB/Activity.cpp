@@ -403,7 +403,7 @@ void Activity::createOperation(string modelOption)
 					int intmm = stoi(mm);
 
 					if (ds == "--") {
-						if (intyy >= 2019) {
+						if (intyy >= 1960) {
 							if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 								if (intdd > 00 && intdd <= 31) {
 									break;
@@ -679,7 +679,7 @@ void Activity::createOperation(string modelOption)
 					int intyy = stoi(yy);
 
 					if (ds == "--") {
-						if (intyy >= 2019) {
+						if (intyy >= 1960) {
 							if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 								if (intdd > 00 && intdd <= 31) {
 									break;
@@ -761,7 +761,7 @@ void Activity::createOperation(string modelOption)
 					int intyy = stoi(yy);
 
 					if (ds == "--") {
-						if (intyy >= 2019) {
+						if (intyy >= 1960) {
 							if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 								if (intdd > 00 && intdd <= 31) {
 									break;
@@ -988,7 +988,7 @@ void Activity::updateOperation(string modelOption)
 						int intyy = stoi(yy);
 
 						if (ds == "--") {
-							if (intyy >= 2019) {
+							if (intyy >= 1960) {
 								if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 									if (intdd > 00 && intdd <= 31) {
 										break;
@@ -1244,7 +1244,7 @@ void Activity::updateOperation(string modelOption)
 						int intyy = stoi(yy);
 
 						if (ds == "--") {
-							if (intyy >= 2019) {
+							if (intyy >= 1960) {
 								if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 									if (intdd > 00 && intdd <= 31) {
 										break;
@@ -1323,7 +1323,7 @@ void Activity::updateOperation(string modelOption)
 						int intyy = stoi(yy);
 
 						if (ds == "--") {
-							if (intyy >= 2019) {
+							if (intyy >= 1960) {
 								if (mm == "01" || mm == "03" || mm == "05" || mm == "07" || mm == "08" || mm == "10" || mm == "12") {
 									if (intdd > 00 && intdd <= 31) {
 										break;

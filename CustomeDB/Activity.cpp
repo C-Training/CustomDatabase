@@ -69,8 +69,10 @@ void Activity::deleteHeadProjectDatabase() {
 	database.deleteAtHeadPrj();
 }
 
+
+
 void Activity::enterToDatabasePrj() {
-	database.addAtEnd(prj.getname(), prj.getid(), prj.getdescription(), prj.getclient_id(), prj.getmoney_earned(), prj.getdeadline(), prj.getcomplete_date());
+	database.addAtEnd(prj.getid(), prj.getname(), prj.getdescription(), prj.getmoney_earned(), prj.getdeadline(), prj.getcomplete_date(), prj.getclient_id());
 }
 
 void Activity::deleteByIdPrj(int id) {
@@ -604,7 +606,7 @@ void Activity::createOperation(string modelOption)
 			break;
 		}
 		string client_id;
-		cout << "Enter Client_ID:" << endl;
+		cout << "Enter Client ID:" << endl;
 		regex str_expr("[0-9]+");
 		while (1) {
 			getline(cin, client_id);
@@ -809,7 +811,7 @@ void Activity::createOperation(string modelOption)
 			}
 		}
 		
-		setData(name, description, money_earned, deadline, complete_date, client_id);
+		setDataProject(name, description, money_earned, deadline, complete_date, client_id);
 	}
 }
 

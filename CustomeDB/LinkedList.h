@@ -46,7 +46,7 @@ public:
     
     void deleteByIdPrj(int id);
     void deleteByEmployeeId(int id);
-    void deleteByCliId();
+    void deleteByCliId(int id);
 
     void displayEmployeeList();
     void displayCliList();
@@ -75,6 +75,8 @@ public:
     void reverseCliLinkedList();
 
 };
+
+
 
 
 

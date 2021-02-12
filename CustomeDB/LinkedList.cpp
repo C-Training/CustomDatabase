@@ -327,11 +327,8 @@ void LinkedList::deleteByEmployeeId(int id) {
     }
 }
 
-void LinkedList::deleteByCliId() {
-    int id = 0;
+void LinkedList::deleteByCliId(int id) {
 
-    cout << "Enter the id whose data you want to delete" << endl;
-    cin >> id;
 
     if (clienthead == NULL) {
         cout << "linked list is empty \n";
@@ -786,6 +783,7 @@ void LinkedList::reverseCliLinkedList() {
         clienthead = prev;
     }
 }
+
 
 
 

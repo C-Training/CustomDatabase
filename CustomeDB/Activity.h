@@ -39,6 +39,7 @@ public:
 	void deleteByIdPrj(int id);
 	
 	bool is_empty(ifstream& pFile);
+	bool checkBack(string a);
 
 	bool checkEmpId(int id);
 	bool checkCliId(int id);

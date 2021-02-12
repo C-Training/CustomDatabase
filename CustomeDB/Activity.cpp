@@ -273,6 +273,15 @@ void Activity::onLoad(){
 
 }
 
+bool Activity::checkBack(string a) {
+	bool found = false;
+	if (a == "@") {
+		found = true;
+	}
+	if (found == true) { return true; }
+	else if (found == false) { return false; }
+}
+
 void Activity::crudOperation(string modelOption, string crudOption)
 {
 	if (crudOption == "1") {
@@ -327,14 +336,12 @@ void Activity::createOperation(string modelOption)
 				break;
 			}
 		}
+		if (name == "0") { return; }
 		string salary;
 		cout << "Enter Salary:" << endl;
 		cin >> salary;
 		regex str_expr("[0-9]+|[0-9]+\.[0-9]+");
 		while (1) {
-			if (salary == "0") {
-				string crudOption; display.showCRUD("Employee"); cin >> crudOption; crudOperation("1", crudOption); break; system("CLS");
-			};
 			if (regex_match(salary, str_expr)) {
 				bool isEqual = false;
 				for (int i = 32; i <= 64; i++) {
@@ -372,6 +379,7 @@ void Activity::createOperation(string modelOption)
 			};
 			break;
 		}
+		if (project == "0") { return; }
 		string joiningDate;
 		regex str_date("[0-9][0-9]-[0-9][0-9]-[2-9][0-9][0-9][0-9]");
 		while (1) {
@@ -454,6 +462,7 @@ void Activity::createOperation(string modelOption)
 				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
+		if (joiningDate == "0") { return; }
 		string phone;
 		cout << "Enter Phone Number:" << endl;
 		cin >> phone;
@@ -470,6 +479,7 @@ void Activity::createOperation(string modelOption)
 				cin >> phone;
 			}
 		}
+		if (phone == "0") { return; }
 		string address;
 		cout << "Enter Address:" << endl;
 		cin.ignore();
@@ -480,7 +490,7 @@ void Activity::createOperation(string modelOption)
 			};
 			break;
 		}
-
+		if (address == "0") { return; }
 		setData(name, salary, project, joiningDate, phone, address);
 		database.employeeDatabase();
 	}
@@ -495,7 +505,7 @@ void Activity::createOperation(string modelOption)
 		{
 			bool isEqual = false;
 			if (name == "0") {
-				string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break; 
+				string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break; return; system("CLS");
 			};	for (int i = 48; i <= 57; i++) {
 				if (name[0] == i) {
 					isEqual = true;
@@ -510,64 +520,76 @@ void Activity::createOperation(string modelOption)
 				break;
 			}
 		}
-		string phone;
-		cout << "Enter Phone:" << endl;
-		cin >> phone;
-		regex str_exprr("[0][3][0-9]+|[+][0-9]+|[0-9]+");
-		while (1) {
-			if (phone == "0") {
-				string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break;
-			};
-			if (regex_match(phone, str_exprr) && phone.size() >= 11 && phone.size() <= 15) {
-				break;
-			}
-			else {
-				cout << "Invalid Input! Enter phone number again. Invalid Input! Enter phone number again. Number's length should be between 11 and 15. \n";
-				cin >> phone;
-			}
-		}
-		string address;
-		cout << "Enter Address:" << endl;
-		cin.ignore();
-		getline(cin, address);
-		while (1) {
-			if (address == "0") {
-				string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break;
-			};
-			break;
-		}
-		string project_id;
-		cout << "Enter Project_ID:" << endl;
-		regex str_expr("[0-9]+");
-		while (1) {
-			getline(cin, project_id);
-			bool isEqual = false;
-			for (int i = 32; i <= 126; i++) {
-				if (i >= 48 && i <= 57)
-					continue;
-				for (int j = 0; j < project_id.size(); j++) {
-					if (i == project_id[j]) {
-						isEqual = true;
-						break;
-					}
-				}
-				if (isEqual)
+		if (name=="0") { return; }
+			string phone;
+			cout << "Enter Phone:" << endl;
+			cin >> phone;
+			regex str_exprr("[0][3][0-9]+");
+			while (1) {
+				if (phone == "0") {
+					string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break; system("CLS");
+				};
+				if (regex_match(phone, str_exprr) && phone.size() == 11) {
 					break;
+				}
+				else {
+					cout << "Invalid Input! Enter phone number again(should start with '03' and should have total 11 entries).\n";
+					cin >> phone;
+				}
 			}
-			if (isEqual) {
-				cout << "You can only enter digits NIGGAW!\n";
-				continue;
-			}
-			else if (regex_match(project_id, str_expr) && project_id.size() <= 6) {
-				cout << "valid input, GOOD JOB! gachiBASS\n";
+			if (phone == "0") { return; }
+			string address;
+			cout << "Enter Address:" << endl;
+			cin.ignore();
+			getline(cin, address);
+			while (1) {
+				if (address == "0") {
+					string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break; system("CLS");
+				};
 				break;
 			}
-			else {
-				cout << "Invalid Input! Enter Project ID again(ID cannot be greater than 6 digits).\n";
+			if (address == "0") { return; }
+			string project_id;
+			cout << "Enter Project_ID:" << endl;
+			regex str_expr("[0-9]+");
+			while (1) {
+				getline(cin, project_id);
+				while (1) {
+					if (project_id == "0") {
+						string crudOption; display.showCRUD("Client"); cin >> crudOption; crudOperation("2", crudOption); break; system("CLS");
+					};
+					break;
+				}
+				bool isEqual = false;
+				for (int i = 32; i <= 126; i++) {
+					if (i >= 48 && i <= 57)
+						continue;
+					for (int j = 0; j < project_id.size(); j++) {
+						if (i == project_id[j]) {
+							isEqual = true;
+							break;
+						}
+					}
+					if (isEqual)
+						break;
+				}
+				if (isEqual) {
+					cout << "You can only enter digits NIGGAW!\n";
+					continue;
+				}
+				else if (regex_match(project_id, str_expr) && project_id.size() <= 6) {
+					cout << "valid input, GOOD JOB! gachiBASS\n";
+					break;
+				}
+				else {
+					cout << "Invalid Input! Enter Project ID again(ID cannot be greater than 6 digits).\n";
+				}
+
 			}
-		}
-		setData(name, phone, address, project_id);
-		database.clientDatabase();
+			if (project_id == "0") { return; }
+			setData(name, phone, address, project_id);
+	
+		
 	}
 	else if (modelOption == "3") {
 		cout << "Enter Project Details" << endl;
@@ -580,7 +602,7 @@ void Activity::createOperation(string modelOption)
 		{
 			bool isEqual = false;
 			if (name == "0") {
-				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break; 
+				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break; system("CLS");
 			};
 			for (int i = 48; i <= 57; i++) {
 				if (name[0] == i) {
@@ -596,21 +618,29 @@ void Activity::createOperation(string modelOption)
 				break;
 			}
 		}
+		if (name == "0") { return; }
 		string description;
 		cout << "Enter description" << endl;
-		cin.ignore();
+		
 		getline(cin, description);
 		while (1) {
 			if (description == "0") {
-				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
-			};
+				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break; system("CLS");
+			}
 			break;
 		}
+		if (description == "0") { return; }
 		string client_id;
 		cout << "Enter Client ID:" << endl;
 		regex str_expr("[0-9]+");
 		while (1) {
 			getline(cin, client_id);
+			while (1) {
+				if (client_id == "0") {
+					string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break; system("CLS");
+				}
+				break;
+			}
 			bool isEqual = false;
 			for (int i = 32; i <= 126; i++) {
 				if (i >= 48 && i <= 57)
@@ -634,6 +664,7 @@ void Activity::createOperation(string modelOption)
 				cout << "Invalid Input! Enter Client ID again(ID cannot be greater than 6 digits).\n";
 			}
 		}
+		if (client_id == "0") { return; }
 		string money_earned;
 		regex str_exprrr("[0-9]+|[0-9]+\.[0-9]+");
 		
@@ -656,7 +687,7 @@ void Activity::createOperation(string modelOption)
 			cout << "Enter Deadline date with format mm-dd-yyyy :" << endl;
 			cin >> deadline;			
 			if (deadline == "0") {
-				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break;
+				string crudOption; display.showCRUD("Project"); cin >> crudOption; crudOperation("3", crudOption); break; system("CLS");
 			}
 			if (regex_match(deadline, str_date)) {
 
@@ -730,7 +761,7 @@ void Activity::createOperation(string modelOption)
 				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
-
+		if (deadline == "0") { return; }
 		string complete_date;
 		regex strr_date("[0-9][0-9]-[0-9][0-9]-[2-9][0-9][0-9][0-9]");
 		while (1) {
@@ -811,7 +842,7 @@ void Activity::createOperation(string modelOption)
 				cout << "Date is Invalid. Please follow the format of mm-dd-yyyy \n";
 			}
 		}
-		
+		if (complete_date == "0") { return; }
 		setDataProject(name, description, money_earned, deadline, complete_date, client_id);
 		database.projectDatabase();
 	}
